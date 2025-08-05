@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<schema elementFormDefault="qualified"
+	targetNamespace="http://www.royallondon.com/xsd/interface/util/csf/log/v1"
+	xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://www.royallondon.com/xsd/interface/util/csf/log/v1"
+	xmlns:Q1="http://www.royallondon.com/xsd/internal/util/csf/logconfig/v1" xmlns:exp="http://www.royallondon.com/xsd/resource/util/csf/appexception/v1" xmlns:Q2="http://www.royallondon.com/xsd/interface/util/csf/context/v1" xmlns:Q3="http://www.royallondon.com/xsd/resource/util/csf/transactioncontext/v1">
+
+    <import namespace="http://www.royallondon.com/xsd/interface/util/csf/context/v1" schemaLocation="Context_v1.xsd"/>
+    <import namespace="http://www.royallondon.com/xsd/resource/util/csf/transactioncontext/v1" schemaLocation="../../../Resource/UTIL/CSF/TransactionContext_v1.xsd"/>
+    <import namespace="http://www.royallondon.com/xsd/internal/util/csf/logconfig/v1" schemaLocation="../../../Internal/UTIL/CSF/LogConfig_v1.xsd"/>
+	<import namespace="http://www.royallondon.com/xsd/resource/util/csf/appexception/v1" schemaLocation="../../../Resource/UTIL/CSF/AppException_v1.xsd"/>
+
+	<complexType name="WarnRequestType">
+		<sequence>
+			<element ref="tns:Message" />
+			<element ref="tns:Object" minOccurs="0" />
+			<element ref="tns:UseApplicationSource" minOccurs="0"></element>
+		</sequence>
+	</complexType>
+
+	<element name="WarnRequest" type="tns:WarnRequestType" />
+
+	<complexType name="WarnResponseType">
+		<sequence />
+	</complexType>
+
+	<element name="WarnResponse" type="tns:WarnResponseType" />
+
+	<complexType name="ServiceInfoRequestType">
+		<sequence>
+			<element ref="tns:Message" />
+			<element ref="tns:Object" minOccurs="0" />
+			<element ref="tns:UseApplicationSource" minOccurs="0"></element>
+		</sequence>
+	</complexType>
+
+	<element name="ServiceInfoRequest"
+		type="tns:ServiceInfoRequestType" />
+
+	<complexType name="ServiceInfoResponseType">
+		<sequence />
+	</complexType>
+
+	<element name="ServiceInfoResponse"
+		type="tns:ServiceInfoResponseType" />
+
+	<complexType name="LogInfoRequestType">
+		<sequence>
+			<element ref="tns:Message" />
+			<element ref="tns:Object" minOccurs="0" />
+			<element ref="tns:UseApplicationSource" minOccurs="0"></element>
+		</sequence>
+	</complexType>
+
+	<element name="LogInfoRequest"
+		type="tns:LogInfoRequestType" />
+
+	<complexType name="LogInfoResponseType">
+		<sequence />
+	</complexType>
+
+	<element name="LogInfoResponse"
+		type="tns:LogInfoResponseType" />
+
+	<complexType name="LogRequestType">
+		<sequence>
+			<element ref="tns:Message" />
+			<element ref="tns:Object" minOccurs="0" />
+		</sequence>
+	</complexType>
+
+	<element name="LogRequest" type="tns:LogRequestType" />
+
+	<complexType name="LogResponseType">
+		<sequence />
+	</complexType>
+
+	<element name="LogResponse" type="tns:LogResponseType" />
+
+	<complexType name="LogNewTransactionRequestType">
+		<sequence>
+			<element ref="Q2:TransactionID"/>
+		</sequence>
+	</complexType>
+
+	<element name="LogNewTransactionRequest" type="tns:LogNewTransactionRequestType" />
+
+	<complexType name="LogNewTransactionResponseType">
+		<sequence />
+	</complexType>
+
+	<element name="LogNewTransactionResponse" type="tns:LogNewTransactionResponseType" />
+
+	<complexType name="LogPublishRequestType">
+		<sequence>
+			<element ref="tns:Destination" />
+			<element ref="Q3:TransactionContext" minOccurs="0"/>
+			<element ref="tns:Payload" />
+		</sequence>
+	</complexType>
+
+	<element name="LogPublishRequest" type="tns:LogPublishRequestType" />
+
+	<complexType name="LogPublishResponseType">
+		<sequence />
+	</complexType>
+
+	<element name="LogPublishResponse"
+		type="tns:LogPublishResponseType" />
+
+	<complexType name="LogRequestRequestType">
+		<sequence>
+			<element ref="tns:Destination" minOccurs="0" />
+			<element ref="tns:Payload" minOccurs="0" />
+		</sequence>
+	</complexType>
+
+	<element name="LogRequestRequest" type="tns:LogRequestRequestType" />
+
+	<complexType name="LogRequestResponseType">
+		<sequence />
+	</complexType>
+
+	<element name="LogRequestResponse"
+		type="tns:LogRequestResponseType" />
+
+	<complexType name="LogResponseRequestType">
+		<sequence>
+			<element ref="tns:Destination" minOccurs="0" />
+			<element ref="tns:Payload" minOccurs="0" />
+		</sequence>
+	</complexType>
+
+	<element name="LogResponseRequest"
+		type="tns:LogResponseRequestType" />
+
+	<complexType name="LogResponseResponseType">
+		<sequence />
+	</complexType>
+
+	<element name="LogResponseResponse"
+		type="tns:LogResponseResponseType" />
+
+	<complexType name="LogIgnoredExceptionRequestType">
+		<sequence>
+			<element ref="tns:Message" />
+			<element ref="exp:AppException" />
+		</sequence>
+	</complexType>
+
+	<element name="LogIgnoredExceptionRequest"
+		type="tns:LogIgnoredExceptionRequestType" />
+
+	<complexType name="LogIgnoredExceptionResponseType">
+		<sequence />
+	</complexType>
+
+	<element name="LogIgnoredExceptionResponse"
+		type="tns:LogIgnoredExceptionResponseType" />
+
+	<complexType name="PayloadType">
+		<sequence>
+			<any processContents="skip" />
+		</sequence>
+	</complexType>
+
+	<element name="Payload" type="tns:PayloadType" />
+
+	<complexType name="ObjectType">
+		<sequence>
+			<any processContents="skip" />
+		</sequence>
+	</complexType>
+
+	<element name="Object" type="tns:ObjectType" />
+
+	<simpleType name="SourceType">
+		<restriction base="string">
+			<minLength value="1" />
+		</restriction>
+	</simpleType>
+	<element name="Source" type="tns:SourceType" />
+
+	<simpleType name="MessageType">
+		<restriction base="string">
+			<minLength value="1" />
+		</restriction>
+	</simpleType>
+
+	<element name="Message" type="tns:MessageType" />
+
+	<complexType name="SetLogLevelRequestType">
+		<sequence>
+			<element ref="Q1:LogItem" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+
+	<complexType name="SetLogLevelResponseType">
+		<sequence />
+	</complexType>
+
+	<element name="SetLogLevelRequest"
+		type="tns:SetLogLevelRequestType" />
+	<element name="SetLogLevelResponse"
+		type="tns:SetLogLevelResponseType" />
+
+	<simpleType name="RedactOperationType">
+		<restriction base="string">
+			<enumeration value="LOG" />
+			<enumeration value="TRACE" />
+			<enumeration value="AUDIT" />
+			<enumeration value="EXCEPTION" />
+		</restriction>
+	</simpleType>
+
+	<complexType name="RedactLogObjectRequestType">
+		<sequence>
+			<element ref="tns:RedactOperation" />
+			<element ref="tns:Object" />
+		</sequence>
+	</complexType>
+
+	<complexType name="RedactLogObjectResponseType">
+		<sequence>
+			<element name="message" type="string" minOccurs="0"/>
+		</sequence>
+	</complexType>
+	
+	
+
+	<element name="RedactLogObjectRequest"
+		type="tns:RedactLogObjectRequestType" />
+	<element name="RedactLogObjectResponse"
+		type="tns:RedactLogObjectResponseType" />
+		
+	<element name="RedactOperation" type="tns:RedactOperationType" />
+
+	<element name="Destination" type="string" />
+
+    <element name="UseApplicationSource" type="boolean"></element>
+    
+    <element name="Id" type="ID" />
+    <element name="Username" type="string" />
+    <element name="Password" type="string" />
+    <element name="mustUnderstand" type="boolean"/>
+    
+    <element name="UsernameToken" type="tns:UsernameToken" />
+    <complexType name="UsernameToken">
+		<sequence>
+			<element ref="tns:Id" minOccurs="0"/>
+			<element ref="tns:Username" minOccurs="0"/>
+			<element ref="tns:Password" minOccurs="0"/>
+		</sequence>
+	</complexType>
+
+	<element name="Security" type="tns:Security" />
+	<complexType name="Security">
+		<sequence>
+			<element ref="tns:mustUnderstand" minOccurs="0"/>
+			<element ref="tns:UsernameToken" minOccurs="0"/>
+		</sequence>
+	</complexType>
+
+	<element name="SetContext" type="tns:SetContext" />
+	<complexType name="SetContext">
+		<sequence>
+			<any processContents="skip"/>
+			</sequence>
+	</complexType>
+
+	<element name="Header" type="tns:Header" />
+	<complexType name="Header">
+		<sequence>
+			<element ref="tns:Security" minOccurs="0"/>
+			<element ref="tns:SetContext" minOccurs="0"/>
+		</sequence>
+	</complexType>
+
+	<element name="Body" type="tns:Body" />
+	<complexType name="Body">
+		<sequence>
+			<any processContents="skip"/>
+		</sequence>
+	</complexType>
+
+	<element name="Envelope" type="tns:Envelope" />
+	<complexType name="Envelope">
+		<sequence>
+			<element ref="tns:Header" minOccurs="0"/>
+			<element ref="tns:Body" minOccurs="0"/>
+		</sequence>
+	</complexType>
+
+	<complexType name="LogSOAPEnvelopeRequestType">
+		<sequence>
+			<element ref="tns:Destination" minOccurs="0"/>
+			<element ref="tns:Envelope" minOccurs="0"/>
+		</sequence>
+	</complexType>
+
+	<element name="LogSOAPEnvelopeRequest" type="tns:LogSOAPEnvelopeRequestType"/>
+    
+    
+</schema>

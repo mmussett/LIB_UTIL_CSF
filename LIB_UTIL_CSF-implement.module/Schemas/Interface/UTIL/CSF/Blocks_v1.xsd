@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<schema elementFormDefault="qualified" targetNamespace="http://www.royallondon.com/xsd/interface/util/csf/blocks/v1" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:Q1="http://www.royallondon.com/xsd/resource/util/csf/transactioncontext/v1" xmlns:tns="http://www.royallondon.com/xsd/interface/util/csf/blocks/v1">
+
+    <import namespace="http://www.royallondon.com/xsd/resource/util/csf/transactioncontext/v1" schemaLocation="../../../Resource/UTIL/CSF/TransactionContext_v1.xsd"/>
+
+    <complexType name="SetBlocksDataRequestType">
+    	<sequence>
+    		<element minOccurs="0" ref="tns:OperationContext" />
+    		<element minOccurs="0" ref="tns:BusinessKey" />
+   		</sequence>
+    </complexType>
+
+    <complexType name="SetBlocksDataResponseType" />
+    
+    <complexType name="GetBlocksDataRequestType" />
+    		
+
+    <complexType name="GetBlocksDataResponseType" >
+    	<sequence>
+    		<element minOccurs="0" ref="tns:OperationContext" />
+    		<element minOccurs="0" ref="tns:BusinessKey" />
+   		</sequence>
+    </complexType>
+    
+    <complexType name="BusinessKeyType" >
+    	<sequence>
+    		<element ref="tns:Name" />
+    		<element ref="tns:Value" />
+   		</sequence>
+    </complexType>
+    
+    <element name="Name" type="string"/>
+    <element name="Value" type="string"/>
+    <element name="OperationContext" type="string"/>
+    
+    <element name="BusinessKey" type="tns:BusinessKeyType"/>
+    
+
+    <element name="SetBlocksDataRequest" type="tns:SetBlocksDataRequestType"/>
+    <element name="SetBlocksDataResponse" type="tns:SetBlocksDataResponseType"/>
+    <element name="GetBlocksDataRequest" type="tns:GetBlocksDataRequestType"/>
+    <element name="GetBlocksDataResponse" type="tns:GetBlocksDataResponseType"/>
+
+</schema>

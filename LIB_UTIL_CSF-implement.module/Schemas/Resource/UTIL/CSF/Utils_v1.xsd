@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.royallondon.com/xsd/resource/util/csf/utils/v1" elementFormDefault="qualified" targetNamespace="http://www.royallondon.com/xsd/resource/util/csf/utils/v1">
+
+    <complexType name="StringListType">
+    	<sequence>
+    		<element maxOccurs="unbounded" minOccurs="0" ref="tns:String"/>
+    	</sequence>
+    </complexType>
+    
+    <element name="String" type="tns:PopulatedStringType"/>
+
+    <simpleType name="PopulatedStringType">
+    	<restriction base="string">
+    		<minLength value="1"/>
+    	</restriction>
+    </simpleType>
+
+    <element name="StringList" type="tns:StringListType"/>
+    
+   	<complexType name="KeyIdType">
+		<attribute name="Index" type="int"/>
+		<attribute name="ID" type="string"/>
+		<attribute name="Key" type="string"/>
+	</complexType>
+
+	<element name="KeyId" type="tns:KeyIdType"/>
+	
+	<complexType name="KeyIdListType">
+		<sequence>
+			<element maxOccurs="unbounded" minOccurs="0" ref="tns:KeyId"/>
+		</sequence>
+	</complexType>
+
+	<element name="KeyIdList" type="tns:KeyIdListType"/>
+</schema>

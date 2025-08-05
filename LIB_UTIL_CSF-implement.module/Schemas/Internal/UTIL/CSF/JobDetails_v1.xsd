@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.royallondon.com/xsd/internal/util/csf/jobdetails/v1" elementFormDefault="qualified" targetNamespace="http://www.royallondon.com/xsd/internal/util/csf/jobdetails/v1" xmlns:trans="http://www.royallondon.com/xsd/resource/util/csf/transactioncontext/v1">
+
+    <import namespace="http://www.royallondon.com/xsd/resource/util/csf/transactioncontext/v1" schemaLocation="../../../Resource/UTIL/CSF/TransactionContext_v1.xsd"/>
+ 
+    <complexType name="JobDetailsType">
+    	<sequence>
+    		<element ref="tns:Source"/>
+    		<element ref="tns:Operation"/>
+    		<element ref="tns:Timestamp"/>
+    		<element ref="tns:ObjectRedactor"/>
+    		<element ref="trans:TransactionContext"/>
+    		<element ref="tns:LoggingContext"/>
+    		<element ref="tns:StarterType" minOccurs="0"/>
+    		<element ref="tns:RequestMessage" minOccurs="0"/>
+    		<element ref="tns:RequestMessagePart2" minOccurs="0"/>
+    		<element ref="tns:RequestMessagePart3" minOccurs="0"/>
+    		<element ref="tns:RequestMessagePart4" minOccurs="0"/>
+    		<element ref="tns:RequestMessagePart5" minOccurs="0"/>
+    	</sequence>
+    </complexType>
+
+    <simpleType name="OperationType">
+    	<restriction base="string">
+    		<minLength value="1"/>
+    	</restriction>
+    </simpleType>
+
+    <complexType name="RequestMessageType">
+    	<sequence>
+    		<any processContents="skip"/>
+    	</sequence>
+	</complexType>
+
+    <simpleType name="TimestampType">
+    	<restriction base="long"/>
+    </simpleType>
+
+    <complexType name="OperationInfoListType">
+    	<sequence>
+    		<element maxOccurs="unbounded" minOccurs="0" ref="tns:OperationInfo"/>
+    	</sequence>
+    </complexType>
+    
+    <complexType name="OperationInfoType">
+    	<sequence>
+    		<element ref="tns:Timestamp"/>
+    	</sequence>
+    	<attribute name="Name" type="string" use="required"/>
+    </complexType>
+
+
+    <element name="JobDetails" type="tns:JobDetailsType"/>
+    <element name="LoggingContext" type="string"/>
+
+    <element name="RequestMessage" type="tns:RequestMessageType"/>
+    <element name="RequestMessagePart2" type="tns:RequestMessageType"/>
+    <element name="RequestMessagePart3" type="tns:RequestMessageType"/>
+    <element name="RequestMessagePart4" type="tns:RequestMessageType"/>
+    <element name="RequestMessagePart5" type="tns:RequestMessageType"/>
+
+    <element name="ObjectRedactor" type="string"/>
+
+    <element name="Operation" type="string"/>
+
+    <element name="Source" type="string"/>
+
+    <element name="Timestamp" type="tns:TimestampType"/>
+
+    <element name="OperationInfo" type="tns:OperationInfoType"/>
+
+    <element name="OperationInfoList" type="tns:OperationInfoListType"/>
+
+    <simpleType name="StarterType">
+    	<restriction base="string">
+    		<enumeration value="REST"></enumeration>
+    		<enumeration value="SERVICE"></enumeration>
+    	</restriction>
+    </simpleType>
+
+    <element name="StarterType" type="tns:StarterType"/>
+</schema>

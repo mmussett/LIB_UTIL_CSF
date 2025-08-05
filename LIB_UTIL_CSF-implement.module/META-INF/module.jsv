@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jsv:DocumentRoot xmlns:jsv="http://tns.tibco.com/bw/model/core/jobSV">
+  <jobSharedVariables>
+    <jobSharedVariable name="JobDetails" type="{http://www.royallondon.com/xsd/internal/util/csf/jobdetails/v1}JobDetails" initialValueMode="none"/>
+    <jobSharedVariable name="JWT" type="{http://www.royallondon.com/xsd/resource/util/csf/jwt/v1}JWT" initialValueMode="none" initialValue=""/>
+    <jobSharedVariable name="IsJobInitialised" type="{http://www.w3.org/2001/XMLSchema}boolean" initialValueMode="literal" initialValue="false"/>
+    <jobSharedVariable name="HttpHeaders" type="{http://www.royallondon.com/internal/util/csf/httpactivity/v1}HTTPHeaders" initialValueMode="literal" initialValue="&lt;tns:HTTPHeaders xmlns:tns=&quot;http://www.royallondon.com/internal/util/csf/httpactivity/v1&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;/>"/>
+    <jobSharedVariable name="LogSequence" type="{http://www.w3.org/2001/XMLSchema}integer" initialValueMode="literal" initialValue="0"/>
+    <jobSharedVariable name="ReadSOAPTimestamp" type="{http://www.w3.org/2001/XMLSchema}integer" initialValueMode="literal" initialValue="0"/>
+    <jobSharedVariable name="AuditStartLogged" type="{http://www.w3.org/2001/XMLSchema}boolean" initialValueMode="literal" initialValue="false"/>
+    <jobSharedVariable name="SessionID" type="{http://www.w3.org/2001/XMLSchema}string" initialValueMode="literal" initialValue="&quot;&quot;"/>
+    <jobSharedVariable name="LocalBag" type="{http://www.royallondon.com/xsd/resource/util/csf/transactioncontext/v1}BagV2" initialValueMode="none" initialValue=""/>
+    <jobSharedVariable name="ExecutionLevel" type="{http://www.w3.org/2001/XMLSchema}integer" initialValueMode="none"/>
+    <jobSharedVariable name="BlocksData" type="{http://www.royallondon.com/xsd/resource/util/csf/transactioncontext/v1}BlocksDataContext" initialValueMode="none"/>
+  </jobSharedVariables>
+  <import importType="http://www.w3.org/2001/XMLSchema" namespace="http://www.royallondon.com/xsd/internal/util/csf/jobdetails/v1" location="../Schemas/Internal/UTIL/CSF/JobDetails_v1.xsd"/>
+  <import importType="http://www.w3.org/2001/XMLSchema" namespace="http://www.royallondon.com/xsd/resource/util/csf/jwt/v1" location="../Schemas/Resource/UTIL/CSF/JWT_v1.xsd"/>
+  <import importType="http://www.w3.org/2001/XMLSchema" namespace="http://tns.tibco.com/bw/REST" location="../Schemas/Resource/BW/RESTSchema.xsd"/>
+  <import importType="http://www.w3.org/2001/XMLSchema" namespace="http://www.royallondon.com/internal/util/csf/httpactivity/v1" location="../Schemas/Internal/UTIL/CSF/HTTPActivity_v1.xsd"/>
+  <import importType="http://www.w3.org/2001/XMLSchema" namespace="http://www.royallondon.com/xsd/resource/util/csf/transactioncontext/v1" location="../Schemas/Resource/UTIL/CSF/TransactionContext_v1.xsd"/>
+</jsv:DocumentRoot>

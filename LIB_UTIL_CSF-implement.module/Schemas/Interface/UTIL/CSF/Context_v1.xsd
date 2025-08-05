@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:Q1="http://www.royallondon.com/xsd/resource/util/csf/transactioncontext/v1" xmlns:tns="http://www.royallondon.com/xsd/interface/util/csf/context/v1" elementFormDefault="qualified" targetNamespace="http://www.royallondon.com/xsd/interface/util/csf/context/v1">
+
+    <import namespace="http://www.royallondon.com/xsd/resource/util/csf/transactioncontext/v1" schemaLocation="../../../Resource/UTIL/CSF/TransactionContext_v1.xsd"/>
+
+    <complexType name="ContextRequestType"/>
+
+    <complexType name="ContextResponseType">
+    	<sequence>
+    		<element ref="Q1:TransactionContext"/>
+    	</sequence>
+    </complexType>
+
+    <element name="ContextRequest" type="tns:ContextRequestType"/>
+
+    <element name="ContextResponse" type="tns:ContextResponseType"/>
+
+    <complexType name="CreateRequestContextRequestType">
+    	<complexContent>
+    		<extension base="tns:ContextRequestType">
+    			<sequence>
+    				<element ref="tns:TransactionID" minOccurs="0" />
+    				<element ref="tns:OmitSecurity" minOccurs="0" />
+    				<element ref="tns:TimeoutMs" minOccurs="0" />
+    				<element ref="tns:ExecuteOnlyOnceHeader" minOccurs="0" />
+    			</sequence>
+    		</extension>
+    	</complexContent>
+    </complexType>
+
+    <complexType name="CreatePublishContextRequestType">
+    	<complexContent>
+    		<extension base="tns:ContextRequestType">
+    			<sequence>
+    				<element ref="tns:TransactionID" minOccurs="0"/>
+    				<element ref="tns:OmitSecurity" minOccurs="0" />
+    				<element ref="tns:ExecuteOnlyOnceHeader" minOccurs="0" />
+    			</sequence>
+    		</extension>
+    	</complexContent>
+    </complexType>
+
+    <complexType name="CreateResponseContextRequestType">
+    	<complexContent>
+    		<extension base="tns:ContextRequestType"/>
+    	</complexContent>
+    </complexType>
+
+    <complexType name="CreateExceptionContextRequestType">
+    	<complexContent>
+    		<extension base="tns:ContextRequestType"/>
+    	</complexContent>
+    </complexType>
+
+    <complexType name="CreateExceptionContextResponseType">
+    	<complexContent>
+    		<extension base="tns:ContextResponseType"/>
+    	</complexContent>
+    </complexType>
+
+    <complexType name="CreateRequestContextResponseType">
+    	<complexContent>
+    		<extension base="tns:ContextResponseType"/>
+    	</complexContent>
+    </complexType>
+
+    <complexType name="CreatePublishContextResponseType">
+    	<complexContent>
+    		<extension base="tns:ContextResponseType"/>
+    	</complexContent>
+    </complexType>
+
+    <complexType name="CreateResponseContextResponseType">
+    	<complexContent>
+    		<extension base="tns:ContextResponseType"/>
+    	</complexContent>
+    </complexType>
+
+    <complexType name="GetTransactionContextRequestType">
+    	<complexContent>
+    		<extension base="tns:ContextRequestType"/>
+    	</complexContent>
+    </complexType>
+
+    <complexType name="GetTransactionContextResposeType">
+    	<complexContent>
+    		<extension base="tns:ContextResponseType"/>
+    	</complexContent>
+    </complexType>
+
+    <element name="CreateRequestContextRequest" type="tns:CreateRequestContextRequestType"/>
+    <element name="CreatePublishContextRequest" type="tns:CreatePublishContextRequestType"/>
+    <element name="CreateResponseContextRequest" type="tns:CreateResponseContextRequestType"/>
+    <element name="CreateExceptionContextRequest" type="tns:CreateExceptionContextRequestType"/>
+    <element name="CreateRequestContextResponse" type="tns:CreateRequestContextResponseType"/>
+    <element name="CreatePublishContextResponse" type="tns:CreatePublishContextResponseType"/>
+    <element name="CreateResponseContextResponse" type="tns:CreateResponseContextResponseType"/>
+    <element name="CreateExceptionContextResponse" type="tns:CreateExceptionContextResponseType"/>
+    <element name="GetTransactionContextRequest" type="tns:GetTransactionContextRequestType"/>
+    <element name="GetTransactionContextRespose" type="tns:GetTransactionContextResposeType"/>
+
+    <element name="TransactionID" type="string"/>
+   	<element name="CorrelationID" type="string"/>
+   	<element name="SessionID" type="string"/>
+
+    <element name="TimeoutMs" type="long"/>
+
+    <element name="OmitSecurity" type="boolean"/>
+    <element name="ExecuteOnlyOnceHeader">
+    	<simpleType>
+    		<restriction base="string">
+    			<maxLength value="50"></maxLength>
+    		</restriction>
+    	</simpleType>
+    </element>
+</schema>

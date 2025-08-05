@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<project name="Remove enums" default="main" basedir=".">
+
+    <property name="schema.dir" value="Schemas" />
+    <property name="schema.ext" value=".xsd" />
+    <property name="schema.files" value="${schema.dir}/**/*${schema.ext}" />
+    <property name="tmp.ext" value=".xtmp" />
+    <property name="tmp.files" value="${schema.dir}/**/*${tmp.ext}" />
+
+	
+    <target name="main">
+ 	    <input message="Service Name" addproperty="svc.name"/>
+    	<fail message="*** Must provide a service name ***">
+            <condition>
+                <equals arg1="${svc.name}" arg2=""/>
+            </condition>
+        </fail>
+    	
+    	<property name="svc.dir" location="../../../${svc.name}-service.module"/>
+    	<property name="impl.dir" location="../../../${svc.name}-implement.module"/>
+    	<property name="int.dir" location="../../../${svc.name}-interface.module"/>
+
+    	<fail message="*** Service '${svc.name}' is not in your workspace ***">
+            <condition>
+                <not>
+                	<and>
+	                    <available file="${svc.dir}" type="dir" />
+	                    <available file="${impl.dir}" type="dir" />
+	                    <available file="${int.dir}" type="dir" />
+                	</and>
+                </not>
+            </condition>
+        </fail>
+
+    	<xslt basedir="${svc.dir}" includes="${schema.files}" destdir="${svc.dir}" extension="${tmp.ext}" style="../../Resources/util/csf_v1/xslt/RemoveEnums.xslt"/>
+    	<move overwrite="true" todir="${svc.dir}" force="true">
+			<fileset dir="${svc.dir}" includes="${tmp.files}"/>
+    		<mapper type="glob" from="*${tmp.ext}" to="*${schema.ext}"/>
+		</move>    	
+
+    	<xslt basedir="${impl.dir}" includes="${schema.files}" destdir="${impl.dir}" extension="${tmp.ext}" style="../../Resources/util/csf_v1/xslt/RemoveEnums.xslt"/>
+    	<move overwrite="true" todir="${impl.dir}" force="true">
+			<fileset dir="${impl.dir}" includes="${tmp.files}"/>
+    		<mapper type="glob" from="*${tmp.ext}" to="*${schema.ext}"/>
+		</move>    	
+
+    	<xslt basedir="${int.dir}" includes="${schema.files}" destdir="${int.dir}" extension="${tmp.ext}" style="../../Resources/util/csf_v1/xslt/RemoveEnums.xslt"/>
+    	<move overwrite="true" todir="${int.dir}" force="true">
+			<fileset dir="${int.dir}" includes="${tmp.files}"/>
+    		<mapper type="glob" from="*${tmp.ext}" to="*${schema.ext}"/>
+		</move>    	
+	</target>
+</project>

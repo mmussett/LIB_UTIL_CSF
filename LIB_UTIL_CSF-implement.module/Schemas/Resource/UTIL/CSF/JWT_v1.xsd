@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.royallondon.com/xsd/resource/util/csf/jwt/v1" elementFormDefault="qualified" targetNamespace="http://www.royallondon.com/xsd/resource/util/csf/jwt/v1">
+
+    <complexType name="ClaimListType">
+    	<sequence>
+    		<element maxOccurs="unbounded" minOccurs="0" ref="tns:Claim"/>
+    	</sequence>
+    </complexType>
+
+    <complexType name="ClaimType">
+    	<sequence>
+    		<element ref="tns:Name"/>
+	    	<choice>
+	    		<element ref="tns:StringValue"/>
+	    		<element ref="tns:IntValue"/>
+	    		<element ref="tns:DateValue"/>
+	        </choice>
+    	</sequence>
+    </complexType>
+
+    <simpleType name="ClaimNameType">
+    	<restriction base="string"/>
+    </simpleType>
+
+    <element name="ClaimList" type="tns:ClaimListType"/>
+    <element name="Claim" type="tns:ClaimType"/>
+    <element name="Name" type="tns:ClaimNameType"/>
+    <element name="StringValue" type="string"/>
+    <element name="IntValue" type="integer"/>
+    <element name="DateValue" type="dateTime"/>
+
+    <simpleType name="JWTTokenType">
+    	<restriction base="string"/>
+    </simpleType>
+
+    <element name="JWTToken" type="tns:JWTTokenType"/>
+
+    <simpleType name="RefreshTokenType">
+    	<restriction base="string"/>
+    </simpleType>
+
+    <element name="RefreshToken" type="tns:RefreshTokenType"/>
+    
+    <element name="ClonedJWT" type="tns:ClonedJWTType"/>
+    
+    <simpleType name="ClonedJWTType">
+    	<restriction base="string"/>
+    </simpleType>
+    
+    <complexType name="JWTType">
+    	<sequence>
+    		<element ref="tns:JWTToken"/>
+    		<element ref="tns:ClaimList"/>
+    	</sequence>
+    </complexType>
+
+    <element name="JWT" type="tns:JWTType"/>
+</schema>

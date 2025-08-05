@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.royallondon.com/xsd/interface/util/csf/jwt/v1" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:jwt="http://www.royallondon.com/xsd/interface/util/csf/jwt/v1" xmlns:Q1="http://www.royallondon.com/xsd/resource/util/csf/jwt/v1">
+
+    <import namespace="http://www.royallondon.com/xsd/resource/util/csf/jwt/v1" schemaLocation="../../../Resource/UTIL/CSF/JWT_v1.xsd"/>
+
+    <complexType name="GetJWTTokenRequestType"/>
+    <complexType name="GetJWTTokenResponseType">
+    	<sequence>
+    		<element ref="Q1:JWTToken"/>
+    	</sequence>
+    </complexType>
+
+    <complexType name="GetLocalJWTTokenRequestType"/>
+ 
+    <complexType name="GetLocalJWTTokenResponseType">
+    	<sequence>
+    		<element ref="Q1:JWTToken"/>
+    	</sequence>
+    </complexType>
+ <complexType name="GetBatchJWTTokenRequestType">
+    <sequence>
+    		<element minOccurs="0" ref="jwt:Scope"/>
+    	</sequence>
+    </complexType>
+    <complexType name="GetBatchJWTTokenResponseType">
+    	<sequence>
+    		<element ref="Q1:JWTToken"/>
+    	</sequence>
+    </complexType>
+    <complexType name="GetJWTClaimsRequestType">
+    	<sequence>
+    		<element ref="Q1:JWTToken" minOccurs="0"/>
+    	</sequence>
+    </complexType>
+    <complexType name="GetJWTClaimsResponseType">
+    	<sequence>
+    		<element ref="Q1:ClaimList"/>
+    	</sequence>
+    </complexType>
+
+    <complexType name="GetStandardJWTClaimsRequestType">
+    	<sequence>
+    		<element ref="Q1:JWTToken" minOccurs="0"/>
+    	</sequence>
+   	</complexType>
+    <complexType name="GetStandardJWTClaimsResponseType">
+    	<sequence>
+    		<element ref="jwt:UserID"/>
+    		<element ref="jwt:AdvisorID" minOccurs="0"/>
+    		<element ref="jwt:CustomerID" minOccurs="0"/>
+    		<element ref="jwt:StaffID" minOccurs="0"/>
+    	</sequence>
+    </complexType>
+
+    <complexType name="ProcessJWTTokenRequestType">
+    	<sequence>
+    		<element ref="Q1:JWTToken"/>
+    		<element name="SetAsContextToken" type="boolean"/>
+    	</sequence>
+    </complexType>
+    <complexType name="ProcessJWTTokenResponseType">
+       	<sequence>
+    		<element ref="Q1:ClaimList"/>
+    	</sequence>
+    </complexType>
+
+    <complexType name="SetJWTTokenRequestType">
+    	<sequence>
+    		<element ref="Q1:JWTToken"/>
+    	</sequence>
+    </complexType>
+    <complexType name="SetJWTTokenResponseType"/>
+    
+    <complexType name="CloneJWTTokenRequestType">
+        	<sequence>
+    		<element ref="Q1:JWTToken"/>
+    	</sequence>
+    </complexType>
+    <complexType name="CloneJWTTokenResponseType">
+    	<sequence>
+    		<element ref="Q1:JWTToken"/>
+    		<element ref="Q1:RefreshToken"/>
+    	</sequence>
+    </complexType>
+    
+    
+        <complexType name="UpdateJWTPrivilegeRequestType">
+        	<sequence>
+    		<element ref="Q1:JWTToken" minOccurs="0"/>
+    		<element ref="jwt:CustomerID" minOccurs="0"/>
+    		<element ref="jwt:GrantType" minOccurs="0"/>
+    		<element ref="jwt:Scope" minOccurs="0"/>
+    		<element name="SetAsContextToken" minOccurs="0" type="boolean"/>
+    	</sequence>
+    </complexType>
+    <complexType name="UpdateJWTPrivilegeResponseType">
+    	<sequence>
+    		<element ref="Q1:JWTToken"/>
+    	</sequence>
+    </complexType>
+    
+     <complexType name="RefreshJWTTokenRequestType">
+        	<sequence>
+    		<element ref="Q1:RefreshToken"/>
+    	</sequence>
+    </complexType>
+    <complexType name="RefreshJWTTokenResponseType">
+    	<sequence>
+    		<element ref="Q1:RefreshToken"/>
+    		<element ref="Q1:ClonedJWT"/>
+    	</sequence>
+    </complexType>
+    
+    
+
+    <element name="GetJWTTokenRequest" type="jwt:GetJWTTokenRequestType"/>
+    <element name="GetJWTTokenResponse" type="jwt:GetJWTTokenResponseType"/>
+    <element name="GetLocalJWTTokenRequest" type="jwt:GetLocalJWTTokenRequestType"/>
+    <element name="GetLocalJWTTokenResponse" type="jwt:GetLocalJWTTokenResponseType"/>
+    <element name="GetBatchJWTTokenRequest" type="jwt:GetBatchJWTTokenRequestType"/>
+    <element name="GetBatchJWTTokenResponse" type="jwt:GetBatchJWTTokenResponseType"/>
+    <element name="GetJWTClaimsRequest" type="jwt:GetJWTClaimsRequestType"/>
+    <element name="GetJWTClaimsResponse" type="jwt:GetJWTClaimsResponseType"/>
+    <element name="GetStandardJWTClaimsRequest" type="jwt:GetStandardJWTClaimsRequestType"/>
+    <element name="GetStandardJWTClaimsResponse" type="jwt:GetStandardJWTClaimsResponseType"/>
+    <element name="ProcessJWTTokenRequest" type="jwt:ProcessJWTTokenRequestType"/>
+    <element name="ProcessJWTTokenResponse" type="jwt:ProcessJWTTokenResponseType"/>
+    <element name="SetJWTTokenRequest" type="jwt:SetJWTTokenRequestType"/>
+    <element name="SetJWTTokenResponse" type="jwt:SetJWTTokenResponseType"/>
+    <element name="CloneJWTTokenRequest" type="jwt:CloneJWTTokenRequestType"/>
+    <element name="CloneJWTTokenResponse" type="jwt:CloneJWTTokenResponseType"/>
+    <element name="RefreshJWTTokenRequest" type="jwt:RefreshJWTTokenRequestType"/>
+    <element name="RefreshJWTTokenResponse" type="jwt:RefreshJWTTokenResponseType"/>
+    <element name="UpdateJWTPrivilegeRequest" type="jwt:UpdateJWTPrivilegeRequestType"/>
+    <element name="UpdateJWTPrivilegeResponse" type="jwt:UpdateJWTPrivilegeResponseType"/>
+    
+    <element name="UserID" type="string"/>
+    <element name="AdvisorID" type="string"/>
+    <element name="CustomerID" type="string"/>
+    <element name="StaffID" type="string"/>
+    <element name="GrantType" type="string"/>
+    <element name="Scope" type="string"/>
+</schema>

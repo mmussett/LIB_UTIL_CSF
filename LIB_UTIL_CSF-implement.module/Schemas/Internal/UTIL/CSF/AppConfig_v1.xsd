@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.royallondon.com/xsd/internal/util/csf/appconfig/v1" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:app="http://www.royallondon.com/xsd/internal/util/csf/appconfig/v1" attributeFormDefault="unqualified">
+
+    <complexType name="StringItemType">
+    	<attribute name="name" type="string" use="required" />
+    	<attribute name="value" type="string" use="required" />
+    </complexType>
+
+    <complexType name="IntegerItemType">
+    	<attribute name="name" type="string" use="required" />
+    	<attribute name="value" type="integer" use="required" />
+    </complexType>
+
+    <complexType name="BooleanItemType">
+    	<attribute name="name" type="string" use="required" />
+    	<attribute name="value" type="boolean" use="required" />
+    </complexType>
+
+    <complexType name="AppConfigType">
+    	<sequence>
+    		<choice minOccurs="0" maxOccurs="unbounded">
+    			<element ref="app:StringItem" />
+    			<element ref="app:IntegerItem" />
+    			<element ref="app:BooleanItem" />
+    		</choice>
+    	</sequence>
+    	<attribute name="UpdateIntervalMs" type="int" use="required"></attribute>
+    </complexType>
+
+    <element name="AppConfig" type="app:AppConfigType"/>
+    <element name="StringItem" type="app:StringItemType"/>
+    <element name="IntegerItem" type="app:IntegerItemType"/>
+    <element name="BooleanItem" type="app:BooleanItemType"/>
+</schema>

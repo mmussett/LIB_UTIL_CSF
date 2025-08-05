@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.royallondon.com/xsd/resource/util/csf/ftl/v1" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ftl="http://www.royallondon.com/xsd/resource/util/csf/ftl/v1">
+
+    <xsd:complexType name="CSFMessageType">
+    	<xsd:sequence>
+    		<xsd:element ref="ftl:channel"/>
+    		<xsd:element ref="ftl:message"/>
+			<xsd:element ref="ftl:singularityheader" minOccurs="0"/>
+<!-- 			<xsd:any namespace="##other" minOccurs="0" maxOccurs="unbounded"/>-->
+    	</xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="CSFNotificationType">
+    	<xsd:sequence>
+    		<xsd:element ref="ftl:channel"/>
+    		<xsd:element ref="ftl:subject" minOccurs="0"/>
+    		<xsd:element ref="ftl:message"/>
+			<xsd:element ref="ftl:singularityheader" minOccurs="0"/>
+<!-- 			<xsd:any namespace="##other" minOccurs="0" maxOccurs="unbounded"/>-->
+    	</xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:element name="CSFMessage" type="ftl:CSFMessageType"/>
+    <xsd:element name="CSFNotification" type="ftl:CSFNotificationType"/>
+
+    <xsd:element name="channel" type="xsd:string"/>
+    <xsd:element name="subject" type="xsd:string"/>
+    <xsd:element name="message" type="xsd:base64Binary"/>
+    <xsd:element name="singularityheader" type="xsd:string"/>
+</xsd:schema>

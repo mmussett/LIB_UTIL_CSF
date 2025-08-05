@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<project name="Build appConfig" default="main" basedir=".">
+
+	<property name="svc.dir" location="."/>
+
+	<property name="props.dir" value="META-INF" />
+    <property name="props.file" value="default.substvar" />
+
+    <target name="main">
+    	<replaceregexp 
+    	               match='location=".*/Schemas/RESTSchema.xsd"'
+    	               replace=""
+    	               byline="true">
+    		<fileset dir="${svc.dir}">
+    	  <include name="**/SubProcess.bwp"/>
+    	</fileset>
+    </replaceregexp>
+
+        	<move verbose="true"
+        		todir="${svc.dir}">
+        		<fileset dir="${svc.dir}">
+        	  <include name="**/Schemas/RESTSchema.xsd"/>
+        	</fileset>
+        </move>
+
+    
+    </target>
+</project>

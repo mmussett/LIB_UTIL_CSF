@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LogConfig audit="PAYLOAD" trace="ON" log="ON" xmlns="http://www.royallondon.com/xsd/internal/util/csf/logconfig/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.royallondon.com/xsd/internal/util/csf/logconfig/v1 ../../../../Schemas/Internal/UTIL/CSF/LogConfig_v1.xsd ">
+	<LogItem context="util.csf_v1.cache" trace="ON" log="ON"/> 
+</LogConfig>

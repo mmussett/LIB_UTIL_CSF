@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:ExceptionDetailsList xmlns:tns="http://www.royallondon.com/xsd/internal/util/csf/exceptiondetails/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.royallondon.com/xsd/internal/util/csf/exceptiondetails/v1 ../../../../Schemas/Internal/UTIL/CSF/ExceptionDetails_v1.xsd ">
+  <tns:ExceptionDetails ExceptionCode="INVALID-DATA-FORMAT">
+    <tns:ExceptionType>BUSINESS</tns:ExceptionType>
+    <tns:ExceptionMessage>Invalid data format</tns:ExceptionMessage>
+    <tns:StatusCode>400</tns:StatusCode>
+  </tns:ExceptionDetails>
+
+  <tns:ExceptionDetails ExceptionCode="INVALID-RESPONSE-CODE">
+    <tns:ExceptionType>TECHNICAL</tns:ExceptionType>
+    <tns:ExceptionMessage>Invalid or unknown response code returned by an invoked operation</tns:ExceptionMessage>
+    <tns:StatusCode>500</tns:StatusCode>
+  </tns:ExceptionDetails>
+
+  <tns:ExceptionDetails ExceptionCode="INVALID-VALUE">
+    <tns:ExceptionType>BUSINESS</tns:ExceptionType>
+    <tns:ExceptionMessage>Invalid value for field</tns:ExceptionMessage>
+    <tns:StatusCode>400</tns:StatusCode>
+  </tns:ExceptionDetails>
+
+  <tns:ExceptionDetails ExceptionCode="INVALID-REFERENCE-VALUE">
+    <tns:ExceptionType>BUSINESS</tns:ExceptionType>
+    <tns:ExceptionMessage>Invalid value for reference data field</tns:ExceptionMessage>
+    <tns:StatusCode>400</tns:StatusCode>
+  </tns:ExceptionDetails>
+
+  <tns:ExceptionDetails ExceptionCode="MANDATORY-VALUE-MISSING">
+    <tns:ExceptionType>BUSINESS</tns:ExceptionType>
+    <tns:ExceptionMessage>Mandatory value missing from object</tns:ExceptionMessage>
+    <tns:StatusCode>400</tns:StatusCode>
+  </tns:ExceptionDetails>
+
+  <tns:ExceptionDetails ExceptionCode="SERVICE-START-ERROR">
+    <tns:ExceptionType>TECHNICAL</tns:ExceptionType>
+    <tns:ExceptionMessage>Service unable to start</tns:ExceptionMessage>
+    <tns:StatusCode>500</tns:StatusCode>
+  </tns:ExceptionDetails>
+
+  <tns:ExceptionDetails ExceptionCode="UNABLE-TO-GET-DATA">
+    <tns:ExceptionType>BUSINESS</tns:ExceptionType>
+    <tns:ExceptionMessage>Unable to get data</tns:ExceptionMessage>
+    <tns:StatusCode>404</tns:StatusCode>
+  </tns:ExceptionDetails>
+
+  <tns:ExceptionDetails ExceptionCode="DATA-NOT-FOUND">
+    <tns:ExceptionType>BUSINESS</tns:ExceptionType>
+    <tns:ExceptionMessage>Data not found</tns:ExceptionMessage>
+    <tns:StatusCode>404</tns:StatusCode>
+  </tns:ExceptionDetails>
+
+  <tns:ExceptionDetails ExceptionCode="DATA-ALREADY-EXISTS">
+    <tns:ExceptionType>BUSINESS</tns:ExceptionType>
+    <tns:ExceptionMessage>Data item already exists</tns:ExceptionMessage>
+    <tns:StatusCode>409</tns:StatusCode>
+  </tns:ExceptionDetails>
+
+  <tns:ExceptionDetails ExceptionCode="XML-PARSING-ERROR">
+    <tns:ExceptionType>TECHNICAL</tns:ExceptionType>
+    <tns:ExceptionMessage>Error while parsing an XML object</tns:ExceptionMessage>
+    <tns:StatusCode>500</tns:StatusCode>
+  </tns:ExceptionDetails>
+
+  <tns:ExceptionDetails ExceptionCode="HTTP-SEND-ERROR">
+    <tns:ExceptionType>TECHNICAL</tns:ExceptionType>
+    <tns:ExceptionMessage>Error while invoking an operation via HTTP</tns:ExceptionMessage>
+    <tns:StatusCode>500</tns:StatusCode>
+  </tns:ExceptionDetails>
+
+  <tns:ExceptionDetails ExceptionCode="JMS-SEND-ERROR">
+    <tns:ExceptionType>TECHNICAL</tns:ExceptionType>
+    <tns:ExceptionMessage>Error while sending a message via JMS</tns:ExceptionMessage>
+    <tns:StatusCode>500</tns:StatusCode>
+  </tns:ExceptionDetails>
+
+  <tns:ExceptionDetails ExceptionCode="FTL-SEND-ERROR">
+    <tns:ExceptionType>TECHNICAL</tns:ExceptionType>
+    <tns:ExceptionMessage>Error while sending a message via FTL</tns:ExceptionMessage>
+    <tns:StatusCode>500</tns:StatusCode>
+  </tns:ExceptionDetails>
+
+  <tns:ExceptionDetails ExceptionCode="HTTP-RECEIVE-ERROR">
+    <tns:ExceptionType>TECHNICAL</tns:ExceptionType>
+    <tns:ExceptionMessage>Error while receiving a message via HTTP</tns:ExceptionMessage>
+    <tns:StatusCode>500</tns:StatusCode>
+  </tns:ExceptionDetails>
+
+  <tns:ExceptionDetails ExceptionCode="JMS-RECEIVE-ERROR">
+    <tns:ExceptionType>TECHNICAL</tns:ExceptionType>
+    <tns:ExceptionMessage>Error while receiving a message via JMS</tns:ExceptionMessage>
+    <tns:StatusCode>500</tns:StatusCode>
+  </tns:ExceptionDetails>
+
+  <tns:ExceptionDetails ExceptionCode="FTL-RECEIVE-ERROR">
+    <tns:ExceptionType>TECHNICAL</tns:ExceptionType>
+    <tns:ExceptionMessage>Error while receiving a message via FTL</tns:ExceptionMessage>
+    <tns:StatusCode>500</tns:StatusCode>
+  </tns:ExceptionDetails>
+
+  <tns:ExceptionDetails ExceptionCode="ACTIVESPACES-OPERATION-ERROR">
+    <tns:ExceptionType>TECHNICAL</tns:ExceptionType>
+    <tns:ExceptionMessage>Error invoking an ActiveSpaces operation</tns:ExceptionMessage>
+    <tns:StatusCode>500</tns:StatusCode>
+  </tns:ExceptionDetails>
+
+  <tns:ExceptionDetails ExceptionCode="ADAPTER-OPERATION-ERROR">
+    <tns:ExceptionType>TECHNICAL</tns:ExceptionType>
+    <tns:ExceptionMessage>Error invoking an adapter operation</tns:ExceptionMessage>
+    <tns:StatusCode>500</tns:StatusCode>
+  </tns:ExceptionDetails>
+
+  <tns:ExceptionDetails ExceptionCode="DATABASE-OPERATION-ERROR">
+    <tns:ExceptionType>TECHNICAL</tns:ExceptionType>
+    <tns:ExceptionMessage>Error invoking a database operation</tns:ExceptionMessage>
+    <tns:StatusCode>500</tns:StatusCode>
+  </tns:ExceptionDetails>
+
+  <tns:ExceptionDetails ExceptionCode="DYNAMICS365-OPERATION-ERROR">
+    <tns:ExceptionType>TECHNICAL</tns:ExceptionType>
+    <tns:ExceptionMessage>Error invoking a Dynamics 365 operation</tns:ExceptionMessage>
+    <tns:StatusCode>500</tns:StatusCode>
+  </tns:ExceptionDetails>
+
+  <tns:ExceptionDetails ExceptionCode="SOAP-OPERATION-ERROR">
+    <tns:ExceptionType>TECHNICAL</tns:ExceptionType>
+    <tns:ExceptionMessage>Error invoking a SOAP operation</tns:ExceptionMessage>
+    <tns:StatusCode>500</tns:StatusCode>
+  </tns:ExceptionDetails>
+
+  <tns:ExceptionDetails ExceptionCode="FILE-OPERATION-ERROR">
+    <tns:ExceptionType>TECHNICAL</tns:ExceptionType>
+    <tns:ExceptionMessage>Error performing an operation on a file</tns:ExceptionMessage>
+    <tns:StatusCode>500</tns:StatusCode>
+  </tns:ExceptionDetails>
+
+  <tns:ExceptionDetails ExceptionCode="SECURITY-EXCEPTION">
+    <tns:ExceptionType>BUSINESS</tns:ExceptionType>
+    <tns:ExceptionMessage>Not authorised for this service operation</tns:ExceptionMessage>
+    <tns:StatusCode>401</tns:StatusCode>
+  </tns:ExceptionDetails>
+
+  <tns:ExceptionDetails ExceptionCode="NOT-AUTHORISED">
+    <tns:ExceptionType>BUSINESS</tns:ExceptionType>
+    <tns:ExceptionMessage>Not allowed to perform this operation</tns:ExceptionMessage>
+    <tns:StatusCode>403</tns:StatusCode>
+  </tns:ExceptionDetails>
+  
+  <tns:ExceptionDetails ExceptionCode="FORBIDDEN-ERROR">
+    <tns:ExceptionType>BUSINESS</tns:ExceptionType>
+    <tns:ExceptionMessage>Not allowed to perform this operation</tns:ExceptionMessage>
+    <tns:StatusCode>403</tns:StatusCode>
+  </tns:ExceptionDetails>
+
+  <tns:ExceptionDetails ExceptionCode="EXTERNAL-BUSINESS-EXCEPTION">
+    <tns:ExceptionType>BUSINESS</tns:ExceptionType>
+    <tns:ExceptionMessage>Business exception was returned by an external system</tns:ExceptionMessage>
+    <tns:StatusCode>400</tns:StatusCode>
+  </tns:ExceptionDetails>
+
+  <tns:ExceptionDetails ExceptionCode="EXTERNAL-TECHNICAL-EXCEPTION">
+    <tns:ExceptionType>TECHNICAL</tns:ExceptionType>
+    <tns:ExceptionMessage>Technical exception was returned by an external system</tns:ExceptionMessage>
+    <tns:StatusCode>500</tns:StatusCode>
+  </tns:ExceptionDetails>
+
+  <tns:ExceptionDetails ExceptionCode="CACHE-ERROR">
+    <tns:ExceptionType>BUSINESS</tns:ExceptionType>
+    <tns:ExceptionMessage>Cache access exception</tns:ExceptionMessage>
+    <tns:StatusCode>500</tns:StatusCode>
+    <tns:SubExceptionMessage id="SESSIONIMMUTABLE">Cache session is marked as immutable and cannot be changed</tns:SubExceptionMessage>
+    <tns:SubExceptionMessage id="SESSIONNOTFOUND">Cache session was not found</tns:SubExceptionMessage>
+    <tns:SubExceptionMessage id="CHANGESIZE">Attempt to change the size of an existing cache session</tns:SubExceptionMessage>
+    <tns:SubExceptionMessage id="CHANGEPAGESIZE">Attempt to change the page size of an existing cache session</tns:SubExceptionMessage>
+    <tns:SubExceptionMessage id="DATATOOLARGE">Attempt to place too much data into a cache session</tns:SubExceptionMessage>
+    <tns:SubExceptionMessage id="PAGETOOLARGE">Requested page size is too large</tns:SubExceptionMessage>
+    <tns:SubExceptionMessage id="PAGETOOSMALL">Requested page size is too small</tns:SubExceptionMessage>
+    <tns:SubExceptionMessage id="UNKNOWNPAGE">Invalid page number</tns:SubExceptionMessage>
+  </tns:ExceptionDetails>
+
+  <tns:ExceptionDetails ExceptionCode="INTERNAL-ERROR">
+    <tns:ExceptionType>TECHNICAL</tns:ExceptionType>
+    <tns:ExceptionMessage>Unexpected internal exception</tns:ExceptionMessage>
+    <tns:StatusCode>500</tns:StatusCode>
+  </tns:ExceptionDetails>
+
+  <tns:ExceptionDetails ExceptionCode="ERROR-LIST">
+    <tns:ExceptionType>BUSINESS</tns:ExceptionType>
+    <tns:ExceptionMessage>Exception list</tns:ExceptionMessage>
+    <tns:StatusCode>500</tns:StatusCode>
+  </tns:ExceptionDetails>
+
+  <tns:ExceptionDetails ExceptionCode="FRAMEWORK-ERROR">
+    <tns:ExceptionType>TECHNICAL</tns:ExceptionType>
+    <tns:ExceptionMessage>The CSF framework has been used incorrectly - this always represents a CODING BUG</tns:ExceptionMessage>
+    <tns:StatusCode>500</tns:StatusCode>
+  </tns:ExceptionDetails>
+
+  <tns:ExceptionDetails ExceptionCode="SERVICE-EXCEPTION">
+    <tns:ExceptionType>TECHNICAL</tns:ExceptionType>
+    <tns:ExceptionMessage>An exception occurred during service execution</tns:ExceptionMessage>
+    <tns:StatusCode>500</tns:StatusCode>
+  </tns:ExceptionDetails>
+
+</tns:ExceptionDetailsList>

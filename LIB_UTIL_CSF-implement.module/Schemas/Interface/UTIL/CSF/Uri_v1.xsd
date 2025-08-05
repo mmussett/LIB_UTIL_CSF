@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.royallondon.com/xsd/interface/util/csf/uri/v1"
+	xmlns:tns="http://www.royallondon.com/xsd/interface/util/csf/uri/v1"
+	elementFormDefault="qualified">
+
+	<element name="DecodeUriRequest" type="tns:DecodeUriRequestType" />
+	<complexType name="DecodeUriRequestType">
+		<sequence>
+			<element ref="tns:EncodingFormat" minOccurs="0" maxOccurs="1" />
+			<choice>
+			<element ref="tns:EncodedElements" minOccurs="0" maxOccurs="unbounded" />
+			<element ref="tns:EncodedPayload" minOccurs="0" maxOccurs="1"/>
+			</choice>
+		</sequence>
+	</complexType>
+
+	<element name="EncodedPayload" type="tns:PayloadType" />
+	<element name="DecodedPayload" type="string" />
+	<complexType name="PayloadType">
+		<sequence>
+			<any processContents="skip" />
+		</sequence>
+	</complexType>
+
+	<element name="EncodedElements" type="tns:EncodedElementsType" />
+	<complexType name="EncodedElementsType">
+		<sequence>
+			<element ref="tns:Name" minOccurs="0" maxOccurs="1" />
+			<element ref="tns:Value" />
+		</sequence>
+	</complexType>
+
+	<element name="DecodeUriResponse" type="tns:DecodeUriResponseType" />
+	<complexType name="DecodeUriResponseType">
+		<sequence>
+			<choice>
+			<element ref="tns:DecodedElements" minOccurs="0" maxOccurs="unbounded" />
+			<element ref="tns:DecodedPayload" minOccurs="0" maxOccurs="1"/>
+			</choice>
+		</sequence>
+	</complexType>
+
+	<element name="DecodedElements" type="tns:DecodedElementsType" />
+	<complexType name="DecodedElementsType">
+		<sequence>
+			<element ref="tns:Name" minOccurs="0" maxOccurs="1" />
+			<element ref="tns:Value" />
+			<element ref="tns:DecodedValue" />
+		</sequence>
+	</complexType>
+
+
+	<element name="Value" type="string" />
+	<element name="EncodingFormat" type="string" />
+	<element name="DecodedValue" type="string" />
+	<element name="Name" type="string" />
+</schema>

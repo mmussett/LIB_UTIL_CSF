@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.royallondon.com/xsd/internal/util/csf/logconfig/v1" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:log="http://www.royallondon.com/xsd/internal/util/csf/logconfig/v1" attributeFormDefault="unqualified">
+
+    <complexType name="LogItemType">
+    	<attribute name="context" type="string" use="required" />
+    	<attribute name="audit" type="log:LogLevelType" use="optional"/>
+    	<attribute name="trace" type="log:LogLevelType" use="optional"/>
+    	<attribute name="log" type="log:LogLevelType" use="optional"/>
+    </complexType>
+
+    <complexType name="LogConfigType">
+    	<sequence>
+    		<element ref="log:LogItem" minOccurs="0"
+    			maxOccurs="unbounded" />
+    	</sequence>
+    	<attribute name="audit" type="log:LogLevelType" use="required"/>
+    	<attribute name="trace" type="log:LogLevelType" use="required"/>
+    	<attribute name="log" type="log:LogLevelType" use="required"/>
+    </complexType>
+
+    <element name="LogItem" type="log:LogItemType"/>
+    <element name="LogConfig" type="log:LogConfigType"/>
+
+    <simpleType name="LogLevelType">
+    	<restriction base="string">
+    		<enumeration value="OFF"/>
+    		<enumeration value="ON"/>
+    		<enumeration value="PAYLOAD"/>
+    	</restriction>
+    </simpleType>
+
+    <element name="LogMessage" type="string"/>
+</schema>

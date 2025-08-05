@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.royallondon.com/xsd/internal/util/csf/restexception/v1" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.royallondon.com/xsd/internal/util/csf/restexception/v1" xmlns:Q1="http://www.royallondon.com/xsd/resource/util/csf/exceptioninfo/v1" xmlns:Q2="http://www.royallondon.com/xsd/resource/util/csf/rest/v1">
+
+    <import namespace="http://www.royallondon.com/xsd/resource/util/csf/rest/v1" schemaLocation="../../../Resource/UTIL/CSF/REST_v1.xsd"></import>
+    <import namespace="http://www.royallondon.com/xsd/resource/util/csf/exceptioninfo/v1" schemaLocation="../../../Resource/UTIL/CSF/ExceptionInfo_v1.xsd"></import>
+    
+    <complexType name="TransformExceptionRequestType">
+    	<sequence>
+    		<element ref="tns:Response"></element>
+    		<element ref="Q1:ExceptionInfo"></element>
+    	</sequence>
+    </complexType>
+    <complexType name="TransformExceptionResponseType">
+    	<sequence>
+    		<element ref="tns:Response"></element>
+    		<element ref="tns:StatusCode" minOccurs="0"></element>
+    	</sequence>
+    </complexType>
+    
+    <complexType name="ResponseType">
+    	<sequence>
+    		<any processContents="skip"></any>
+    	</sequence></complexType>
+
+    <element name="TransformExceptionRequest" type="tns:TransformExceptionRequestType"></element>
+    <element name="TransformExceptionResponse" type="tns:TransformExceptionResponseType"></element>
+    <element name="Response" type="tns:ResponseType"></element>
+    
+
+    <simpleType name="StatusCodeType">
+    	<restriction base="int"></restriction>
+    </simpleType>
+
+    <element name="StatusCode" type="tns:StatusCodeType"></element>
+</schema>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:api="http://www.royallondon.com/xsd/resource/util/csf/api/v1" xmlns:dyn="http://www.royallondon.com/xsd/interface/util/csf/dynamics/v1" xmlns:fetchxml="FetchXML" elementFormDefault="qualified" targetNamespace="http://www.royallondon.com/xsd/interface/util/csf/dynamics/v1">
+
+    <import namespace="http://www.royallondon.com/xsd/resource/util/csf/api/v1" schemaLocation="../../../Resource/UTIL/CSF/API_v1.xsd"/>
+    <import namespace="FetchXML" schemaLocation="../../../Resource/MS/fetch.xsd"/>
+    
+    <complexType name="CreateFetchXMLRequestType">
+    	<sequence>
+    		<element ref="fetchxml:fetch"/>
+    		<element minOccurs="0" ref="api:PageRequest"/>
+    	</sequence>
+    </complexType>
+    
+    <complexType name="CreateFetchXMLResponseType">
+    	<sequence>
+    		<element ref="dyn:FetchXMLString"/>
+    	</sequence>
+    </complexType>
+
+
+    <element name="FetchXMLString" type="string"/>
+
+    <element name="CreateFetchXMLRequest" type="dyn:CreateFetchXMLRequestType"/>
+    <element name="CreateFetchXMLResponse" type="dyn:CreateFetchXMLResponseType"/>
+
+    <complexType name="CreateDynamicsCompatibleJSONRequestType">
+    	<sequence>
+    		<element ref="dyn:XMLPayload"/>
+    	</sequence>
+    </complexType>
+    
+    <complexType name="CreateDynamicsCompatibleJSONResponseType">
+    	<sequence>
+    		<element ref="dyn:JSONString"/>
+    	</sequence>
+    </complexType>
+
+    <element name="CreateDynamicsCompatibleJSONRequest" type="dyn:CreateDynamicsCompatibleJSONRequestType"/>
+    <element name="CreateDynamicsCompatibleJSONResponse" type="dyn:CreateDynamicsCompatibleJSONResponseType"/>
+
+    <complexType name="ParseDynamicsCompatibleJSONRequestType">
+    	<sequence>
+    		<element ref="dyn:JSONString"/>
+    		<element ref="dyn:XMLPayload"/>
+    	</sequence>
+    </complexType>
+
+    <complexType name="ParseDynamicsCompatibleJSONResponseType">
+    	<sequence>
+    		<element ref="dyn:XMLPayload"/>
+    	</sequence>
+    </complexType>
+    
+    <complexType name="XMLPayloadType">
+    	<sequence>
+
+    		<any processContents="skip"></any>
+    	</sequence>
+    </complexType>
+
+    <element name="ParseDynamicsCompatibleJSONRequest" type="dyn:ParseDynamicsCompatibleJSONRequestType"/>
+    <element name="ParseDynamicsCompatibleJSONResponse" type="dyn:ParseDynamicsCompatibleJSONResponseType"/>
+
+    <element name="JSONString" type="string"/>
+
+    <element name="XMLPayload" type="dyn:XMLPayloadType"/>
+</schema>

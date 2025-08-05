@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.royallondon.com/xsd/external/oauth/oauthkeys/v1" xmlns:tns="http://www.royallondon.com/xsd/external/oauth/oauthkeys/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="OpenIDJsonWebKey" type="tns:OpenIDJsonWebKey"/>
+    <xs:complexType name="OpenIDJsonWebKey">
+        <xs:sequence>
+	        <xs:choice minOccurs="1" maxOccurs="unbounded">
+	            <xs:element minOccurs="0" name="d" type="xs:string"/>
+	            <xs:element minOccurs="0" name="e" type="xs:string"/>
+	            <xs:element minOccurs="0" name="crv" type="xs:string"/>
+	            <xs:element minOccurs="0" name="use" type="xs:string"/>
+	            <xs:element minOccurs="0" name="kid" type="xs:string"/>
+	            <xs:element maxOccurs="unbounded" minOccurs="0" name="x5c" type="xs:string"/>
+	            <xs:element minOccurs="0" name="k" type="xs:string"/>
+	            <xs:element minOccurs="0" name="dp" type="xs:string"/>
+	            <xs:element minOccurs="0" name="dq" type="xs:string"/>
+	            <xs:element minOccurs="0" name="n" type="xs:string"/>
+	            <xs:element minOccurs="0" name="p" type="xs:string"/>
+	            <xs:element minOccurs="0" name="kty" type="xs:string"/>
+	            <xs:element minOccurs="0" name="q" type="xs:string"/>
+	            <xs:element minOccurs="0" name="x5t" type="xs:string"/>
+	            <xs:element minOccurs="0" name="qi" type="xs:string"/>
+	            <xs:element minOccurs="0" name="x" type="xs:string"/>
+	            <xs:element minOccurs="0" name="y" type="xs:string"/>
+	            <xs:element minOccurs="0" name="alg" type="xs:string"/>
+			</xs:choice>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="OpenIDJsonWebKeySet" type="tns:OpenIDJsonWebKeySet"/>
+    <xs:complexType name="OpenIDJsonWebKeySet">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="keys" type="tns:OpenIDJsonWebKey"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="OpenIDConfig" type="tns:OpenIDConfig"/>
+    <xs:complexType name="OpenIDConfig">
+        <xs:sequence>
+	        <xs:choice minOccurs="1" maxOccurs="unbounded">
+	            <xs:element name="request_parameter_supported" type="xs:boolean"/>
+	            <xs:element minOccurs="0" name="introspection_endpoint" type="xs:string"/>
+	            <xs:element name="claims_parameter_supported" type="xs:boolean"/>
+	            <xs:element minOccurs="0" name="check_session_iframe" type="xs:string"/>
+	            <xs:element maxOccurs="unbounded" minOccurs="0" name="scopes_supported" type="xs:string"/>
+	            <xs:element name="issuer" type="xs:string"/>
+	            <xs:element maxOccurs="unbounded" minOccurs="0" name="acr_values_supported" type="xs:string"/>
+	            <xs:element maxOccurs="unbounded" minOccurs="0" name="id_token_encryption_enc_values_supported" type="xs:string"/>
+	            <xs:element maxOccurs="unbounded" name="userinfo_encryption_enc_values_supported" type="xs:string"/>
+	            <xs:element name="authorization_endpoint" type="xs:string"/>
+	            <xs:element name="service_documentation" type="xs:string"/>
+	            <xs:element maxOccurs="unbounded" name="request_object_encryption_enc_values_supported" type="xs:string"/>
+	            <xs:element maxOccurs="unbounded" name="display_values_supported" type="xs:string"/>
+	            <xs:element maxOccurs="unbounded" name="userinfo_signing_alg_values_supported" type="xs:string"/>
+	            <xs:element maxOccurs="unbounded" name="claims_supported" type="xs:string"/>
+	            <xs:element maxOccurs="unbounded" name="claim_types_supported" type="xs:string"/>
+	            <xs:element name="op_policy_uri" type="xs:string"/>
+	            <xs:element maxOccurs="unbounded" name="token_endpoint_auth_methods_supported" type="xs:string"/>
+	            <xs:element maxOccurs="unbounded" minOccurs="0" name="response_modes_supported" type="xs:string"/>
+	            <xs:element minOccurs="0" name="token_endpoint" type="xs:string"/>
+	            <xs:element maxOccurs="unbounded" minOccurs="0" name="response_types_supported" type="xs:string"/>
+	            <xs:element name="request_uri_parameter_supported" type="xs:boolean"/>
+	            <xs:element maxOccurs="unbounded" name="userinfo_encryption_alg_values_supported" type="xs:string"/>
+	            <xs:element maxOccurs="unbounded" minOccurs="0" name="grant_types_supported" type="xs:string"/>
+	            <xs:element minOccurs="0" name="end_session_endpoint" type="xs:string"/>
+	            <xs:element maxOccurs="unbounded" name="ui_locales_supported" type="xs:string"/>
+	            <xs:element minOccurs="0" name="revocation_endpoint" type="xs:string"/>
+	            <xs:element minOccurs="0" name="userinfo_endpoint" type="xs:string"/>
+	            <xs:element minOccurs="0" name="frontchannel_logout_supported" type="xs:boolean"/>
+	            <xs:element maxOccurs="unbounded" name="token_endpoint_auth_signing_alg_values_supported" type="xs:string"/>
+	            <xs:element name="op_tos_uri" type="xs:string"/>
+	            <xs:element name="require_request_uri_registration" type="xs:boolean"/>
+	            <xs:element maxOccurs="unbounded" minOccurs="0" name="code_challenge_methods_supported" type="xs:string"/>
+	            <xs:element maxOccurs="unbounded" name="id_token_encryption_alg_values_supported" type="xs:string"/>
+	            <xs:element minOccurs="0" name="frontchannel_logout_session_supported" type="xs:boolean"/>
+	            <xs:element name="jwks_uri" type="xs:string"/>
+	            <xs:element maxOccurs="unbounded" name="subject_types_supported" type="xs:string"/>
+	            <xs:element maxOccurs="unbounded" name="id_token_signing_alg_values_supported" type="xs:string"/>
+	            <xs:element minOccurs="0" name="registration_endpoint" type="xs:string"/>
+	            <xs:element maxOccurs="unbounded" name="claims_locales_supported" type="xs:string"/>
+	            <xs:element maxOccurs="unbounded" name="request_object_signing_alg_values_supported" type="xs:string"/>
+	            <xs:element maxOccurs="unbounded" name="request_object_encryption_alg_values_supported" type="xs:string"/>
+	        </xs:choice>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="OpenIDAccessTokenResponse" type="tns:OpenIDAccessTokenResponse"/>
+    <xs:complexType name="OpenIDAccessTokenResponse">
+        <xs:sequence>
+	        <xs:choice minOccurs="1" maxOccurs="unbounded">
+	        	<xs:element minOccurs="0" name="id_token" type="xs:string"/>
+	            <xs:element minOccurs="0" name="access_token" type="xs:string"/>
+	            <xs:element minOccurs="0" name="token_type" type="xs:string"/>
+	            <xs:element minOccurs="0" name="expires_in" type="xs:integer"/>
+	            <xs:element minOccurs="0" name="refresh_token" type="xs:string"/>
+	            <xs:element minOccurs="0" name="scope" type="xs:string"/>
+			</xs:choice>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="OpenIDGenericError" type="tns:OpenIDGenericError"/>
+    <xs:complexType name="OpenIDGenericError">
+        <xs:sequence>
+	        <xs:choice minOccurs="1" maxOccurs="unbounded">
+	            <xs:element minOccurs="0" name="reason" type="xs:string"/>
+	            <xs:element minOccurs="0" name="request" type="xs:string"/>
+	            <xs:element minOccurs="0" name="code" type="xs:string"/>
+	            <xs:element minOccurs="0" name="message" type="xs:string"/>
+	            <xs:element minOccurs="0" name="status" type="xs:string"/>
+			</xs:choice>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

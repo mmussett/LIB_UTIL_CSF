@@ -1,0 +1,979 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:Q2="http://tns.tibco.com/bw/REST" xmlns:Q3="http://www.royallondon.com/xsd/resource/util/csf/transactioncontext/v1" xmlns:pref="http://www.royallondon.com/xsd/resource/util/csf/exceptioninfo/v1" xmlns:tns="http://www.royallondon.com/xsd/interface/util/csf/exception/v1" elementFormDefault="qualified" targetNamespace="http://www.royallondon.com/xsd/interface/util/csf/exception/v1" xmlns:app="http://www.royallondon.com/xsd/resource/util/csf/appexception/v1">
+
+    <import namespace="http://www.royallondon.com/xsd/resource/util/csf/transactioncontext/v1" schemaLocation="../../../Resource/UTIL/CSF/TransactionContext_v1.xsd"/>
+    <import namespace="http://www.royallondon.com/xsd/resource/util/csf/exceptioninfo/v1" schemaLocation="../../../Resource/UTIL/CSF/ExceptionInfo_v1.xsd"/>
+    <import namespace="http://www.royallondon.com/xsd/resource/util/csf/appexception/v1" schemaLocation="../../../Resource/UTIL/CSF/AppException_v1.xsd"/>
+    <import namespace="http://tns.tibco.com/bw/REST" schemaLocation="../../../Resource/BW/RESTSchema.xsd"/>
+
+    <complexType abstract="true" name="CreateTypedFTLExceptionRequestType">
+    	<complexContent>
+    		<extension base="tns:CreateTypedExceptionRequestType">
+    			<sequence>
+    				<element ref="tns:Endpoint" />
+    				<element ref="tns:Channel" />
+    			</sequence>
+    		</extension>
+    	</complexContent>
+    </complexType>
+
+    <complexType abstract="true" name="CreateTypedDestinationExceptionRequestType">
+    	<complexContent>
+    		<extension base="tns:CreateTypedExceptionRequestType">
+    			<sequence>
+    				<element ref="tns:DestinationName"/>
+    			</sequence>
+    		</extension>
+    	</complexContent>
+    </complexType>
+
+    <complexType abstract="true" name="CreateTypedExceptionRequestType">
+    	<sequence>
+    		<element minOccurs="0" ref="tns:FaultDetailsOrError"/>
+    		<element minOccurs="0" ref="tns:InstanceID"/>
+    		<element minOccurs="0" ref="pref:ContextList"/>
+    	</sequence>
+    </complexType>
+
+    <complexType abstract="true" name="CreateTypedOrExisitingExceptionRequestType">
+    	<sequence>
+    		<choice>
+	    		<element minOccurs="0" ref="app:AppException"/>
+	    		<sequence>
+		    		<element minOccurs="0" ref="tns:FaultDetailsOrError"/>
+		    		<element minOccurs="0" ref="tns:InstanceID"/>
+		    		<element minOccurs="0" ref="pref:ContextList"/>
+	    		</sequence>
+    		</choice>
+    	</sequence>
+    </complexType>
+
+    <complexType name="AddExceptionRequestType">
+    	<sequence>
+    		<element ref="app:AppException"/>
+    		<element minOccurs="0" ref="tns:ToAppException"/>
+    	</sequence>
+    </complexType>
+
+    <element name="AddExceptionRequest" type="tns:AddExceptionRequestType"/>
+
+    <complexType name="AddExceptionResponseType">
+    	<sequence>
+    		<element ref="app:AppException"/>
+    	</sequence>
+    </complexType>
+    
+    <element name="AddExceptionResponse" type="tns:AddExceptionResponseType"/>
+
+    <complexType name="GetExceptionInfoRequestType">
+    	<sequence>
+    		<element ref="app:AppException"/>
+    	</sequence>
+    </complexType>
+    
+    <element name="GetExceptionInfoRequest" type="tns:GetExceptionInfoRequestType"/>
+
+    <complexType name="GetExceptionInfoResponseType">
+    	<sequence>
+            <element ref="pref:ExceptionInfo"/>
+    	</sequence>
+    </complexType>
+    
+    <element name="GetExceptionInfoResponse" type="tns:GetExceptionInfoResponseType"/>
+
+    <complexType name="GetExceptionReplyRequestType">
+    	<sequence>
+    		<element ref="app:AppException"/>
+    	</sequence>
+    </complexType>
+    
+    <element name="GetExceptionReplyRequest" type="tns:GetExceptionReplyRequestType"/>
+
+    <complexType name="GetExceptionReplyResponseType">
+    	<sequence>
+            <element ref="pref:ExceptionInfo"/>
+    	</sequence>
+    </complexType>
+    
+    <element name="GetExceptionReplyResponse" type="tns:GetExceptionReplyResponseType"/>
+
+    <complexType name="CreateBWExceptionRequestType">
+    	<sequence>
+    	</sequence>
+    </complexType>
+    
+    <element name="CreateBWExceptionRequest" type="tns:CreateBWExceptionRequestType"/>
+
+    <complexType name="CreateBWExceptionResponseType">
+    	<sequence>
+    		<any processContents="skip"/>
+    	</sequence>
+    </complexType>
+    
+    <element name="CreateBWExceptionResponse" type="tns:CreateBWExceptionResponseType"/>
+
+    <complexType name="GetFaultDetailsRequestType">
+    	<sequence>
+    		<element minOccurs="0" ref="tns:FaultDetailsOrError"/>
+    	</sequence>
+    </complexType>
+    
+    <element name="GetFaultDetailsRequest" type="tns:GetFaultDetailsRequestType"/>
+
+    <complexType name="GetFaultDetailsResponseType">
+    	<sequence>
+    		<element ref="app:FaultDetails" />
+    		<element ref="Q3:TransactionContext" />
+    		<element minOccurs="0" ref="pref:ExceptionInfo" />
+    		<element ref="tns:IsLocalException"/>
+    	</sequence>
+    </complexType>
+    
+    <element name="GetFaultDetailsResponse" type="tns:GetFaultDetailsResponseType"/>
+
+    <complexType name="TestIsCSFExceptionRequestType">
+    	<sequence>
+    		<element ref="tns:FaultDetailsOrError"/>
+    	</sequence>
+    </complexType>
+    
+    <element name="TestIsCSFExceptionRequest" type="tns:TestIsCSFExceptionRequestType"/>
+
+    <complexType name="TestIsCSFExceptionResponseType">
+    	<sequence>
+    		<element ref="tns:IsCSFException"/>
+    	</sequence>
+    </complexType>
+    
+    <element name="TestIsCSFExceptionResponse" type="tns:TestIsCSFExceptionResponseType"/>
+
+    <complexType name="CreateExceptionResponseType">
+    	<sequence>
+    		<element ref="app:AppException"/>
+    	</sequence>
+    </complexType>
+    
+    <element name="CreateExceptionResponse" type="tns:CreateExceptionResponseType"/>
+
+    <complexType name="CreateExceptionRequestType">
+    	<sequence>
+    		<element ref="tns:FaultDetailsOrError" minOccurs="0"/>
+    	</sequence>
+    </complexType>
+    
+    <element name="CreateExceptionRequest" type="tns:CreateExceptionRequestType"/>
+
+    <complexType name="CreateExceptionFromResponseCodeRequestType">
+    	<sequence>
+    		<element minOccurs="0" ref="tns:InstanceID" />
+    		<element minOccurs="0" ref="pref:ContextList" />
+    		<element ref="tns:DestinationName" />
+    		<element ref="tns:ResponseValue" />
+    		<element ref="tns:DefaultExceptionType" minOccurs="0"/>
+    		<element ref="tns:DefaultRESTStatusCode" minOccurs="0" />
+    		<element minOccurs="0" ref="tns:ExceptionDetails" />
+    	</sequence>
+    </complexType>
+
+    <element name="CreateExceptionFromResponseCodeRequest" type="tns:CreateExceptionFromResponseCodeRequestType"/>
+
+
+    <complexType name="CreateExceptionFromResponseCodeResponseType">
+    	<complexContent>
+    		<extension base="tns:CreateExceptionResponseType">
+    		</extension>
+    	</complexContent>
+    </complexType>
+
+    <element name="CreateExceptionFromResponseCodeResponse" type="tns:CreateExceptionFromResponseCodeResponseType"/>
+
+
+    <complexType name="CreateUserExceptionRequestType" abstract="true">
+    	<sequence>
+    		<element ref="pref:ExceptionCode"/>
+    		<element ref="pref:ExceptionMessage"/>
+    		<element ref="pref:DetailMessage" minOccurs="0"/>
+    		<element ref="tns:InstanceID" minOccurs="0"/>
+    		<element ref="pref:RESTStatusCode" minOccurs="0"/>
+    		<element ref="pref:ContextList" minOccurs="0" />
+    	</sequence>
+    </complexType>
+    
+    <complexType name="CreateUserExceptionResponseType" abstract="true">
+    	<sequence>
+    		<element ref="app:AppException"/>
+    	</sequence>
+    </complexType>
+
+    <complexType name="CreateTechnicalExceptionRequestType">
+    	<complexContent>
+    		<extension base="tns:CreateUserExceptionRequestType">
+    		</extension>
+    	</complexContent>
+    </complexType>
+
+    <complexType name="CreateTechnicalExceptionResponseType">
+    	<complexContent>
+    		<extension base="tns:CreateUserExceptionResponseType">
+    		</extension>
+    	</complexContent>
+    </complexType>
+
+    <element name="CreateTechnicalExceptionRequest" type="tns:CreateTechnicalExceptionRequestType"/>
+    <element name="CreateTechnicalExceptionResponse" type="tns:CreateTechnicalExceptionResponseType"/>
+
+    <complexType name="CreateBusinessExceptionRequestType">
+    	<complexContent>
+    		<extension base="tns:CreateUserExceptionRequestType">
+    		</extension>
+    	</complexContent>
+    </complexType>
+
+    <complexType name="CreateBusinessExceptionResponseType">
+    	<complexContent>
+    		<extension base="tns:CreateUserExceptionResponseType">
+    		</extension>
+    	</complexContent>
+    </complexType>
+
+    <element name="CreateBusinessExceptionRequest" type="tns:CreateBusinessExceptionRequestType"/>
+    <element name="CreateBusinessExceptionResponse" type="tns:CreateBusinessExceptionResponseType"/>
+
+    <complexType name="CreateOrGetExceptionRequestType">
+    	<sequence>
+    		<element minOccurs="0" ref="tns:FaultDetailsOrError" />
+    		<element ref="pref:ExceptionInfo" />
+    		<element minOccurs="0" ref="pref:ContextList" />
+    		<element ref="app:AppException" minOccurs="0"></element>
+    	</sequence>
+    </complexType>
+    
+    <element name="CreateOrGetExceptionRequest" type="tns:CreateOrGetExceptionRequestType"/>
+
+
+    <complexType name="CreateOrGetExceptionResponseType">
+    	<sequence>
+    		<element ref="app:AppException"/>
+    	</sequence>
+    </complexType>
+    
+    <element name="CreateOrGetExceptionResponse" type="tns:CreateOrGetExceptionResponseType"/>
+
+    <complexType name="ValidateOptionalFieldsRequestType">
+    	<sequence>
+    		<element ref="tns:Message" />
+    		<element ref="tns:Exemplar" />
+    	</sequence>
+    </complexType>
+    
+    <element name="ValidateOptionalFieldsRequest" type="tns:ValidateOptionalFieldsRequestType"/>
+
+    <complexType name="ValidateOptionalFieldsResponseType">
+    	<sequence/>
+    </complexType>
+    
+    <element name="ValidateOptionalFieldsResponse" type="tns:ValidateOptionalFieldsResponseType"/>
+
+    <element name="IsCSFException" type="boolean"/>
+
+    <complexType name="FaultDetailsOrErrorType">
+    	<sequence>
+    		<any processContents="skip" minOccurs="0"/>
+    	</sequence>
+    </complexType>
+
+    <element name="FaultDetailsOrError" type="tns:FaultDetailsOrErrorType"/>
+
+    <complexType name="ToAppExceptionType">
+    	<sequence>
+    		<element ref="app:AppException"/>
+    	</sequence>
+    </complexType>
+
+    <element name="ToAppException" type="tns:ToAppExceptionType"/>
+
+    <complexType name="PayloadType">
+    	<sequence>
+    		<any processContents="skip"/>
+    	</sequence>
+    </complexType>
+
+    <element name="Payload" type="tns:PayloadType"/>
+
+    <element name="Message" type="tns:PayloadType"/>
+    <element name="Exemplar" type="tns:PayloadType"/>
+
+
+
+    <complexType name="CreateDynamics365OperationExceptionRequestType">
+    	<complexContent>
+    		<extension base="tns:CreateTypedExceptionRequestType">
+    			<sequence>
+    		<element minOccurs="0" ref="tns:ExceptionDetails" />
+    			</sequence>
+    		</extension>
+    	</complexContent>
+    </complexType>
+    
+    <complexType name="CreateDynamics365OperationExceptionResponseType">
+    	<complexContent>
+    		<extension base="tns:CreateExceptionResponseType"/>
+    	</complexContent>
+    </complexType>
+
+    <element name="CreateDynamics365OperationExceptionRequest" type="tns:CreateDynamics365OperationExceptionRequestType"/>
+    <element name="CreateDynamics365OperationExceptionResponse" type="tns:CreateDynamics365OperationExceptionResponseType"/>
+
+
+    <complexType name="CreateNotAuthorisedExceptionRequestType">
+    	<complexContent>
+    		<extension base="tns:CreateTypedExceptionRequestType">
+    			<sequence>
+    				<element ref="tns:ExceptionCode" minOccurs="0"/>
+    				<element ref="tns:ExceptionMessage" minOccurs="0"/>
+    			</sequence>
+    		</extension>
+    	</complexContent>
+    </complexType>
+    
+    <complexType name="CreateNotAuthorisedExceptionResponseType">
+    	<complexContent>
+    		<extension base="tns:CreateExceptionResponseType"/>
+    	</complexContent>
+    </complexType>
+
+
+    <element name="CreateNotAuthorisedExceptionRequest" type="tns:CreateNotAuthorisedExceptionRequestType"/>
+    <element name="CreateNotAuthorisedExceptionResponse" type="tns:CreateNotAuthorisedExceptionResponseType"/>
+
+    <complexType name="CreateForbiddenExceptionRequestType">
+    	<complexContent>
+    		<extension base="tns:CreateTypedExceptionRequestType">
+    			<sequence>
+    				<element ref="tns:ExceptionCode" minOccurs="0"/>
+    				<element ref="tns:ExceptionMessage" minOccurs="0"/>
+    			</sequence>
+    		</extension>
+    	</complexContent>
+    </complexType>
+    
+    <complexType name="CreateForbiddenExceptionResponseType">
+    	<complexContent>
+    		<extension base="tns:CreateExceptionResponseType"/>
+    	</complexContent>
+    </complexType>
+
+
+    <element name="CreateForbiddenExceptionRequest" type="tns:CreateForbiddenExceptionRequestType"/>
+    <element name="CreateForbiddenExceptionResponse" type="tns:CreateForbiddenExceptionResponseType"/>
+
+
+    <complexType name="CreateDatabaseOperationExceptionRequestType">
+    	<complexContent>
+    		<extension base="tns:CreateTypedExceptionRequestType">
+    			<sequence>
+    			</sequence>
+    		</extension>
+    	</complexContent>
+    </complexType>
+    
+    <complexType name="CreateDatabaseOperationExceptionResponseType">
+    	<complexContent>
+    		<extension base="tns:CreateExceptionResponseType"/>
+    	</complexContent>
+    </complexType>
+
+    <element name="CreateDatabaseOperationExceptionRequest" type="tns:CreateDatabaseOperationExceptionRequestType"/>
+    <element name="CreateDatabaseOperationExceptionResponse" type="tns:CreateDatabaseOperationExceptionResponseType"/>
+
+    <complexType name="CreateFileOperationExceptionRequestType">
+    	<complexContent>
+    		<extension base="tns:CreateTypedExceptionRequestType">
+      			<sequence>
+    				<element ref="tns:Filename"/>
+    			</sequence>
+    		</extension>
+    	</complexContent>
+    </complexType>
+    
+    <complexType name="CreateFileOperationExceptionResponseType">
+    	<complexContent>
+    		<extension base="tns:CreateExceptionResponseType">
+    		</extension>
+
+    	</complexContent>
+    </complexType>
+
+    <element name="CreateFileOperationExceptionRequest" type="tns:CreateFileOperationExceptionRequestType"/>
+    <element name="CreateFileOperationExceptionResponse" type="tns:CreateFileOperationExceptionResponseType"/>
+
+    <complexType name="CreateActiveSpacesOperationExceptionRequestType">
+    	<complexContent>
+    		<extension base="tns:CreateTypedExceptionRequestType">
+      			<sequence>
+	      			<element ref="tns:ExceptionMessage" minOccurs="0"/>
+    			</sequence>
+    		</extension>
+    	</complexContent>
+    </complexType>
+    
+    <complexType name="CreateActiveSpacesOperationExceptionResponseType">
+    	<complexContent>
+    		<extension base="tns:CreateExceptionResponseType">
+    		</extension>
+
+    	</complexContent>
+    </complexType>
+
+    <element name="CreateActiveSpacesOperationExceptionRequest" type="tns:CreateActiveSpacesOperationExceptionRequestType"/>
+    <element name="CreateActiveSpacesOperationExceptionResponse" type="tns:CreateActiveSpacesOperationExceptionResponseType"/>
+
+    <complexType name="CreateInternalErrorExceptionRequestType">
+    	<complexContent>
+    		<extension base="tns:CreateTypedExceptionRequestType">
+    		</extension>
+    	</complexContent>
+    </complexType>
+    
+    <complexType name="CreateInternalErrorExceptionResponseType">
+    	<complexContent>
+    		<extension base="tns:CreateExceptionResponseType"/>
+    	</complexContent>
+    </complexType>
+
+    <element name="CreateInternalErrorExceptionRequest" type="tns:CreateInternalErrorExceptionRequestType"/>
+    <element name="CreateInternalErrorExceptionResponse" type="tns:CreateInternalErrorExceptionResponseType"/>
+
+    <complexType name="CreateFrameworkErrorExceptionRequestType">
+    	<complexContent>
+    		<extension base="tns:CreateTypedExceptionRequestType">
+    			<sequence>
+    				<element ref="tns:ProblemDescription"/>
+    			</sequence>
+    		</extension>
+    	</complexContent>
+    </complexType>
+    
+    <complexType name="CreateFrameworkErrorExceptionResponseType">
+    	<complexContent>
+    		<extension base="tns:CreateExceptionResponseType"/>
+    	</complexContent>
+    </complexType>
+
+    <element name="CreateFrameworkErrorExceptionRequest" type="tns:CreateFrameworkErrorExceptionRequestType"/>
+    <element name="CreateFrameworkErrorExceptionResponse" type="tns:CreateFrameworkErrorExceptionResponseType"/>
+
+    <complexType name="CreateInvalidResponseCodeExceptionRequestType">
+    	<complexContent>
+    		<extension base="tns:CreateTypedDestinationExceptionRequestType">
+    			<sequence>
+    				<element ref="tns:ResponseValue"/>
+    			</sequence>
+    		</extension>
+    	</complexContent>
+    </complexType>
+
+    <complexType name="CreateInvalidResponseCodeExceptionResponseType">
+    	<complexContent>
+    		<extension base="tns:CreateExceptionResponseType"/>
+    	</complexContent>
+    </complexType>
+
+    <element name="CreateInvalidResponseCodeExceptionRequest" type="tns:CreateInvalidResponseCodeExceptionRequestType"/>
+    <element name="CreateInvalidResponseCodeExceptionResponse" type="tns:CreateInvalidResponseCodeExceptionResponseType"/>
+
+    <complexType name="CreateXMLParseErrorExceptionRequestType">
+    	<complexContent>
+    		<extension base="tns:CreateTypedExceptionRequestType"/>
+    	</complexContent>
+    </complexType>
+    
+    <complexType name="CreateXMLParseErrorExceptionResponseType">
+    	<complexContent>
+    		<extension base="tns:CreateExceptionResponseType"/>
+    	</complexContent>
+    </complexType>
+
+    <element name="CreateXMLParseErrorExceptionRequest" type="tns:CreateXMLParseErrorExceptionRequestType"/>
+    <element name="CreateXMLParseErrorExceptionResponse" type="tns:CreateXMLParseErrorExceptionResponseType"/>
+
+    <complexType name="CreateUnableToGetDataErrorExceptionRequestType">
+    	<complexContent>
+    		<extension base="tns:CreateTypedExceptionRequestType">
+    			<sequence>
+    				<element ref="tns:DestinationName"/>
+    			</sequence>
+    		</extension>
+    	</complexContent>
+    </complexType>
+    
+    <complexType name="CreateUnableToGetDataErrorExceptionResponseType">
+    	<complexContent>
+    		<extension base="tns:CreateExceptionResponseType"/>
+    	</complexContent>
+    </complexType>
+
+    <element name="CreateUnableToGetDataErrorExceptionRequest" type="tns:CreateUnableToGetDataErrorExceptionRequestType"/>
+    <element name="CreateUnableToGetDataErrorExceptionResponse" type="tns:CreateUnableToGetDataErrorExceptionResponseType"/>
+
+    <complexType name="CreateDataNotFoundErrorExceptionRequestType">
+    	<complexContent>
+    		<extension base="tns:CreateTypedDestinationExceptionRequestType">
+    			<sequence/>
+    		</extension>
+    	</complexContent>
+    </complexType>
+    
+    <complexType name="CreateDataNotFoundErrorExceptionResponseType">
+    	<complexContent>
+    		<extension base="tns:CreateExceptionResponseType"/>
+    	</complexContent>
+    </complexType>
+
+    <element name="CreateDataNotFoundErrorExceptionRequest" type="tns:CreateDataNotFoundErrorExceptionRequestType"/>
+    <element name="CreateDataNotFoundErrorExceptionResponse" type="tns:CreateDataNotFoundErrorExceptionResponseType"/>
+
+    <complexType name="CreateDataAlreadyExistsExceptionRequestType">
+    	<complexContent>
+    		<extension base="tns:CreateTypedDestinationExceptionRequestType">
+    			<sequence>
+    				<element ref="tns:EntityName" minOccurs="0"/>
+	    			<element ref="tns:EntityID" minOccurs="0"/>
+    			</sequence>		
+    		</extension>
+    	</complexContent>
+    </complexType>
+    
+    <complexType name="CreateDataAlreadyExistsExceptionResponseType">
+    	<complexContent>
+    		<extension base="tns:CreateExceptionResponseType"/>
+    	</complexContent>
+    </complexType>
+
+    <element name="CreateDataAlreadyExistsExceptionRequest" type="tns:CreateDataAlreadyExistsExceptionRequestType"/>
+    <element name="CreateDataAlreadyExistsExceptionResponse" type="tns:CreateDataAlreadyExistsExceptionResponseType"/>
+
+    <complexType name="UpdateDataAlreadyExistsExceptionRequestType">
+		<sequence>
+ 			<element ref="app:AppException"/>
+			<element ref="tns:EntityName"/>
+ 			<element ref="tns:EntityID" minOccurs="0"/>
+		</sequence>		
+    </complexType>
+    
+    <complexType name="UpdateDataAlreadyExistsExceptionResponseType">
+    	<complexContent>
+    		<extension base="tns:CreateExceptionResponseType"/>
+    	</complexContent>
+    </complexType>
+
+    <element name="UpdateDataAlreadyExistsExceptionRequest" type="tns:UpdateDataAlreadyExistsExceptionRequestType"/>
+    <element name="UpdateDataAlreadyExistsExceptionResponse" type="tns:UpdateDataAlreadyExistsExceptionResponseType"/>
+
+    <complexType name="CreateInvalidValueFormatExceptionRequestType">
+    	<complexContent>
+    		<extension base="tns:CreateTypedExceptionRequestType">
+    			<sequence>
+    				<element ref="tns:ValueName"/>
+    			</sequence>
+    		</extension>
+    	</complexContent>
+    </complexType>
+    
+    <complexType name="CreateInvalidValueFormatExceptionResponseType">
+    	<complexContent>
+    		<extension base="tns:CreateExceptionResponseType"/>
+    	</complexContent>
+    </complexType>
+
+    <element name="CreateInvalidValueFormatExceptionRequest" type="tns:CreateInvalidValueFormatExceptionRequestType"/>
+    <element name="CreateInvalidValueFormatExceptionResponse" type="tns:CreateInvalidValueFormatExceptionResponseType"/>
+
+    <complexType name="CreateInvalidValueExceptionRequestType">
+    	<complexContent>
+    		<extension base="tns:CreateTypedExceptionRequestType">
+    			<sequence>
+    				<element ref="tns:ValueName"/>
+    				<element ref="tns:Value" minOccurs="0"/>
+    			</sequence>
+    		</extension>
+    	</complexContent>
+    </complexType>
+    
+    <complexType name="CreateInvalidValueExceptionResponseType">
+    	<complexContent>
+    		<extension base="tns:CreateExceptionResponseType"/>
+    	</complexContent>
+    </complexType>
+
+    <element name="CreateInvalidValueExceptionRequest" type="tns:CreateInvalidValueExceptionRequestType"/>
+    <element name="CreateInvalidValueExceptionResponse" type="tns:CreateInvalidValueExceptionResponseType"/>
+
+    <complexType name="CreateInvalidReferenceValueExceptionRequestType">
+    	<complexContent>
+    		<extension base="tns:CreateTypedExceptionRequestType">
+    			<sequence>
+    		<element ref="app:AppException"/>
+    				<element ref="tns:TargetSystem" minOccurs="0"/>
+    				<element ref="tns:TypeName" minOccurs="0"/>
+    				<element ref="tns:ValueName" minOccurs="0"/>
+    				<element ref="tns:Value" minOccurs="0"/>
+    			</sequence>
+    		</extension>
+    	</complexContent>
+    </complexType>
+    
+    <complexType name="CreateInvalidReferenceValueExceptionResponseType">
+    	<complexContent>
+    		<extension base="tns:CreateExceptionResponseType"/>
+    	</complexContent>
+    </complexType>
+
+    <element name="CreateInvalidReferenceValueExceptionRequest" type="tns:CreateInvalidReferenceValueExceptionRequestType"/>
+    <element name="CreateInvalidReferenceValueExceptionResponse" type="tns:CreateInvalidReferenceValueExceptionResponseType"/>
+
+    <complexType name="CreatePageCacheExceptionRequestType">
+    	<complexContent>
+    		<extension base="tns:CreateTypedExceptionRequestType">
+
+    				<choice>
+    					<element name="SessionIsImmutable" type="tns:PageCacheExceptionType"/>
+    					<element name="SessionNotFound" type="tns:PageCacheExceptionType"/>
+    					<element name="ChangingCacheSize" type="tns:PageCacheExceptionType"/>
+    					<element name="ChangingPageSize" type="tns:PageCacheExceptionType"/>
+
+    					<element name="InvalidSliceNumber">
+    						<complexType>
+    							<sequence>
+    								<element
+    									ref="tns:MaxSliceNumber">
+    								</element>
+    							</sequence>
+    						</complexType>
+    					</element>
+
+    					<element name="CacheTooLarge">
+    						<complexType>
+    							<sequence>
+    								<element
+    									ref="tns:MaxCacheSize">
+    								</element>
+    							</sequence>
+    						</complexType>
+    					</element>
+
+    					<element name="PageTooLarge">
+    						<complexType>
+    							<sequence>
+    								<element
+    									ref="tns:MaxPageSize">
+    								</element>
+    							</sequence>
+    						</complexType>
+    					</element>
+
+    					<element name="PageTooSmall">
+    						<complexType>
+    							<sequence>
+    								<element
+    									ref="tns:MinPageSize">
+    								</element>
+    							</sequence>
+    						</complexType>
+    					</element>
+    				</choice>
+    		</extension>
+    	</complexContent>
+    </complexType>
+
+    <complexType name="CreatePageCacheExceptionResponseType">
+    	<complexContent>
+    		<extension base="tns:CreateExceptionResponseType"/>
+    	</complexContent>
+    </complexType>
+
+    <element name="CreatePageCacheExceptionRequest" type="tns:CreatePageCacheExceptionRequestType"/>
+    <element name="CreatePageCacheExceptionResponse" type="tns:CreatePageCacheExceptionResponseType"/>
+
+   <complexType name="CreateMandatoryValueMissingExceptionRequestType">
+    	<complexContent>
+    		<extension base="tns:CreateTypedExceptionRequestType">
+    			<sequence>
+    				<element ref="tns:ValueName"/>
+    			</sequence>
+    		</extension>
+    	</complexContent>
+    </complexType>
+    
+    <complexType name="CreateMandatoryValueMissingExceptionResponseType">
+    	<complexContent>
+    		<extension base="tns:CreateExceptionResponseType"/>
+    	</complexContent>
+    </complexType>
+
+    <element name="CreateMandatoryValueMissingExceptionRequest" type="tns:CreateMandatoryValueMissingExceptionRequestType"/>
+    <element name="CreateMandatoryValueMissingExceptionResponse" type="tns:CreateMandatoryValueMissingExceptionResponseType"/>
+
+    <complexType name="CreateSecurityExceptionRequestType">
+    	<complexContent>
+    		<extension base="tns:CreateTypedExceptionRequestType">
+    			<sequence>
+    				<element ref="tns:ProblemDescription"/>
+    			</sequence>
+    		</extension>
+    	</complexContent>
+    </complexType>
+    
+    <complexType name="CreateSecurityExceptionResponseType">
+    	<complexContent>
+    		<extension base="tns:CreateExceptionResponseType"/>
+    	</complexContent>
+    </complexType>
+
+    <element name="CreateSecurityExceptionRequest" type="tns:CreateSecurityExceptionRequestType"/>
+    <element name="CreateSecurityExceptionResponse" type="tns:CreateSecurityExceptionResponseType"/>
+
+    <complexType name="CreateJMSReceiveExceptionRequestType">
+    	<complexContent>
+    		<extension base="tns:CreateTypedDestinationExceptionRequestType">
+    			<sequence>
+    			</sequence>
+    		</extension>
+    	</complexContent>
+    </complexType>
+    
+    <complexType name="CreateJMSReceiveExceptionResponseType">
+    	<complexContent>
+    		<extension base="tns:CreateExceptionResponseType"/>
+    	</complexContent>
+    </complexType>
+
+    <element name="CreateJMSReceiveExceptionRequest" type="tns:CreateJMSReceiveExceptionRequestType"/>
+    <element name="CreateJMSReceiveExceptionResponse" type="tns:CreateJMSReceiveExceptionResponseType"/>
+
+    <complexType name="CreateJMSSendExceptionRequestType">
+    	<complexContent>
+    		<extension base="tns:CreateTypedDestinationExceptionRequestType">
+    			<sequence>
+    			</sequence>
+    		</extension>
+    	</complexContent>
+    </complexType>
+    
+    <complexType name="CreateJMSSendExceptionResponseType">
+    	<complexContent>
+    		<extension base="tns:CreateExceptionResponseType"/>
+    	</complexContent>
+    </complexType>
+
+    <element name="CreateJMSSendExceptionRequest" type="tns:CreateJMSSendExceptionRequestType"/>
+    <element name="CreateJMSSendExceptionResponse" type="tns:CreateJMSSendExceptionResponseType"/>
+
+    <complexType name="CreateFTLReceiveExceptionRequestType">
+    	<complexContent>
+    		<extension base="tns:CreateTypedFTLExceptionRequestType"/>
+    	</complexContent>
+    </complexType>
+
+    <complexType name="CreateFTLReceiveExceptionResponseType">
+    	<complexContent>
+    		<extension base="tns:CreateExceptionResponseType"/>
+    	</complexContent>
+    </complexType>
+
+    <element name="CreateFTLReceiveExceptionRequest" type="tns:CreateFTLReceiveExceptionRequestType"/>
+    <element name="CreateFTLReceiveExceptionResponse" type="tns:CreateFTLReceiveExceptionResponseType"/>
+
+    <complexType name="CreateFTLSendExceptionRequestType">
+    	<complexContent>
+    		<extension base="tns:CreateTypedFTLExceptionRequestType">
+    			<sequence>
+    				<element ref="tns:ActivityTimeoutMs" minOccurs="0"/>
+    			</sequence>
+    		</extension>
+    	</complexContent>
+    </complexType>
+    
+    <complexType name="CreateFTLSendExceptionResponseType">
+    	<complexContent>
+    		<extension base="tns:CreateExceptionResponseType" />
+    	</complexContent>
+    </complexType>
+
+    <element name="CreateFTLSendExceptionRequest" type="tns:CreateFTLSendExceptionRequestType"/>
+    <element name="CreateFTLSendExceptionResponse" type="tns:CreateFTLSendExceptionResponseType"/>
+
+    <complexType name="CreateExternalBusinessExceptionRequestType">
+    	<complexContent>
+    		<extension base="tns:CreateTypedDestinationExceptionRequestType">
+    			<sequence>
+    				<element ref="tns:ExceptionCode" minOccurs="0"/>
+    				<element ref="tns:ExceptionMessage" minOccurs="0"/>
+    			</sequence>
+    		</extension>
+    	</complexContent>
+    </complexType>
+
+    <complexType name="CreateExternalBusinessExceptionResponseType">
+    	<complexContent>
+    		<extension base="tns:CreateExceptionResponseType"/>
+    	</complexContent>
+    </complexType>
+
+    <element name="CreateExternalBusinessExceptionRequest" type="tns:CreateExternalBusinessExceptionRequestType"/>
+    <element name="CreateExternalBusinessExceptionResponse" type="tns:CreateExternalBusinessExceptionResponseType"/>
+
+    <complexType name="CreateExternalTechnicalExceptionRequestType">
+    	<complexContent>
+    		<extension base="tns:CreateTypedDestinationExceptionRequestType">
+    			<sequence>
+    				<element ref="tns:ExceptionCode" minOccurs="0"/>
+    				<element ref="tns:ExceptionMessage" minOccurs="0"/>
+    			</sequence>
+    		</extension>
+    	</complexContent>
+    </complexType>
+
+    <complexType name="CreateExternalTechnicalExceptionResponseType">
+    	<complexContent>
+    		<extension base="tns:CreateExceptionResponseType"/>
+    	</complexContent>
+    </complexType>
+
+    <element name="CreateExternalTechnicalExceptionRequest" type="tns:CreateExternalTechnicalExceptionRequestType"/>
+    <element name="CreateExternalTechnicalExceptionResponse" type="tns:CreateExternalTechnicalExceptionResponseType"/>
+
+    <complexType name="CreateHTTPExternalBusinessExceptionRequestType">
+    	<complexContent>
+    		<extension base="tns:CreateTypedDestinationExceptionRequestType">
+    			<sequence>
+    				<element ref="tns:HTTP4xxStatusCode"/>
+    				<element ref="tns:HTTPStatusMessage" minOccurs="0"/>
+    			</sequence>
+    		</extension>
+    	</complexContent>
+    </complexType>
+
+    <complexType name="CreateHTTPExternalBusinessExceptionResponseType">
+    	<complexContent>
+    		<extension base="tns:CreateExceptionResponseType"/>
+    	</complexContent>
+    </complexType>
+
+    <element name="CreateHTTPExternalBusinessExceptionRequest" type="tns:CreateHTTPExternalBusinessExceptionRequestType"/>
+    <element name="CreateHTTPExternalBusinessExceptionResponse" type="tns:CreateHTTPExternalBusinessExceptionResponseType"/>
+
+    <complexType name="CreateHTTPExternalTechnicalExceptionRequestType">
+    	<complexContent>
+    		<extension base="tns:CreateTypedDestinationExceptionRequestType">
+    			<sequence>
+    				<element ref="tns:HTTP5xxStatusCode"/>
+    				<element ref="tns:HTTPStatusMessage" minOccurs="0"/>
+    			</sequence>
+    		</extension>
+    	</complexContent>
+    </complexType>
+
+    <complexType name="CreateHTTPExternalTechnicalExceptionResponseType">
+    	<complexContent>
+    		<extension base="tns:CreateExceptionResponseType"/>
+    	</complexContent>
+    </complexType>
+
+    <element name="CreateHTTPExternalTechnicalExceptionRequest" type="tns:CreateHTTPExternalTechnicalExceptionRequestType"/>
+    <element name="CreateHTTPExternalTechnicalExceptionResponse" type="tns:CreateHTTPExternalTechnicalExceptionResponseType"/>
+
+    <complexType name="CreateHTTPSendExceptionRequestType">
+    	<complexContent>
+    		<extension base="tns:CreateTypedDestinationExceptionRequestType"/>
+    	</complexContent>
+    </complexType>
+
+    <complexType name="CreateHTTPSendExceptionResponseType">
+    	<complexContent>
+    		<extension base="tns:CreateExceptionResponseType"/>
+    	</complexContent>
+    </complexType>
+
+    <element name="CreateHTTPSendExceptionRequest" type="tns:CreateHTTPSendExceptionRequestType"/>
+    <element name="CreateHTTPSendExceptionResponse" type="tns:CreateHTTPSendExceptionResponseType"/>
+
+    <complexType name="CreateHTTPReceiveExceptionRequestType">
+    	<complexContent>
+    		<extension base="tns:CreateTypedDestinationExceptionRequestType"/>
+    	</complexContent>
+    </complexType>
+    
+    <complexType name="CreateHTTPReceiveExceptionResponseType">
+    	<complexContent>
+    		<extension base="tns:CreateExceptionResponseType"/>
+    	</complexContent>
+    </complexType>
+
+    <element name="CreateHTTPReceiveExceptionRequest" type="tns:CreateHTTPReceiveExceptionRequestType"/>
+    <element name="CreateHTTPReceiveExceptionResponse" type="tns:CreateHTTPReceiveExceptionResponseType"/>
+
+    <element name="DestinationName" type="string"/>
+    <element name="Filename" type="string"/>
+    <element name="URL" type="string"/>
+    <element name="SQL" type="string"/>
+    <element name="ValueName" type="string"/>
+    <element name="Value" type="string"/>
+    <element name="ResponseValue" type="string"/>
+
+
+    <simpleType name="InstanceIDType">
+    	<restriction base="string"/>
+    </simpleType>
+
+    <element name="InstanceID" type="tns:InstanceIDType"/>
+
+    <complexType name="ExceptionDetailsType">
+   		<sequence>
+   			<element ref="pref:ExceptionCode" />
+   			<element minOccurs="0" ref="pref:ExceptionType" />
+   			<element ref="pref:ExceptionMessage" />
+   			<element ref="pref:RESTStatusCode" minOccurs="0" />
+   		</sequence>
+    </complexType>
+
+    <element name="DefaultExceptionType" type="pref:TypeType"/>
+    <element name="ExceptionDetails" type="tns:ExceptionDetailsType"/>
+
+    <element name="IsLocalException" type="boolean"></element>
+
+    <element name="DefaultRESTStatusCode" type="pref:RestStatusCodeType"/>
+
+    <element name="ProblemDescription" type="string"></element>
+
+    <element name="Endpoint" type="string"></element>
+
+    <element name="ActivityTimeoutMs" type="string"></element>
+
+    <element name="Channel" type="string"></element>
+
+    <complexType name="PageCacheExceptionType">
+    	<sequence>
+    		<element ref="tns:SessionID"></element>
+    	</sequence>
+    </complexType>
+    
+    <element name="SessionID" type="string"></element>
+
+    <element name="MaxCacheSize" type="int"/>
+    <element name="MinPageSize" type="short"/>
+    <element name="MaxPageSize" type="short"/>
+    <element name="MaxSliceNumber" type="short"/>
+    <element name="ExceptionCode" type="string"/>
+    <element name="ExceptionMessage" type="string"/>
+    
+    <element name="HTTP4xxStatusCode" type="integer"/>
+    <element name="HTTP5xxStatusCode" type="integer"/>
+    <element name="HTTPStatusMessage" type="string"/>
+
+    <element name="EntityID" type="string"/>
+    <element name="EntityName" type="string"/>
+    <element name="TargetSystem" type="string"/>
+    <element name="TypeName" type="string"/>
+    
+</schema>

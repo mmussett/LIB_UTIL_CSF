@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<app:AppConfig UpdateIntervalMs="10000" xmlns:app="http://www.royallondon.com/xsd/internal/util/csf/appconfig/v1">
+  <app:StringItem name="some-string" value="string value"/>
+  <app:IntegerItem name="some-integer" value="1234567890"/>
+  <app:BooleanItem name="some-boolean" value="true"/>
+</app:AppConfig>

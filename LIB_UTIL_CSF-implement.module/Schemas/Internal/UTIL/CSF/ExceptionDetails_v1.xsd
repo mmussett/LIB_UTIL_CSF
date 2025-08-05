@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:Q1="http://www.royallondon.com/xsd/resource/util/csf/exceptioninfo/v1" xmlns:tns="http://www.royallondon.com/xsd/internal/util/csf/exceptiondetails/v1" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.royallondon.com/xsd/internal/util/csf/exceptiondetails/v1">
+
+    <import namespace="http://www.royallondon.com/xsd/resource/util/csf/exceptioninfo/v1" schemaLocation="../../../Resource/UTIL/CSF/ExceptionInfo_v1.xsd"/>
+    <complexType name="ExceptionDetailsType">
+    	<sequence>
+    		<element ref="tns:ExceptionType" />
+    		<element ref="tns:ExceptionMessage" />
+    		<element ref="tns:StatusCode" />
+    		<element ref="tns:SubExceptionMessage" minOccurs="0" maxOccurs="unbounded"/>
+    	</sequence>
+    	<attribute name="ExceptionCode" type="string" use="required"/>
+    </complexType>
+
+    <element name="ExceptionDetails" type="tns:ExceptionDetailsType"/>
+
+    <complexType name="ExceptionDetailsListType">
+    	<sequence>
+    	<element maxOccurs="unbounded" minOccurs="1" ref="tns:ExceptionDetails"/>
+    	</sequence>
+    </complexType>
+
+    <element name="ExceptionDetailsList" type="tns:ExceptionDetailsListType"/>
+
+
+
+    <simpleType name="ExceptionMessageType">
+    	<restriction base="string"/>
+    </simpleType>
+
+    <element name="ExceptionMessage" type="tns:ExceptionMessageType"/>
+
+    <element name="ExceptionType" type="Q1:TypeType"/>
+
+    <simpleType name="StatusCodeType">
+    	<restriction base="int"></restriction>
+    </simpleType>
+
+    <element name="StatusCode" type="tns:StatusCodeType"/>
+
+    <complexType name="SubExceptionMessageType">
+    	<simpleContent>
+    		<extension base="string">
+    			<attribute name="id" type="string" use="required"/>
+    		</extension>
+    	</simpleContent>
+    </complexType>
+
+    <element name="SubExceptionMessage" type="tns:SubExceptionMessageType"/>
+</schema>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns="http://www.royallondon.com/xsd/resource/util/csf/transactioncontext/v1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.royallondon.com/xsd/resource/util/csf/transactioncontext/v1">
+	
+    <xsd:complexType name="TransactionContextType">
+    	<xsd:sequence>
+    		<xsd:any namespace="##targetNamespace" processContents="skip" minOccurs="0" maxOccurs="unbounded"/>
+    	</xsd:sequence>
+    	<xsd:attribute name="transactionID" type="xsd:string" use="required"/>
+    	<xsd:attribute name="transactionType" type="xsd:string" use="required"/>
+    	<xsd:attribute name="timestamp" type="xsd:dateTime" use="required"/>
+    	<xsd:attribute name="messageID" type="xsd:string" use="optional"/>
+    	<xsd:attribute name="correlationID" type="xsd:string" use="optional"/>
+    	<xsd:attribute name="sequenceID" type="xsd:string" use="optional"/>
+    	<xsd:attribute name="invokerID" type="xsd:string" use="optional"/>
+    	<xsd:attribute name="jwtToken" type="xsd:string" use="optional"/>
+    	<xsd:attribute name="timeoutMs" type="xsd:long" use="optional"/>
+    	<xsd:attribute name="loggingContext" type="xsd:string" use="optional"/>
+    	<xsd:attribute name="testID" type="xsd:string" use="optional"/>
+    	<xsd:attribute name="sessionID" type="xsd:string" use="optional"/>
+    	<xsd:attribute name="executionLevel" type="xsd:integer" use="optional"/>
+    	<xsd:attribute name="executeOnlyOnceHeader" use="optional">
+    		<xsd:simpleType>
+    			<xsd:restriction base="xsd:string">
+    				<xsd:maxLength value="50"></xsd:maxLength>
+    			</xsd:restriction>
+    		</xsd:simpleType>
+    	</xsd:attribute>
+    	<xsd:anyAttribute processContents="skip" namespace="##targetNamespace ##local"/>
+    </xsd:complexType>
+
+    <xsd:element name="TransactionContext" type="TransactionContextType"/>
+
+    <xsd:simpleType name="TransactionIDType">
+    	<xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+
+    <xsd:element name="JWTToken" type="JWTTokenType"/>
+
+    <xsd:simpleType name="JWTTokenType">
+    	<xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+
+
+    <xsd:complexType name="TransactionBagType">
+	    <xsd:sequence>
+	    	<xsd:element ref="Key" minOccurs="0" maxOccurs="unbounded"/>
+	    </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="TransactionBag" type="TransactionBagType"/>
+
+    <xsd:complexType name="KeyType">
+	    <xsd:sequence>
+	    	<xsd:element ref="Name"/>
+	    	<xsd:element ref="Value"/>
+	    </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:element name="Key" type="KeyType"/>
+
+	<xsd:element name="Name" type="xsd:string"/> 
+	<xsd:element name="Value" type="xsd:string"/> 
+	
+	<xsd:complexType name="BagType">
+		<xsd:sequence>
+			<xsd:element ref="Item" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+		<xsd:attribute name="Local" type="xsd:boolean" use="optional"/>
+	</xsd:complexType>
+	
+	<xsd:element name="BagV2" type="BagType"/>
+	
+	<xsd:complexType name="BagItemType">
+		<xsd:sequence/>
+		<xsd:attribute name="Name" type="xsd:string" use="required"/>
+		<xsd:attribute name="Value" type="xsd:string" use="required"/>
+		<xsd:attribute name="Updated" type="xsd:boolean" use="optional"/>
+	</xsd:complexType>
+	
+	<xsd:element name="Item" type="BagItemType"/>
+	
+	<xsd:element name="BusinessKey" type="BusinessKeyType"/>
+	
+    <xsd:complexType name="BusinessKeyType">
+    	<xsd:sequence />
+    	<xsd:attribute name="Name" type="xsd:string" use="required"/>
+   		<xsd:attribute name="Value" type="xsd:string" use="required"/>
+    </xsd:complexType>
+    
+    <xsd:complexType name="BlocksDataContextType">
+    	<xsd:sequence >
+   			<xsd:element ref="BusinessKey" minOccurs="0" />
+   		</xsd:sequence>
+   		<xsd:attribute name="OperationContext" type="xsd:string" use="optional"/>
+    </xsd:complexType>
+
+    <xsd:element name="BlocksDataContext" type="BlocksDataContextType"/>
+   
+</xsd:schema>

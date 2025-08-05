@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.royallondon.com/xsd/resource/util/csf/exceptioninfo/v1" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.royallondon.com/xsd/resource/util/csf/exceptioninfo/v1">
+
+	<complexType name="ExceptionInfoType">
+		<sequence>
+			<choice>
+				<element minOccurs="0" ref="tns:ContextList"/>
+				<element ref="tns:ExceptionInfoList"/>
+			</choice>
+		</sequence>
+		<attribute name="exceptionID" type="string" use="required"/>
+		<attribute name="exceptionCode" type="string" use="required"/>
+		<attribute name="exceptionMessage" type="string" use="required"/>
+		<attribute name="exceptionType" type="string" use="required"/>
+		<attribute name="timestamp" type="dateTime" use="required"/>
+		<attribute name="detailMessage" type="string" use="optional"/>
+		<attribute name="transactionID" type="string" use="required"/>
+		<attribute name="instanceID" type="string" use="optional"/>
+		<attribute name="systemCode" type="string" use="optional"/>
+		<attribute name="restStatusCode" type="int" use="optional"/>
+	</complexType>
+	<element name="ExceptionInfo" type="tns:ExceptionInfoType"/>
+
+    <complexType name="ContextListType">
+    	<sequence>
+    		<element maxOccurs="unbounded" minOccurs="0" ref="tns:Context"/>
+    	</sequence>
+    </complexType>
+    <element name="ContextList" type="tns:ContextListType"/>
+
+    <simpleType name="TypeType">
+    	<restriction base="string">
+			<enumeration value="LIST"/>
+			<enumeration value="UNHANDLED"/>
+			<enumeration value="BUSINESS"/>
+			<enumeration value="TECHNICAL"/>
+    	</restriction>
+    </simpleType>
+
+    <complexType name="ExceptionInfoListType">
+    	<sequence>
+    		<element maxOccurs="unbounded" minOccurs="1" ref="tns:ExceptionInfo"/>
+    	</sequence>
+    </complexType>
+    <element name="ExceptionInfoList" type="tns:ExceptionInfoListType"/>
+
+    <simpleType name="ExceptionIDType">
+    	<restriction base="string"/>
+    </simpleType>
+
+    <complexType name="ContextType">
+    	<sequence>
+    		<element ref="tns:Name"/>
+    		<element ref="tns:Value"/>
+    	</sequence>
+    </complexType>
+    <element name="Context" type="tns:ContextType"/>
+
+    <simpleType name="NameType">
+    	<restriction base="string"/>
+    </simpleType>
+    <element name="Name" type="tns:NameType"/>
+
+    <simpleType name="ExceptionCodeType">
+    	<restriction base="string"/>
+    </simpleType>
+    <element name="Value" type="tns:ExceptionCodeType"/>
+
+    <simpleType name="ExceptionMessageType">
+    	<restriction base="string"/>
+    </simpleType>
+
+    <element name="ExceptionType" type="tns:TypeType"/>
+    <element name="ExceptionMessage" type="tns:ExceptionMessageType"/>
+    <element name="ExceptionCode" type="tns:ExceptionCodeType"/>
+    <element name="ExceptionID" type="tns:ExceptionIDType"/>
+
+    <simpleType name="RestStatusCodeType">
+    	<restriction base="int"></restriction>
+    </simpleType>
+
+    <element name="RESTStatusCode" type="tns:RestStatusCodeType"/>
+
+    <element name="DetailMessage" type="tns:ExceptionMessageType"/>
+</schema>

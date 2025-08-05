@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<project name="Build appConfig" default="main" basedir=".">
+
+    <property name="props.dir" value="META-INF" />
+    <property name="props.file" value="default.substvar" />
+
+    <target name="main">
+	    <input message="Service Name" addproperty="svc.name"/>
+    	<fail message="*** Must provide a service name ***">
+            <condition>
+                <equals arg1="${svc.name}" arg2=""/>
+            </condition>
+        </fail>
+    	
+    	<property name="svc.dir" location="../../../${svc.name}-service.application"/>
+    	<property name="svc.file" location="${svc.dir}/${props.dir}/${props.file}"/>
+
+    	<fail message="*** Service '${svc.dir}' is not in your workspace ***">
+            <condition>
+                <not>
+                    <available file="${svc.dir}" type="dir" />
+                </not>
+            </condition>
+        </fail>
+
+    	<fail message="*** BW config file '${svc.file}' could not be found ***">
+            <condition>
+                <not>
+                    <available file="${svc.file}" type="file" />
+                </not>
+            </condition>
+        </fail>
+
+    	<tempfile property="temp.file" destDir="${java.io.tmpdir}" suffix=".xml" deleteonexit="false" />
+    	<xslt in="${svc.file}" out="${temp.file}" style="../../Resources/util/csf_v1/xslt/FixMissingProperties.xslt"/>
+    	<move file="${temp.file}" tofile="${svc.file}" overwrite="true" force="true"/>
+    </target>
+</project>

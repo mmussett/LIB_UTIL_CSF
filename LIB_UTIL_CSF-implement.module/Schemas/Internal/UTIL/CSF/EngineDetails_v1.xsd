@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.royallondon.com/xsd/internal/util/csf/enginedetails/v1" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.royallondon.com/xsd/internal/util/csf/enginedetails/v1">
+
+    <complexType name="EngineDetailsType">
+    	<sequence>
+    		<element ref="tns:EngineID"/>
+    		<element ref="tns:ApplicationName"/>
+    	</sequence>
+    </complexType>
+    
+    <simpleType name="EngineIDType">
+    	<restriction base="string"/>
+    </simpleType>
+
+    <element name="ApplicationName" type="string"/>
+    <element name="EngineID" type="string"/>
+
+    <element name="EngineDetails" type="tns:EngineDetailsType"/>
+</schema>

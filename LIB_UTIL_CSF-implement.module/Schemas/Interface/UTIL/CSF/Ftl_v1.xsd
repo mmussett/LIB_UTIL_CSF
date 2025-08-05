@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.royallondon.com/xsd/interface/util/csf/ftl/v1" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.royallondon.com/xsd/interface/util/csf/ftl/v1">
+
+    <element name="NewElement" type="anySimpleType"></element>
+</schema>

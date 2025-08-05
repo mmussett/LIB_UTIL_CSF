@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.royallondon.com/xsd/interface/util/csf/index/v1" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:index="http://www.royallondon.com/xsd/interface/util/csf/index/v1">
+
+    <simpleType name="KeyType">
+    	<restriction base="string"/>
+    </simpleType>
+
+    <element name="ItemKey" type="index:KeyType"/>
+    <element name="IndexKey" type="index:KeyType"/>
+
+    <complexType name="KeyListType">
+    	<sequence>
+    		<element ref="index:ItemKey" minOccurs="0" maxOccurs="unbounded"/>
+    	</sequence>
+    </complexType>
+    
+    <element name="KeyList" type="index:KeyListType"/>
+
+    <complexType name="ItemType">
+    	<sequence>
+    		<element ref="index:ItemKey"/>
+    		<element ref="index:Value1"/>
+    		<element ref="index:Value2" minOccurs="0"/>
+    		<element ref="index:Value3" minOccurs="0"/>
+    		<element ref="index:Value4" minOccurs="0"/>
+    		<element ref="index:Value5" minOccurs="0"/>
+    	</sequence>
+    </complexType>
+    
+    <element name="Value1" type="string"/>
+    <element name="Value2" type="string"/>
+    <element name="Value3" type="string"/>
+    <element name="Value4" type="string"/>
+    <element name="Value5" type="string"/>
+
+    <complexType name="ItemListType">
+    	<sequence>
+    		<element ref="index:Item" minOccurs="0" maxOccurs="unbounded"/>
+    	</sequence>
+    </complexType>
+
+    <element name="Item" type="index:ItemType"/>
+
+    <element name="ItemList" type="index:ItemListType"/>
+    
+    <complexType name="SearchTermType">
+    	<sequence>
+    		<element ref="index:Value"/>
+    		<element ref="index:Condition"/>
+    	</sequence>
+    </complexType>
+    
+    <element name="Value" type="string"/>
+
+    <simpleType name="ConditionType">
+    	<restriction base="string">
+    		<enumeration value="="/>
+    		<enumeration value="["/>
+    		<enumeration value="]"/>
+    		<enumeration value="*"/>
+    	</restriction>
+    </simpleType>
+
+    <element name="Condition" type="index:ConditionType"/>
+
+    <element name="Value1Search" type="index:SearchTermType"/>
+    <element name="Value2Search" type="index:SearchTermType"/>
+    <element name="Value3Search" type="index:SearchTermType"/>
+    <element name="Value4Search" type="index:SearchTermType"/>
+    <element name="Value5Search" type="index:SearchTermType"/>
+
+
+    <complexType name="AbstractFindItemsRequestType" abstract="true">
+    	<sequence>
+    		<element ref="index:IndexKey"/>
+    		<element ref="index:Value1Search" minOccurs="0"/>
+    		<element ref="index:Value2Search" minOccurs="0"/>
+    		<element ref="index:Value3Search" minOccurs="0"/>
+    		<element ref="index:Value4Search" minOccurs="0"/>
+    		<element ref="index:Value5Search" minOccurs="0"/>
+    	</sequence>
+    </complexType>
+
+    <complexType name="FindItemsRequestType">
+    	<complexContent>
+    		<extension base="index:AbstractFindItemsRequestType">
+    		</extension>
+    	</complexContent>
+    </complexType>
+
+    <complexType name="FindItemsResponseType">
+    	<sequence>
+    		<element ref="index:ItemList"/>
+    	</sequence>
+    </complexType>
+
+    <complexType name="FindKeysRequestType">
+    	<complexContent>
+    		<extension base="index:AbstractFindItemsRequestType"/>
+    	</complexContent>
+    </complexType>
+
+    <complexType name="FindKeysResponseType">
+    	<sequence>
+    		<element ref="index:KeyList"/>
+    	</sequence>
+    </complexType>
+
+    <complexType name="PutItemRequestType">
+    	<sequence>
+    		<element ref="index:IndexKey"/>
+    		<element ref="index:ItemKey"/>
+    		<element ref="index:Value1"/>
+    		<element ref="index:Value2" minOccurs="0"/>
+    		<element ref="index:Value3" minOccurs="0"/>
+    		<element ref="index:Value4" minOccurs="0"/>
+    		<element ref="index:Value5" minOccurs="0"/>
+    	</sequence>
+    </complexType>
+    
+    <complexType name="PutItemResponseType"/>
+
+    <complexType name="PutItemsRequestType">
+    	<sequence>
+    		<element ref="index:IndexKey"/>
+    		<element ref="index:ItemList"/>
+    	</sequence>
+    </complexType>
+    
+    <complexType name="PutItemsResponseType"/>
+
+    <complexType name="ClearIndexRequestType">
+    	<sequence>
+    		<element ref="index:IndexKey"/>
+    	</sequence>
+    </complexType>
+
+    <complexType name="ClearIndexResponseType"/>
+
+
+    <complexType name="RemoveItemRequestType">
+       	<sequence>
+    		<element ref="index:IndexKey"/>
+    		<element ref="index:ItemKey"/>
+       	</sequence>
+    </complexType>
+    
+    <complexType name="RemoveItemResponseType"/>
+
+    <complexType name="RemoveItemsRequestType">
+       	<sequence>
+    		<element ref="index:IndexKey"/>
+    		<element ref="index:KeyList"/>
+       	</sequence>
+    </complexType>
+    
+    <complexType name="RemoveItemsResponseType"/>
+
+
+    <element name="FindItemsRequest" type="index:FindItemsRequestType"/>
+    <element name="FindItemsResponse" type="index:FindItemsResponseType"/>
+
+    <element name="FindKeysRequest" type="index:FindKeysRequestType"/>
+    <element name="FindKeysResponse" type="index:FindKeysResponseType"/>
+
+    <element name="ClearIndexRequest" type="index:ClearIndexRequestType"/>
+    <element name="ClearIndexResponse" type="index:ClearIndexResponseType"/>
+
+    <element name="PutItemRequest" type="index:PutItemRequestType"/>
+    <element name="PutItemResponse" type="index:PutItemResponseType"/>
+
+    <element name="PutItemsRequest" type="index:PutItemsRequestType"/>
+    <element name="PutItemsResponse" type="index:PutItemsResponseType"/>
+
+    <element name="RemoveItemRequest" type="index:RemoveItemRequestType"/>
+    <element name="RemoveItemResponse" type="index:RemoveItemResponseType"/>
+
+    <element name="RemoveItemsRequest" type="index:RemoveItemsRequestType"/>
+    <element name="RemoveItemsResponse" type="index:RemoveItemsResponseType"/>
+</schema>

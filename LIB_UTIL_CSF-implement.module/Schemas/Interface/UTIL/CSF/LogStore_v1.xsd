@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<schema elementFormDefault="qualified" targetNamespace="http://www.royallondon.com/xsd/interface/util/csf/logstore/v1" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.royallondon.com/xsd/interface/util/csf/logstore/v1" xmlns:Q1="http://www.royallondon.com/xsd/internal/util/csf/logconfig/v1">
+
+    <import namespace="http://www.royallondon.com/xsd/internal/util/csf/logconfig/v1" schemaLocation="../../../Internal/UTIL/CSF/LogConfig_v1.xsd"/>
+
+    <complexType name="LogRequestType">
+	    <sequence>
+	    	<element ref="tns:LogOperation"/>
+	    	<element ref="tns:Message"/>
+	    	<element ref="tns:Object" minOccurs="0"/>
+	    </sequence>
+    </complexType>
+
+    <element name="LogRequest" type="tns:LogRequestType"/>
+
+    <complexType name="LogResponseType">
+	    <sequence/>
+    </complexType>
+
+    <element name="LogResponse" type="tns:LogResponseType"/>
+
+    <complexType name="TraceRequestType">
+	    <sequence>
+	    	<element ref="tns:TraceOperation"/>
+	    	<element ref="tns:Message"/>
+	    	<element ref="tns:Object" minOccurs="0"/>
+	    </sequence>
+    </complexType>
+
+    <element name="TraceRequest" type="tns:TraceRequestType"/>
+
+    <complexType name="TraceResponseType">
+	    <sequence/>
+    </complexType>
+
+    <element name="TraceResponse" type="tns:TraceResponseType"/>
+
+    <complexType name="AuditRequestType">
+	    <sequence>
+	    	<element ref="tns:AuditOperation"/>
+	    	<element ref="tns:Message"/>
+	    	<element ref="tns:Object" minOccurs="0"/>
+	    </sequence>
+    </complexType>
+
+    <element name="AuditRequest" type="tns:AuditRequestType"/>
+
+    <complexType name="AuditResponseType">
+	    <sequence/>
+    </complexType>
+
+    <element name="AuditResponse" type="tns:AuditResponseType"/>
+
+    <complexType name="ObjectType">
+		<sequence>
+			<any processContents="skip"/>
+		</sequence>
+    </complexType>
+
+    <element name="Object" type="tns:ObjectType"/>
+
+    <simpleType name="MessageType">
+    	<restriction base="string">
+    		<minLength value="1"/>
+    	</restriction>
+    </simpleType>
+
+    <element name="Message" type="tns:MessageType"/>
+    
+
+    <simpleType name="TraceOperationType">
+    	<restriction base="string">
+    		<enumeration value="START"/>
+    		<enumeration value="END"/>
+    	</restriction>
+    </simpleType>
+    <element name="TraceOperation" type="tns:TraceOperationType"/>
+
+    <simpleType name="LogOperationType">
+    	<restriction base="string">
+    		<enumeration value="LOG"/>
+    		<enumeration value="REQUEST"/>
+    		<enumeration value="RESPONSE"/>
+    	</restriction>
+    </simpleType>
+    <element name="LogOperation" type="tns:LogOperationType"/>
+
+    <simpleType name="AuditOperationType">
+    	<restriction base="string">
+    		<enumeration value="START"/>
+    		<enumeration value="END"/>
+    	</restriction>
+    </simpleType>
+    <element name="AuditOperation" type="tns:AuditOperationType"/>
+</schema>

@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:Q1="http://www.royallondon.com/xsd/resource/util/csf/rest/v1" xmlns:api="http://www.royallondon.com/xsd/resource/util/csf/api/v1" xmlns:exp="http://www.royallondon.com/xsd/resource/util/csf/appexception/v1" xmlns:rest="http://tns.tibco.com/bw/REST" xmlns:tns="http://www.royallondon.com/xsd/interface/util/csf/rest/v1" elementFormDefault="qualified" targetNamespace="http://www.royallondon.com/xsd/interface/util/csf/rest/v1">
+
+    <import namespace="http://www.royallondon.com/xsd/resource/util/csf/rest/v1" schemaLocation="../../../Resource/UTIL/CSF/REST_v1.xsd"/>
+    <import namespace="http://www.royallondon.com/xsd/resource/util/csf/api/v1" schemaLocation="../../../Resource/UTIL/CSF/API_v1.xsd"/>
+    <import namespace="http://www.royallondon.com/xsd/resource/util/csf/appexception/v1" schemaLocation="../../../Resource/UTIL/CSF/AppException_v1.xsd"/>
+    <import namespace="http://tns.tibco.com/bw/REST" schemaLocation="../../../Resource/BW/RESTSchema.xsd"/>
+
+    <complexType name="CreateSafeAPIParametersRequestType">
+    	<sequence>
+    		<element ref="api:httpHeaders" />
+	    	<element name="PageRequest" minOccurs="0">
+				<complexType>
+                	<sequence minOccurs="0">
+			    		<element ref="tns:SessionID" minOccurs="0"/>
+			    		<element name="PageNumber" type="string" minOccurs="0"/>
+			    		<element name="PageSize" type="string" minOccurs="0"/>
+			    		<element name="PageReset" type="string" minOccurs="0"/>
+			    	</sequence>
+			    </complexType>
+			</element>
+			<element ref="tns:DefaultPageSize" minOccurs="0" />
+    		<element ref="tns:MaxPageSize" minOccurs="0" />
+    		<element ref="tns:ExpandParameter" minOccurs="0" />
+    		<sequence minOccurs="0">
+    			<element ref="tns:SortParameter" minOccurs="0"/>
+    			<element ref="tns:SortFieldNames" />
+    		</sequence>
+    	</sequence>
+    </complexType>
+
+    <complexType name="CreateAPIParametersRequestType">
+	    <sequence>
+	    	<element ref="api:httpHeaders"/>
+	    	<element ref="tns:PageRequest" minOccurs="0"/>
+	    	<element ref="tns:DefaultPageSize" minOccurs="0"/>
+	    	<element ref="tns:MaxPageSize" minOccurs="0"/>
+	    	<element ref="tns:ExpandParameter" minOccurs="0"/>
+	    	<sequence minOccurs="0">
+		    	<element ref="tns:SortParameter" minOccurs="0"/>
+			    <element ref="tns:SortFieldNames"/>
+		    </sequence>
+	    </sequence>
+    </complexType>
+
+    <complexType name="PageRequestType">
+        <sequence>
+    		<element ref="tns:SessionID" minOccurs="0"/>
+    		<element ref="tns:PageNumber" minOccurs="0"/>
+    		<element ref="tns:PageSize" minOccurs="0"/>
+    		<element ref="tns:PageReset" minOccurs="0"/>
+    	</sequence>
+    </complexType>
+
+    <complexType name="QueryFieldsType">
+    	<sequence>
+    		<element ref="tns:QueryField" minOccurs="0" maxOccurs="unbounded"/>
+    	</sequence>
+    </complexType>
+
+    <complexType name="QueryFieldType">
+    	<sequence>
+    		<element ref="tns:FieldName"/>
+    		<element ref="tns:QueryValue"/>
+    	</sequence>
+    </complexType>
+
+    <element name="PageRequest" type="tns:PageRequestType"/>
+    <element name="SessionID" type="string"/>
+    <element name="PageNumber" type="integer"/>
+    <element name="PageSize" type="integer"/>
+    <element name="PageReset" type="boolean"/>
+
+    <element name="QueryFields" type="tns:QueryFieldsType"/>
+    <element name="QueryField" type="tns:QueryFieldType"/>
+    <element name="FieldName" type="string"/>
+    <element name="QueryValue" type="string"/>
+
+    <complexType name="CreateAPIParametersResponseType">
+	    <sequence>
+		    <element ref="api:SortFields" minOccurs="0"/>
+		    <element ref="Q1:ExpandFields" minOccurs="0"/>
+		    <element ref="api:PageRequest" minOccurs="0"/>
+	    </sequence>
+    </complexType>
+
+    <complexType name="CreateSafeAPIParametersResponseType">
+    	<complexContent>
+    		<extension base="tns:CreateAPIParametersResponseType">
+    		</extension>
+    	</complexContent>
+    </complexType>
+
+    <complexType name="GetHTTPRequestHeadersRequestType">
+	    <sequence>
+	    	<element ref="api:httpHeaders"/>
+	    </sequence>
+    </complexType>
+    
+    <element name="GetHTTPRequestHeadersRequest" type="tns:GetHTTPRequestHeadersRequestType"/>
+
+    <complexType name="GetHTTPRequestHeadersResponseType">
+	    <sequence>
+    		<element ref="rest:httpHeaders"/>
+	    </sequence>
+    </complexType>
+
+    <element name="GetHTTPRequestHeadersResponse" type="tns:GetHTTPRequestHeadersResponseType"/>
+
+    <complexType name="CreateAuthorizationHeaderRequestType">
+	    <sequence/>
+    </complexType>
+    
+    <element name="CreateAuthorizationHeaderRequest" type="tns:CreateAuthorizationHeaderRequestType"/>
+
+    <complexType name="CreateAuthorizationHeaderResponseType">
+	    <sequence>
+    		<element ref="tns:AuthorizationHeader"/>
+	    </sequence>
+    </complexType>
+
+    <element name="CreateAuthorizationHeaderResponse" type="tns:CreateAuthorizationHeaderResponseType"/>
+
+    <complexType name="CheckRESTSecurityRequestType">
+	    <sequence>
+	    	<element ref="api:httpHeaders"/>
+	    </sequence>
+    </complexType>
+
+    <element name="CheckRESTSecurityRequestType" type="tns:CheckRESTSecurityRequestType"/>
+
+    <complexType name="CheckRESTSecurityResponseType">
+    	<sequence>
+    	</sequence>
+    </complexType>
+
+    <element name="CheckRESTSecurityResponse" type="tns:CheckRESTSecurityResponseType"/>
+
+
+    <element name="RESTHeaders" type="tns:RESTHeadersType"/>
+
+    <complexType name="RESTHeadersType">
+    	<sequence>
+    		<any processContents="lax"/>
+    	</sequence>
+    </complexType>
+
+    <complexType name="FieldNameListType">
+    	<sequence>
+    		<element ref="tns:FieldName" minOccurs="0" maxOccurs="unbounded"/>
+    	</sequence>
+    </complexType>
+
+
+    <complexType name="CreateRESTResponseRequestType">
+    	<sequence>
+    		<element ref="api:httpHeaders"/>
+    		<element ref="tns:Response" minOccurs="0"/>
+    		<sequence minOccurs="0">
+    			<element ref="tns:FieldFilters"/>
+    			<element minOccurs="0" ref="tns:RequiredFields"/>
+    		</sequence>
+    		<element ref="Q1:CacheSeconds" minOccurs="0"/>
+    		<element ref="Q1:StatusCode" minOccurs="0"/>
+    	</sequence>
+    </complexType>
+
+    <complexType name="CreateRESTResponseResponseType">
+    	<sequence>
+    		<element ref="rest:httpResponseHeaders" />
+    		<element ref="rest:statusLine" />
+    		<choice>
+    			<element ref="tns:Response" />
+	    		<element ref="tns:ResponseString"/>
+    		</choice>
+    	</sequence>
+    </complexType>
+
+    <complexType name="CreateRESTExceptionRequestType">
+    	<sequence>
+	    	<element ref="api:httpHeaders"/>
+   			<element ref="exp:AppException"/>
+    	</sequence>
+    </complexType>
+    
+    <complexType name="CreateRESTExceptionResponseType">
+    	<sequence>
+    		<element ref="rest:httpResponseHeaders"/>
+    		<element ref="rest:statusLine"/>
+    		<choice>
+    			<element ref="Q1:RESTException"/>
+                <element ref="tns:RESTString"/>
+            </choice>
+    	</sequence>
+    </complexType>
+
+    <element name="CreateAPIParametersRequest" type="tns:CreateAPIParametersRequestType"/>
+    <element name="CreateAPIParametersResponse" type="tns:CreateAPIParametersResponseType"/>
+
+    <element name="CreateSafeAPIParametersRequest" type="tns:CreateSafeAPIParametersRequestType"/>
+    <element name="CreateSafeAPIParametersResponse" type="tns:CreateSafeAPIParametersResponseType"/>
+
+    <element name="CreateRESTResponseRequest" type="tns:CreateRESTResponseRequestType"/>
+    <element name="CreateRESTResponseResponse" type="tns:CreateRESTResponseResponseType"/>
+    
+    <element name="CreateRESTExceptionRequest" type="tns:CreateRESTExceptionRequestType"/>
+    <element name="CreateRESTExceptionResponse" type="tns:CreateRESTExceptionResponseType"/>
+
+    <complexType name="ResponseType">
+    	<sequence>
+    		<any processContents="skip"/>
+    	</sequence>
+    </complexType>
+
+    <element name="Response" type="tns:ResponseType"/>
+
+    <simpleType name="FieldFiltersType">
+    	<restriction base="string"/>
+    </simpleType>
+
+    <element name="FieldFilters" type="tns:FieldFiltersType"/>
+
+    <element name="RESTString" type="string"/>
+
+    <element name="RequiredFields" type="tns:FieldFiltersType"/>
+
+    <complexType name="CreateRESTResourceUrlRequestType">
+ 		<choice>
+	    	<sequence>
+    			<sequence minOccurs="0">
+	    			<element ref="tns:ABE2"/>
+    				<element ref="tns:ABE3" minOccurs="0"/>
+    			</sequence>
+    			<element ref="tns:ResourceName" />
+    			<element ref="tns:Version" minOccurs="0" />
+    			<element ref="tns:ResourceID" />
+    		</sequence>
+    		<sequence>
+    			<element ref="tns:RESTResourceList"/>
+	    	</sequence>
+    	</choice>
+    </complexType>
+    
+    <complexType name="CreateRESTResourceUrlResponseType">
+    	<sequence>
+    		<choice>
+	    		<element ref="tns:URL"/>
+	    		<element ref="tns:RESTResourceURL" minOccurs="0" maxOccurs="unbounded"/>
+    		</choice>
+    	</sequence>
+    </complexType>
+    
+    <element name="URL" type="string"/>
+
+    <simpleType name="ResourceNameType">
+    	<restriction base="string"/>
+    </simpleType>
+
+    <element name="ResourceName" type="tns:ResourceNameType"/>
+
+    <simpleType name="ResourceIDType">
+    	<restriction base="string"/>
+    </simpleType>
+
+    <simpleType name="ABEType">
+    	<restriction base="string"/>
+    </simpleType>
+
+    <element name="ABE2" type="tns:ABEType"/>
+    <element name="ABE3" type="tns:ABEType"/>
+
+    <element name="ResourceID" type="tns:ResourceIDType"/>
+
+
+    <element name="CreateRESTResourceUrlRequest" type="tns:CreateRESTResourceUrlRequestType"/>
+
+    <element name="CreateRESTResourceUrlResponse" type="tns:CreateRESTResourceUrlResponseType"/>
+
+    <complexType name="RESTResourceRequestType">
+    	<sequence>
+    		<sequence minOccurs="0">
+	    		<element ref="tns:ABE2"/>
+	    		<element ref="tns:ABE3" minOccurs="0" />
+    		</sequence>
+    		<element ref="tns:ResourceName" />
+  			<element ref="tns:Version" minOccurs="0" />
+    		<element ref="tns:ResourceID" />
+    	</sequence>
+    	<attribute name="id" type="string" use="required"/>
+    </complexType>
+
+    <element name="RESTResource" type="tns:RESTResourceRequestType"/>
+
+    <complexType name="RESTResourceRequestListType">
+    	<sequence>
+		    <element ref="tns:RESTResource" minOccurs="0" maxOccurs="unbounded"/>
+    	</sequence>
+    </complexType>
+
+    <element name="RESTResourceList" type="tns:RESTResourceRequestListType"/>
+
+    <element name="ResponseString" type="string"/>
+
+    <complexType name="RESTResourceResponseType">
+    	<sequence>
+    		<element ref="tns:URL"/>
+    	</sequence>
+    	<attribute name="id" type="string" use="required"/>
+    </complexType>
+
+    <element name="RESTResourceURL" type="tns:RESTResourceResponseType"/>
+
+    <element name="Version" type="short"/>
+
+    <element name="SortParameter" type="string"/>
+    <element name="ExpandParameter" type="string"/>
+
+    <element name="DefaultPageSize" type="short"/>
+
+    <element name="MaxPageSize" type="short"/>
+    <element name="AuthorizationHeader" type="string"/>
+
+    <element name="SortFieldNames" type="tns:FieldNameListType"/>
+</schema>

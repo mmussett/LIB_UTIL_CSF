@@ -1,0 +1,517 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "0.0.1",
+    "title": "Address"
+  },
+  "host": "api.royallondon.com",
+  "basePath": "/Index",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/.well-known/openid-configuration": {
+      "get": {
+        "summary": "Server well known configuration",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OpenIDConfig",
+            "schema": {
+              "$ref": "#/definitions/OpenIDConfig"
+            }
+          },
+          "401": {
+            "description": "A server error was encountered during a downstream call by the API.",
+            "schema": {
+            "$ref": "#/definitions/OpenIDGenericError"
+            }
+          },
+          "500": {
+            "description": "A server error was encountered during a downstream call by the API.",
+            "schema": {
+            "$ref": "#/definitions/OpenIDGenericError"
+            }
+          }
+        }
+      }
+    },
+    "/.well-known/jwks": {
+      "get": {
+        "summary": "This endpoint can be used to retrieve JWK Sets",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OpenIDJsonWebKeySet",
+            "schema": {
+              "$ref": "#/definitions/OpenIDJsonWebKeySet"
+            }
+          },
+          "401": {
+            "description": "Authentication credentials were missing or incorrect.",
+            "schema": {
+            "$ref": "#/definitions/OpenIDGenericError"
+            }
+          },
+          "403": {
+            "description": "A server error was encountered during a downstream call by the API.",
+            "schema": {
+            "$ref": "#/definitions/OpenIDGenericError"
+            }
+          },
+          "500": {
+            "description": "A server error was encountered during a downstream call by the API.",
+            "schema": {
+            "$ref": "#/definitions/OpenIDGenericError"
+            }
+          }
+        }
+      }
+    },
+    "/connect/token": {
+      "post": {
+        "summary": "Gets a new token",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OpenIDAccessTokenResponse",
+            "schema": {
+              "$ref": "#/definitions/OpenIDAccessTokenResponse"
+            }
+          },
+          "401": {
+            "description": "Authentication credentials were missing or incorrect.",
+            "schema": {
+            "$ref": "#/definitions/OpenIDGenericError"
+            }
+          },
+          "403": {
+            "description": "A server error was encountered during a downstream call by the API.",
+            "schema": {
+            "$ref": "#/definitions/OpenIDGenericError"
+            }
+          },
+          "500": {
+            "description": "A server error was encountered during a downstream call by the API.",
+            "schema": {
+            "$ref": "#/definitions/OpenIDGenericError"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "OpenIDJsonWebKey": {
+      "type": "object",
+      "properties": {
+        "alg": {
+          "description": "The  alg  (algorithm) parameter identifies the algorithm intended for use with the key.  The values used should either be registered in the IANA  JSON Web Signature and Encryption Algorithms  registry established by [JWA] or be a value that contains a Collision- Resistant Name.",
+          "type": "string"
+        },
+        "crv": {
+          "type": "string"
+        },
+        "d": {
+          "type": "string"
+        },
+        "dp": {
+          "type": "string"
+        },
+        "dq": {
+          "type": "string"
+        },
+        "e": {
+          "type": "string"
+        },
+        "k": {
+          "type": "string"
+        },
+        "kid": {
+          "description": "The  kid  (key ID) parameter is used to match a specific key.  This is used, for instance, to choose among a set of keys within a JWK Set during key rollover.  The structure of the  kid  value is unspecified.  When  kid  values are used within a JWK Set, different keys within the JWK Set SHOULD use distinct  kid  values.  (One example in which different keys might use the same  kid  value is if they have different  kty  (key type) values but are considered to be equivalent alternatives by the application using them.)  The  kid  value is a case-sensitive string.",
+          "type": "string"
+        },
+        "kty": {
+          "description": "The  kty  (key type) parameter identifies the cryptographic algorithm family used with the key, such as  RSA  or  EC .  kty  values should either be registered in the IANA  JSON Web Key Types  registry established by [JWA] or be a value that contains a Collision- Resistant Name.  The  kty  value is a case-sensitive string.",
+          "type": "string"
+        },
+        "n": {
+          "type": "string"
+        },
+        "p": {
+          "type": "string"
+        },
+        "q": {
+          "type": "string"
+        },
+        "qi": {
+          "type": "string"
+        },
+        "use": {
+          "description": "The  use  (public key use) parameter identifies the intended use of the public key. The  use  parameter is employed to indicate whether a public key is used for encrypting data or verifying the signature on data. Values are commonly  sig  (signature) or  enc  (encryption).",
+          "type": "string"
+        },
+        "x": {
+          "type": "string"
+        },
+        "x5t": {
+          "type": "string"
+        },
+        "x5c": {
+          "description": "The  x5c  (X.509 certificate chain) parameter contains a chain of one or more PKIX certificates [RFC5280].  The certificate chain is represented as a JSON array of certificate value strings.  Each string in the array is a base64-encoded (Section 4 of [RFC4648] -- not base64url-encoded) DER [ITU.X690.1994] PKIX certificate value. The PKIX certificate containing the key value MUST be the first certificate.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "y": {
+          "type": "string"
+        }
+      }
+    },
+    "OpenIDJsonWebKeySet": {
+      "type": "object",
+      "properties": {
+        "keys": {
+          "description": "The value of the  keys  parameter is an array of JWK values.  By default, the order of the JWK values within the array does not imply an order of preference among them, although applications of JWK Sets can choose to assign a meaning to the order for their purposes, if desired.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OpenIDJsonWebKey"
+          }
+        }
+      }
+    },
+    "OpenIDConfig": {
+      "type": "object",
+      "required": [
+        "issuer",
+        "authorization_endpoint",
+        "jwks_uri",
+        "response_type_suppported",
+        "subject_types_supported",
+        "id_token_encryption_alg_values_supported",
+        "id_token_signing_alg_values_supported",
+        "userinfo_signing_alg_values_supported",
+        "userinfo_encryption_alg_values_supported",
+        "userinfo_encryption_enc_values_supported",
+        "request_object_signing_alg_values_supported",
+        "request_object_encryption_alg_values_supported",
+        "request_object_encryption_enc_values_supported",
+        "token_endpoint_auth_methods_supported",
+        "token_endpoint_auth_signing_alg_values_supported",
+        "display_values_supported",
+        "claim_types_supported",
+        "claims_supported",
+        "service_documentation",
+        "claims_locales_supported",
+        "ui_locales_supported",
+        "claims_parameter_supported",
+        "request_parameter_supported",
+        "request_uri_parameter_supported",
+        "require_request_uri_registration",
+        "op_policy_uri",
+        "op_tos_uri"
+      ],
+      "properties": {
+        "issuer": {
+          "description": "URL using the https scheme with no query or fragment component that the OP asserts as its Issuer Identifier. If Issuer discovery is supported , this value MUST be identical to the issuer value returned by WebFinger. This also MUST be identical to the iss Claim value in ID Tokens issued from this Issuer.",
+          "type": "string"
+        },
+        "authorization_endpoint": {
+          "description": "URL of the OP's OAuth 2.0 Authorization Endpoint",
+          "type": "string"
+        },
+        "token_endpoint": {
+          "description": "URL of the OP's UserInfo Endpoint. This URL MUST use the https scheme and MAY contain port, path, and query parameter components.",
+          "type": "string"
+        },
+        "userinfo_endpoint": {
+          "description": "URL of the OP's OAuth 2.0 Token Endpoint",
+          "type": "string"
+        },
+        "end_session_endpoint": {
+          "description": "URL of the OP's OAuth 2.0 Token Endpoint",
+          "type": "string"
+        },
+        "check_session_iframe": {
+          "description": "URL of the OP's OAuth 2.0 Token Endpoint",
+          "type": "string"
+        },
+        "revocation_endpoint": {
+          "description": "URL of the OP's OAuth 2.0 Token Endpoint",
+          "type": "string"
+        },
+        "introspection_endpoint": {
+          "description": "URL of the OP's OAuth 2.0 Token Endpoint",
+          "type": "string"
+        },
+        "frontchannel_logout_session_supported": {
+          "description": "URL of the OP's OAuth 2.0 Token Endpoint",
+          "type": "boolean"
+        },
+        "frontchannel_logout_supported": {
+          "description": "URL of the OP's OAuth 2.0 Token Endpoint",
+          "type": "boolean"
+        },
+        "code_challenge_methods_supported": {
+          "description": "URL of the OP's OAuth 2.0 Token Endpoint",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "jwks_uri": {
+          "description": "URL of the OP's JSON Web Key Set [JWK] document. This contains the signing key(s) the RP uses to validate signatures from the OP. The JWK Set MAY also contain the Server's encryption key(s), which are used by RPs to encrypt requests to the Server. When both signing and encryption keys are made available, a use (Key Use) parameter value is REQUIRED for all keys in the referenced JWK Set to indicate each key's intended usage. Although some algorithms allow the same key to be used for both signatures and encryption, doing so is NOT RECOMMENDED, as it is less secure. The JWK x5c parameter MAY be used to provide X.509 representations of keys provided. When used, the bare key values MUST still be present and MUST match those in the certificate.",
+          "type": "string"
+        },
+        "registration_endpoint": {
+          "description": "URL of the OP's Dynamic Client Registration Endpoint.",
+            "type": "string"
+        },
+        "scopes_supported": {
+          "description": "JSON array containing a list of the OAuth 2.0 [RFC6749] scope values that this server supports. The server MUST support the openid scope value. Servers MAY choose not to advertise some supported scope values even when this parameter is used, although those defined in [OpenID.Core] SHOULD be listed, if supported.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "response_types_supported": {
+          "description": "JSON array containing a list of the OAuth 2.0 response_type values that this OP supports. Dynamic OpenID Providers MUST support the code, id_token, and the token id_token Response Type values.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "response_modes_supported": {
+          "description": "JSON array containing a list of the OAuth 2.0 response_mode values that this OP supports, as specified in OAuth 2.0 Multiple Response Type Encoding Practices [OAuth.Responses]. If omitted, the default for Dynamic OpenID Providers is [\"query\", \"fragment\"]",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "grant_types_supported": {
+          "description": "JSON array containing a list of the OAuth 2.0 Grant Type values that this OP supports. Dynamic OpenID Providers MUST support the authorization_code and implicit Grant Type values and MAY support other Grant Types. If omitted, the default value is [\"authorization_code\", \"implicit\"].",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "acr_values_supported": {
+          "description": "JSON array containing a list of the Authentication Context Class References that this OP supports.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "subject_types_supported": {
+          "description": "JSON array containing a list of the Subject Identifier types that this OP supports. Valid types include pairwise and public.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "id_token_signing_alg_values_supported": {
+          "description": "JSON array containing a list of the JWS signing algorithms (alg values) supported by the OP for the ID Token to encode the Claims in a JWT [JWT]. The algorithm RS256 MUST be included. The value none MAY be supported, but MUST NOT be used unless the Response Type used returns no ID Token from the Authorization Endpoint (such as when using the Authorization Code Flow).",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "id_token_encryption_alg_values_supported": {
+          "description": "JSON array containing a list of the JWE encryption algorithms (alg values) supported by the OP for the ID Token to encode the Claims in a JWT.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "id_token_encryption_enc_values_supported": {
+          "description": "JSON array containing a list of the JWE encryption algorithms (enc values) supported by the OP for the ID Token to encode the Claims in a JWT.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "userinfo_signing_alg_values_supported": {
+          "description": " JSON array containing a list of the JWS [JWS] signing algorithms (alg values) [JWA] supported by the UserInfo Endpoint to encode the Claims in a JWT [JWT]. The value none MAY be included.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "userinfo_encryption_alg_values_supported": {
+          "description": "JSON array containing a list of the JWE [JWE] encryption algorithms (alg values) [JWA] supported by the UserInfo Endpoint to encode the Claims in a JWT.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "userinfo_encryption_enc_values_supported": {
+          "description": "JSON array containing a list of the JWE encryption algorithms (enc values) [JWA] supported by the UserInfo Endpoint to encode the Claims in a JWT.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "request_object_signing_alg_values_supported": {
+          "description": "JSON array containing a list of the JWS signing algorithms (alg values) supported by the OP for Request Objects, which are described in Section 6.1 of OpenID Connect Core 1.0 [OpenID.Core]. These algorithms are used both when the Request Object is passed by value (using the request parameter) and when it is passed by reference (using the request_uri parameter). Servers SHOULD support none and RS256.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "request_object_encryption_alg_values_supported": {
+          "description": "JSON array containing a list of the JWE encryption algorithms (alg values) supported by the OP for Request Objects. These algorithms are used both when the Request Object is passed by value and when it is passed by reference.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "request_object_encryption_enc_values_supported": {
+          "description": "JSON array containing a list of the JWE encryption algorithms (enc values) supported by the OP for Request Objects. These algorithms are used both when the Request Object is passed by value and when it is passed by reference.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "token_endpoint_auth_methods_supported": {
+          "description": "JSON array containing a list of Client Authentication methods supported by this Token Endpoint. The options are client_secret_post, client_secret_basic, client_secret_jwt, and private_key_jwt, as described in Section 9 of OpenID Connect Core 1.0 [OpenID.Core]. Other authentication methods MAY be defined by extensions. If omitted, the default is client_secret_basic -- the HTTP Basic Authentication Scheme specified in Section 2.3.1 of OAuth 2.0 [RFC6749].",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "token_endpoint_auth_signing_alg_values_supported": {
+          "description": "JSON array containing a list of the JWS signing algorithms (alg values) supported by the Token Endpoint for the signature on the JWT [JWT] used to authenticate the Client at the Token Endpoint for the private_key_jwt and client_secret_jwt authentication methods. Servers SHOULD support RS256. The value none MUST NOT be used.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "display_values_supported": {
+          "description": "JSON array containing a list of the display parameter values that the OpenID Provider supports. These values are described in Section 3.1.2.1 of OpenID Connect Core 1.0 ",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "claim_types_supported": {
+          "description": "JSON array containing a list of the Claim Types that the OpenID Provider supports. These Claim Types are described in Section 5.6 of OpenID Connect Core 1.0 [OpenID.Core]. Values defined by this specification are normal, aggregated, and distributed. If omitted, the implementation supports only normal Claims.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "claims_supported": {
+          "description": "JSON array containing a list of the Claim Names of the Claims that the OpenID Provider MAY be able to supply values for. Note that for privacy or other reasons, this might not be an exhaustive list.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "service_documentation": {
+          "description": "URL of a page containing human-readable information that developers might want or need to know when using the OpenID Provider. In particular, if the OpenID Provider does not support Dynamic Client Registration, then information on how to register Clients needs to be provided in this documentation.",
+          "type": "string"
+        },
+        "claims_locales_supported": {
+          "description": "Languages and scripts supported for values in Claims being returned, represented as a JSON array of BCP47 [RFC5646] language tag values. Not all languages and scripts are necessarily supported for all Claim values.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ui_locales_supported": {
+          "description": "Languages and scripts supported for the user interface, represented as a JSON array of BCP47 [RFC5646] language tag values.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "claims_parameter_supported": {
+          "description": "Boolean value specifying whether the OP supports use of the claims parameter, with true indicating support. If omitted, the default value is false.",
+          "type": "boolean"
+        },
+        "request_parameter_supported": {
+          "description":  "Boolean value specifying whether the OP supports use of the request_uri parameter, with true indicating support. If omitted, the default value is true.",
+          "type": "boolean"
+        },
+        "request_uri_parameter_supported": {
+          "description": "Boolean value specifying whether the OP requires any request_uri values used to be pre-registered using the request_uris registration parameter. Pre-registration is REQUIRED when the value is true. If omitted, the default value is false.",
+          "type": "boolean"
+        },
+        "require_request_uri_registration": {
+          "description": "URL that the OpenID Provider provides to the person registering the Client to read about the OP's requirements on how the Relying Party can use the data provided by the OP. The registration process SHOULD display this URL to the person registering the Client if it is given.",
+          "type": "boolean"
+        },
+        "op_policy_uri": {
+          "description": "",
+          "type": "string"
+        },
+        "op_tos_uri": {
+          "description": "URL that the OpenID Provider provides to the person registering the Client to read about OpenID Provider's terms of service. The registration process SHOULD display this URL to the person registering the Client if it is given.",
+          "type": "string"
+        }
+      }
+    },
+    "OpenIDAccessTokenResponse": {
+      "description": "Successful access token grant response",
+      "type": "object",
+      "required": [
+        "access_token",
+        "token_type"
+      ],
+      "properties": {
+        "access_token": {
+          "type": "string"
+        },
+        "token_type": {
+          "type": "string"
+        },
+        "expires_in": {
+          "type": "integer"
+        },
+        "refresh_token": {
+          "type": "string"
+        },
+        "scope": {
+          "type": "string"
+        }
+      }
+    },
+    "OpenIDGenericError": {
+      "description": "The standard error format",
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "request": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

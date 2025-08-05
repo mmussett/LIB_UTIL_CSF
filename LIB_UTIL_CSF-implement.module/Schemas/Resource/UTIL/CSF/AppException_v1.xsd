@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.royallondon.com/xsd/resource/util/csf/appexception/v1" xmlns="http://www.royallondon.com/xsd/resource/util/csf/appexception/v1" xmlns:ns2="http://www.tibco.com/pe/EngineTypes" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:Q1="http://www.royallondon.com/xsd/resource/util/csf/exceptioninfo/v1">
+
+    <xs:import namespace="http://www.royallondon.com/xsd/resource/util/csf/exceptioninfo/v1" schemaLocation="ExceptionInfo_v1.xsd"></xs:import>
+
+    <xs:complexType name="AppExceptionType">
+		<xs:sequence>
+			<xs:element ref="Q1:ExceptionInfo"/>
+			<xs:choice>
+				<xs:sequence>
+					<xs:element ref="FaultDetails"/>
+					<xs:element ref="Q1:ContextList" minOccurs="0"/>
+					<xs:element ref="RequestMessage" minOccurs="0"/>
+					<xs:element ref="IsLocalException"/>
+					<xs:element ref="IsCSFException" minOccurs="0"/>
+				</xs:sequence>
+				<xs:element ref="AppExceptionList"/>
+			</xs:choice>
+		</xs:sequence>
+    </xs:complexType>
+	
+	<xs:element name="AppException" type="AppExceptionType"/>
+
+
+    <xs:complexType name="FaultDetailsType">
+		<xs:sequence>
+			<xs:element ref="ActivityName" minOccurs="0"/>
+			<xs:element ref="Data" minOccurs="0"/>
+			<xs:element ref="Msg" minOccurs="0"/>
+			<xs:element ref="MsgCode" minOccurs="0"/>
+			<xs:element ref="FullClass" minOccurs="0"/>
+			<xs:element ref="Class" minOccurs="0"/>
+			<xs:element ref="ProcessStack" minOccurs="0"/>
+			<xs:element ref="StackTrace" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="FaultDetails" type="FaultDetailsType"/>
+	
+    <xs:simpleType name="ActivityNameType">
+    	<xs:restriction base="xs:string"/>
+    </xs:simpleType>
+
+    <xs:complexType name="DataType">
+    	<xs:sequence>
+    		<xs:any processContents="skip"/>
+    	</xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="MsgType">
+    	<xs:restriction base="xs:string"/>
+    </xs:simpleType>
+
+    <xs:simpleType name="MsgCodeType">
+    	<xs:restriction base="xs:string"/>
+    </xs:simpleType>
+
+    <xs:simpleType name="FullClassType">
+    	<xs:restriction base="xs:string"/>
+    </xs:simpleType>
+    <xs:simpleType name="ClassType">
+    	<xs:restriction base="xs:string"/>
+    </xs:simpleType>
+
+    <xs:simpleType name="ProcessStackType">
+    	<xs:restriction base="xs:string"/>
+    </xs:simpleType>
+
+    <xs:simpleType name="StackTraceType">
+    	<xs:restriction base="xs:string"/>
+    </xs:simpleType>
+
+    <xs:element name="ActivityName" type="ActivityNameType"/>
+
+    <xs:element name="Data" type="DataType"/>
+
+    <xs:element name="Msg" type="MsgType"/>
+
+    <xs:element name="MsgCode" type="MsgCodeType"/>
+    <xs:element name="FullClass" type="FullClassType"/>
+    <xs:element name="Class" type="ClassType"/>
+
+    <xs:element name="ProcessStack" type="ProcessStackType"/>
+
+    <xs:element name="StackTrace" type="StackTraceType"/>
+
+    <xs:element name="IsCSFException" type="xs:boolean"/>
+	
+
+    <xs:complexType name="AppExceptionListType">
+    	<xs:sequence>
+    		<xs:element ref="AppException" minOccurs="1" maxOccurs="unbounded"/>
+    	</xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="AppExceptionList" type="AppExceptionListType"/>
+
+    <xs:element name="IsLocalException" type="xs:boolean"/>
+
+    <xs:complexType name="MessageType">
+    	<xs:sequence>
+    		<xs:any processContents="skip"/>
+    	</xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="RequestMessage" type="MessageType"/>
+</xs:schema>
+
+
+

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.royallondon.com/xsd/interface/util/csf/trace/v1" elementFormDefault="qualified" targetNamespace="http://www.royallondon.com/xsd/interface/util/csf/trace/v1">
+
+    <complexType name="TraceRequestType" abstract="true">
+    	<sequence>
+    		<element ref="tns:Payload" minOccurs="0"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="TraceStartRequestType">
+    	<complexContent>
+    		<extension base="tns:TraceRequestType"/>
+    	</complexContent>
+    </complexType>
+
+    <element name="TraceStartRequest" type="tns:TraceStartRequestType"/>
+
+    <complexType name="TraceEndRequestType">
+    	<complexContent>
+    		<extension base="tns:TraceRequestType"/>
+    	</complexContent>
+    </complexType>
+
+    <element name="TraceEndRequest" type="tns:TraceEndRequestType"/>
+
+
+    <complexType name="TraceResponseType" abstract="true">
+    	<sequence>
+    	</sequence>
+    </complexType>
+
+    <complexType name="TraceStartResponseType">
+    	<complexContent>
+    		<extension base="tns:TraceResponseType"/>
+    	</complexContent>
+    </complexType>
+
+    <complexType name="TraceEndResponseType">
+    	<complexContent>
+    		<extension base="tns:TraceResponseType"/>
+    	</complexContent>
+    </complexType>
+
+    <complexType name="PayloadType">
+    			<sequence>
+    				<any processContents="skip"></any>
+    			</sequence>
+    </complexType>
+
+    <element name="TraceStartResponse" type="tns:TraceStartResponseType"/>
+
+    <element name="TraceEndResponse" type="tns:TraceEndResponseType"/>
+
+    <element name="Payload" type="tns:PayloadType"></element>
+
+    <simpleType name="SourceType">
+    	<restriction base="string">
+    		<minLength value="1"></minLength>
+    	</restriction>
+    </simpleType>
+    <element name="Source" type="tns:SourceType"></element>
+
+
+</schema>

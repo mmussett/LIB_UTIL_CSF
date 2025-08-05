@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jndi:namedResource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:http="http://xsd.tns.tibco.com/bw/models/sharedresource/httpclient" xmlns:id="http://www.tibco.com/ws/2013/11/identity" xmlns:jndi="http://xsd.tns.tibco.com/amf/models/sharedresource/jndi" xmlns:sca_ext="http://www.tibco.com/ns/sca/201311" xmlns:sslclient="http://xsd.tns.tibco.com/bw/sharedresource/trinity/models/sslclient" xmi:id="_pulBgdkTEeeuKcvzHcb61g" name="util.csf_v1.http.JWKSClient" type="http:HttpClientConfiguration">
+  <identitySet xmi:id="_QS5xoPYNEeeyr4yZrJUEfg" appliesTo="namedResource" name="HttpClientIdentitySet" provides="confidentiality">
+    <sca_ext:intentMap xmi:id="_QS5xofYNEeeyr4yZrJUEfg" provides="sca_ext:confidentiality">
+      <sca_ext:qualifier xmi:id="_QS5xovYNEeeyr4yZrJUEfg" name="transport">
+        <id:IdentityReference xmi:id="_QS6_wPYNEeeyr4yZrJUEfg" URI="" type="sslclient:SSLClientConfiguration"/>
+      </sca_ext:qualifier>
+    </sca_ext:intentMap>
+  </identitySet>
+  <jndi:configuration xsi:type="http:HttpClientConfiguration" xmi:id="_pulokNkTEeeuKcvzHcb61g" httpClientVersion="httpcomponents" useDefaultSSL="true">
+    <substitutionBindings xmi:id="_cqfOMNkVEeeiHqu8OdBekQ" template="useSingleThreadConnectionManager" propName="/resources/LIB_UTIL_CSF/CSF_v1/jwksHttpClient/disableConnectionPooling"/>
+    <substitutionBindings xmi:id="_edsRMNkVEeeiHqu8OdBekQ" template="maxTotalConnections" propName="/resources/LIB_UTIL_CSF/CSF_v1/jwksHttpClient/maximumTotalConnections"/>
+    <substitutionBindings xmi:id="_fZPTcNkVEeeiHqu8OdBekQ" template="maxTotalConnectionsPerHost" propName="/resources/LIB_UTIL_CSF/CSF_v1/jwksHttpClient/maximumTotalConnectionsPerHostRoute"/>
+    <substitutionBindings xmi:id="_iivbANkVEeeiHqu8OdBekQ" template="idleConnectionTimeout" propName="/resources/LIB_UTIL_CSF/CSF_v1/jwksHttpClient/idleConnectionTimeoutMs"/>
+    <substitutionBindings xmi:id="_yvmEINkVEeeiHqu8OdBekQ" template="useSingleCookieHeader" propName="/resources/LIB_UTIL_CSF/CSF_v1/jwksHttpClient/advanced/useSingleCookieHeader"/>
+    <substitutionBindings xmi:id="_zz72ANkVEeeiHqu8OdBekQ" template="logReqRespTime" propName="/resources/LIB_UTIL_CSF/CSF_v1/jwksHttpClient/advanced/logRequestResponseTime"/>
+    <substitutionBindings xmi:id="_1FYPwNkVEeeiHqu8OdBekQ" template="retryCount" propName="/resources/LIB_UTIL_CSF/CSF_v1/jwksHttpClient/advanced/retryCount"/>
+    <substitutionBindings xmi:id="_QdtYwNmYEeeiHqu8OdBekQ" template="acceptRedirect" propName="/resources/LIB_UTIL_CSF/CSF_v1/jwksHttpClient/advanced/acceptRedirect"/>
+    <substitutionBindings xmi:id="_R3ufsNmYEeeiHqu8OdBekQ" template="useNonPreemptiveAuth" propName="/resources/LIB_UTIL_CSF/CSF_v1/jwksHttpClient/advanced/useNonPreemptiveAuthentication"/>
+    <tcpDetails xmi:id="_pulokdkTEeeuKcvzHcb61g">
+      <substitutionBindings xmi:id="_g2y2kNkVEeeiHqu8OdBekQ" template="host" propName="/resources/LIB_UTIL_CSF/CSF_v1/jwksHttpClient/defaultHost"/>
+      <substitutionBindings xmi:id="_nt2N8NkVEeeiHqu8OdBekQ" template="staleCheck" propName="/resources/LIB_UTIL_CSF/CSF_v1/jwksHttpClient/staleCheck"/>
+      <substitutionBindings xmi:id="_rKALwNkVEeeiHqu8OdBekQ" template="port" propName="/resources/LIB_UTIL_CSF/CSF_v1/jwksHttpClient/defaultPort"/>
+      <substitutionBindings xmi:id="_tZdF4NkVEeeiHqu8OdBekQ" template="soTimeout" propName="/resources/LIB_UTIL_CSF/CSF_v1/jwksHttpClient/advanced/socketTimeoutMs"/>
+      <substitutionBindings xmi:id="_2P2e0NkVEeeiHqu8OdBekQ" template="connectionTimeout" propName="/resources/LIB_UTIL_CSF/CSF_v1/jwksHttpClient/advanced/connectionTimeoutMs"/>
+    </tcpDetails>
+  </jndi:configuration>
+</jndi:namedResource>

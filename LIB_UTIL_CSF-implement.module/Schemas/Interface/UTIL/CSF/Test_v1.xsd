@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.royallondon.com/xsd/interface/util/csf/test/v1" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:test="http://www.royallondon.com/xsd/interface/util/csf/test/v1" xmlns:cntx="http://www.royallondon.com/xsd/resource/util/csf/transactioncontext/v1">
+
+    <import namespace="http://www.royallondon.com/xsd/resource/util/csf/transactioncontext/v1" schemaLocation="../../../Resource/UTIL/CSF/TransactionContext_v1.xsd"></import>
+    <complexType name="PayloadType">
+    	<sequence>
+    		<any processContents="skip"/>
+    	</sequence>
+    </complexType>
+
+    <element name="Request" type="test:PayloadType"/>
+    <element name="Response" type="test:PayloadType"/>
+
+    <element name="Destination" type="string"/>
+    <element name="Enabled" type="boolean"/>
+
+
+    <complexType name="HTTPPingRequestType">
+	    <annotation>
+		    <documentation>Request for HTTPPing activity</documentation>
+	    </annotation>
+    	<sequence>
+	    	<element ref="test:RequestURI" minOccurs="0"/>
+	    	<element ref="test:QueryString" minOccurs="0"/>
+	    	<element ref="test:Headers-Accept" minOccurs="0"/>
+	    	<element ref="test:Headers-Content-Type" minOccurs="0"/>
+    	</sequence>
+    </complexType>
+
+    <element name="RequestURI" type="string"/>
+    <element name="QueryString" type="string"/>
+    <element name="Headers-Content-Type" type="string"/>
+    <element name="Headers-Accept" type="string"/>
+
+    <complexType name="HTTPPingResponseType">
+    	<sequence>
+	    	<element ref="test:asciiContent"/>
+	    	<element ref="test:Headers-StatusLine"/>
+	    	<element ref="test:Headers-Content-Type"/>
+	    	<element ref="test:Headers-Pragma"/>
+ 	    	<element ref="test:DynamicHeaders-Header-Name"/>
+ 	    	<element ref="test:DynamicHeaders-Header-Value"/>
+    	</sequence>
+    </complexType>
+
+    <element name="asciiContent" type="string"/>
+    <element name="Headers-StatusLine" type="string"/>
+    <element name="Headers-Pragma" type="string"/>
+    <element name="DynamicHeaders-Header-Name" type="string"/>
+    <element name="DynamicHeaders-Header-Value" type="string"/>
+
+
+    <complexType name="IsTestEnabledRequestType">
+    	<sequence/>
+    </complexType>
+
+    <complexType name="IsTestEnabledResponseType">
+    	<sequence>
+	    	<element ref="test:Enabled"/>
+    	</sequence>
+    </complexType>
+
+    <complexType name="AssertRequestType">
+    	<sequence>
+	    	<choice maxOccurs="unbounded">
+	    		<element name="string" type="test:StringAssertionType"/>
+	    		<element name="decimal" type="test:DecimalAssertionType"/>
+	    		<element name="integer" type="test:IntegerAssertionType"/>
+	    		<element name="boolean" type="test:BooleanAssertionType"/>
+	    		<element name="date" type="test:DateAssertionType"/>
+	    		<element name="time" type="test:TimeAssertionType"/>
+	    		<element name="dateTime" type="test:DateTimeAssertionType"/>
+	    	</choice>
+    	</sequence>
+    </complexType>
+
+    <complexType name="AssertResponseType">
+    	<sequence/>
+    </complexType>
+
+    <complexType name="CallStubRequestType">
+    	<sequence>
+    		<element ref="test:Destination" />
+    		<element ref="cntx:TransactionContext" />
+    		<element ref="test:Request" />
+    	</sequence>
+    </complexType>
+
+    <complexType name="CallStubResponseType">
+    	<sequence>
+    		<element ref="cntx:TransactionContext" />
+    		<element ref="test:Response"/>
+    	</sequence>
+    </complexType>
+
+    <complexType name="StringAssertionType">
+       	<sequence>
+    		<element name="TestValue" type="string"/>
+    		<element name="GoldValue" type="string"/>
+    		<element name="Comment" type="string" minOccurs="0"/>
+    	</sequence>
+    </complexType>
+
+    <complexType name="BooleanAssertionType">
+    	<sequence>
+    		<element name="TestValue" type="boolean"/>
+    		<element name="GoldValue" type="boolean"/>
+    		<element name="Comment" type="string" minOccurs="0"/>
+    	</sequence>
+    </complexType>
+
+    <complexType name="IntegerAssertionType">
+    	<sequence>
+    		<element name="TestValue" type="integer"/>
+    		<element name="GoldValue" type="integer"/>
+    		<element name="Comment" type="string" minOccurs="0"/>
+    	</sequence>
+    </complexType>
+
+    <complexType name="DateTimeAssertionType">
+    	<sequence>
+    		<element name="TestValue" type="dateTime"/>
+    		<element name="GoldValue" type="dateTime"/>
+    		<element name="Comment" type="string" minOccurs="0"/>
+    	</sequence>
+    </complexType>
+
+    <complexType name="DateAssertionType">
+    	<sequence>
+    		<element name="TestValue" type="date"/>
+    		<element name="GoldValue" type="date"/>
+    		<element name="Comment" type="string" minOccurs="0"/>
+    	</sequence>
+    </complexType>
+
+    <complexType name="TimeAssertionType">
+    	<sequence>
+    		<element name="TestValue" type="time"/>
+    		<element name="GoldValue" type="time"/>
+    		<element name="Comment" type="string" minOccurs="0"/>
+    	</sequence>
+    </complexType>
+
+    <complexType name="DecimalAssertionType">
+    	<sequence>
+    		<element name="TestValue" type="decimal"/>
+    		<element name="GoldValue" type="decimal"/>
+    		<element name="Comment" type="string" minOccurs="0"/>
+    	</sequence>
+    </complexType>
+
+
+    <element name="HTTPPingRequest" type="test:HTTPPingRequestType"/>
+    <element name="HTTPPingResponse" type="test:HTTPPingResponseType"/>
+
+    <element name="AssertRequest" type="test:AssertRequestType"/>
+    <element name="AssertResponse" type="test:AssertResponseType"/>
+
+    <element name="CallStubRequest" type="test:CallStubRequestType"/>
+    <element name="CallStubResponse" type="test:CallStubResponseType"/>
+
+    <element name="IsTestEnabledRequest" type="test:IsTestEnabledRequestType"/>
+    <element name="IsTestEnabledResponse" type="test:IsTestEnabledResponseType"/>
+</schema>

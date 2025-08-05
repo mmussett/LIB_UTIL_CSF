@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.royallondon.com/internal/util/csf/httpactivity/v1" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.royallondon.com/internal/util/csf/httpactivity/v1" xmlns:rest="http://tns.tibco.com/bw/REST">
+
+    <import namespace="http://tns.tibco.com/bw/REST" schemaLocation="../../../Resource/BW/RESTSchema.xsd"/>
+
+    <complexType name="OutputHeadersType">
+        <sequence>
+            <element form="unqualified" minOccurs="0"
+                name="Allow" type="string"/>
+            <element form="unqualified" minOccurs="0"
+                name="Content-Type" type="string"/>
+            <element form="unqualified" minOccurs="0"
+                name="Content-Length" type="string"/>
+            <element form="unqualified" minOccurs="0"
+                name="Content-Encoding" type="string"/>
+            <element form="unqualified" minOccurs="0"
+                name="Date" type="string"/>
+            <element form="unqualified" minOccurs="0"
+                name="Location" type="string"/>
+            <element form="unqualified" minOccurs="0" maxOccurs="unbounded"
+                name="Set-Cookie" type="string"/>
+            <element form="unqualified" minOccurs="0"
+                name="Pragma" type="string"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="HTTPHeadersType">
+    	<sequence>
+    		<element ref="rest:httpHeaders" minOccurs="0"/>
+    	</sequence>
+    </complexType>
+
+    <element name="OutputHeaders" type="tns:OutputHeadersType"/>
+    <element name="HTTPHeaders" type="tns:HTTPHeadersType"/>
+    
+</schema>

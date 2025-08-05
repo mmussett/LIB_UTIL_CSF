@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.royallondon.com/xsd/resource/util/csf/api/v1" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:api="http://www.royallondon.com/xsd/resource/util/csf/api/v1">
+
+    <complexType name="PageInformationType">
+    	<sequence>
+    		<element ref="api:sessionID"/>
+    		<element ref="api:itemsCount"/>
+    		<element ref="api:pageNumber"/>
+    		<element ref="api:pageSize"/>
+    		<element ref="api:pageMax"/>
+    		<element ref="api:retrievedAt"/>
+    	</sequence>
+    </complexType>
+    
+    <complexType name="PageRequestType">
+        <sequence>
+    		<element ref="api:SessionID" minOccurs="0"/>
+    		<element ref="api:PageNumber" minOccurs="0"/>
+    		<element ref="api:PageSize" minOccurs="0"/>
+    		<element ref="api:PageReset" minOccurs="0"/>
+    		<element ref="api:DoNotCache" minOccurs="0"/>
+    	</sequence>
+    </complexType>
+
+    <complexType name="HTTPHeadersType">
+    	<sequence>
+    		<any processContents="skip"/>
+    	</sequence>
+    </complexType>
+
+    <element name="httpHeaders" type="api:HTTPHeadersType"/>
+
+    <complexType name="QueryFieldsType">
+    	<sequence>
+    		<element ref="api:QueryField" minOccurs="0" maxOccurs="unbounded"/>
+    	</sequence>
+    </complexType>
+
+    <complexType name="QueryFieldType">
+    	<sequence>
+    		<element ref="api:FieldName"/>
+    		<element ref="api:QueryValue"/>
+    	</sequence>
+    </complexType>
+
+
+    <complexType name="SortFieldsType">
+    	<sequence>
+    		<element ref="api:SortField" minOccurs="0" maxOccurs="unbounded"/>
+    	</sequence>
+    </complexType>
+    
+    <simpleType name="XSLTSortDatatypeType">
+    	<restriction base="string">
+    		<enumeration value="text"/>
+    		<enumeration value="number"/>
+    	</restriction>
+    </simpleType>
+
+    <simpleType name="XSLTSortOrderType">
+    	<restriction base="string">
+    		<enumeration value="ascending"/>
+    		<enumeration value="descending"/>
+    	</restriction>
+    </simpleType>
+
+    <complexType name="SortFieldType">
+    	<sequence>
+    		<element ref="api:FieldName"/>
+    		<element ref="api:SortAscend"/>
+    	</sequence>
+    </complexType>
+
+    <complexType name="XSLTSortFieldType">
+    	<sequence>
+    		<element ref="api:FieldName"/>
+    		<element name="FieldType" type="api:XSLTSortDatatypeType"/>
+    		<element name="SortOrder" type="api:XSLTSortOrderType"/>
+    	</sequence>
+    </complexType>
+    
+    <complexType name="XSLTSortFieldListType">
+    	<sequence>
+    		<element ref="api:XSLTSortField" minOccurs="0" maxOccurs="unbounded"/>
+    	</sequence>
+    </complexType>
+
+
+    <element name="PageNumber" type="short"/>
+    <element name="pageNumber" type="short"/>
+
+    <element name="itemsCount" type="short"/>
+
+    <element name="retrievedAt" type="dateTime"/>
+    
+    <element name="SessionID" type="string"/>
+    <element name="sessionID" type="string"/>
+
+    <element name="PageSize" type="short"/>
+    <element name="pageSize" type="short"/>
+
+    <element name="pageMax" type="short"/>
+
+    <element name="PageReset" type="boolean"/>
+    <element name="DoNotCache" type="boolean"/>
+
+    <element name="PageInformation" type="api:PageInformationType"/>
+    <element name="_metadata" type="api:PageInformationType"/>
+
+    <element name="PageRequest" type="api:PageRequestType"/>
+
+    <element name="QueryFields" type="api:QueryFieldsType"/>
+    <element name="QueryField" type="api:QueryFieldType"/>
+    <element name="FieldName" type="string"/>
+    <element name="QueryValue" type="string"/>
+    
+    <element name="SortFields" type="api:SortFieldsType"/>
+    <element name="SortField" type="api:SortFieldType"/>
+    <element name="SortAscend" type="boolean"/>
+
+    <element name="XSLTSortField" type="api:XSLTSortFieldType"/>
+    <element name="XSLTSortFieldList" type="api:XSLTSortFieldListType"/>
+</schema>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:Q1="http://schemas.xmlsoap.org/soap/envelope/" xmlns:Q2="http://www.royallondon.com/xsd/resource/util/csf/transactioncontext/v1" xmlns:Q3="http://www.royallondon.com/xsd/resource/util/csf/appexception/v1" xmlns:ftl="http://www.royallondon.com/xsd/resource/util/csf/ftl/v1" xmlns:tns="http://www.royallondon.com/xsd/interface/util/csf/soap/v1" elementFormDefault="qualified" targetNamespace="http://www.royallondon.com/xsd/interface/util/csf/soap/v1">
+
+    <import namespace="http://www.royallondon.com/xsd/resource/util/csf/ftl/v1" schemaLocation="../../../Resource/UTIL/CSF/FTL_v1.xsd"/>
+    <import namespace="http://www.royallondon.com/xsd/resource/util/csf/appexception/v1" schemaLocation="../../../Resource/UTIL/CSF/AppException_v1.xsd"/>
+    <import namespace="http://www.royallondon.com/xsd/resource/util/csf/transactioncontext/v1" schemaLocation="../../../Resource/UTIL/CSF/TransactionContext_v1.xsd"/>
+    <import namespace="http://schemas.xmlsoap.org/soap/envelope/" schemaLocation="../../../Standard/W3/SOAP/soap-envelope11.xsd"/>
+
+    <complexType name="MakeSOAPMessageRequestType">
+    	<sequence>
+    		<element ref="tns:Format"/>
+            <element minOccurs="0" ref="tns:Channel"/>
+            <element minOccurs="0" ref="tns:Subject"/>
+            <element ref="Q2:TransactionContext"/>
+    		<element ref="tns:Payload"/>
+    	</sequence>
+    </complexType>
+    
+    <complexType name="MakeSOAPMessageResponseType">
+    	<sequence>
+    		<choice>
+    			<element ref="Q1:Envelope"/>
+    			<element ref="tns:PayloadString"/>
+    			<element ref="tns:PayloadBase64Binary"/>
+                <element ref="ftl:CSFMessage"/>
+                <element ref="ftl:CSFNotification"/>
+            </choice>
+    	</sequence>
+    </complexType>
+    
+    <element name="MakeSOAPMessageRequest" type="tns:MakeSOAPMessageRequestType"/>
+    <element name="MakeSOAPMessageResponse" type="tns:MakeSOAPMessageResponseType"/>
+
+    <complexType name="MakeSOAPFaultRequestType">
+    	<sequence>
+    		<element ref="tns:Format"/>
+            <element minOccurs="0" ref="tns:Channel"/>
+            <element ref="Q2:TransactionContext"/>
+    		<element ref="Q3:AppException"/>
+    	</sequence>
+    </complexType>
+    
+    <complexType name="MakeSOAPFaultResponseType">
+    	<sequence>
+    		<choice>
+    			<element ref="Q1:Envelope"/>
+    			<element ref="tns:PayloadString"/>
+    			<element ref="tns:PayloadBase64Binary"/>
+                <element ref="ftl:CSFMessage"/>
+            </choice>
+    	</sequence>
+    </complexType>
+    
+    <element name="MakeSOAPFaultRequest" type="tns:MakeSOAPFaultRequestType"/>
+    <element name="MakeSOAPFaultResponse" type="tns:MakeSOAPFaultResponseType"/>
+
+    <complexType name="PayloadType">
+    	<sequence>
+    		<any processContents="skip"/>
+    	</sequence>
+	</complexType>
+
+    <element name="Payload" type="tns:PayloadType"/>
+
+    <complexType name="ReadSOAPMessageRequestType">
+    	<sequence>
+    		<choice>
+                <element ref="ftl:CSFMessage"/>
+                <element ref="ftl:CSFNotification"/>
+    			<element ref="Q1:Envelope"/>
+    			<element ref="tns:PayloadString"/>
+    			<element ref="tns:PayloadBase64Binary"/>
+    		</choice>
+    	</sequence>
+    </complexType>
+
+    <complexType name="ReadSOAPMessageResponseType">
+    	<sequence>
+    		<element minOccurs="0" ref="Q2:TransactionContext"/>
+            <element ref="tns:Payload"/>
+    	</sequence>
+    </complexType>
+    
+	<element name="ReadSOAPMessageRequest" type="tns:ReadSOAPMessageRequestType"/>   
+	<element name="ReadSOAPMessageResponse" type="tns:ReadSOAPMessageResponseType"/>   
+
+	<simpleType name="FormatType">
+		<restriction base="string">
+			<enumeration value="XML"/>
+			<enumeration value="STRING"/>
+			<enumeration value="BASE64BINARY"/>
+			<enumeration value="CSF"/>
+			<enumeration value="CSFNOTIFICATION"/>
+		</restriction>
+	</simpleType>
+
+	<element name="Format" type="tns:FormatType"/>
+    <element name="Channel" type="string"/>
+    <element name="Subject" type="string"/>
+    <element name="PayloadString" type="string"/>
+    <element name="PayloadBase64Binary" type="base64Binary"/>
+
+
+    <complexType name="CheckSOAPSecurityRequestType">
+	    <choice>
+			<element ref="Q1:Envelope"/>
+			<element minOccurs="0" ref="Q2:TransactionContext"/>
+	    </choice>
+    </complexType>
+
+    <element name="CheckSOAPSecurityRequest" type="tns:CheckSOAPSecurityRequestType"/>
+
+    <complexType name="CheckSOAPSecurityResponseType">
+        <sequence/>
+    </complexType>
+
+    <element name="CheckSOAPSecurityResponse" type="tns:CheckSOAPSecurityResponseType"/>
+</schema>

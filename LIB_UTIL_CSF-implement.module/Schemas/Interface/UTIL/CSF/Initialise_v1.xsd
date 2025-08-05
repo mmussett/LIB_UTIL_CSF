@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<schema elementFormDefault="qualified" targetNamespace="http://www.royallondon.com/xsd/interface/util/csf/initialise/v1" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ctx="http://www.royallondon.com/xsd/interface/util/csf/context/v1" xmlns:Q1="http://www.royallondon.com/xsd/internal/util/csf/jobdetails/v1" xmlns:pref="http://www.royallondon.com/xsd/resource/util/csf/transactioncontext/v1" xmlns:tns="http://www.royallondon.com/xsd/interface/util/csf/initialise/v1" xmlns:Q2="http://www.royallondon.com/xsd/resource/util/csf/ftl/v1" xmlns:res="http://www.royallondon.com/xsd/resource/util/csf/api/v1">
+
+    <import namespace="http://www.royallondon.com/xsd/resource/util/csf/api/v1" schemaLocation="../../../Resource/UTIL/CSF/API_v1.xsd"/>
+    <import namespace="http://www.royallondon.com/xsd/resource/util/csf/ftl/v1" schemaLocation="../../../Resource/UTIL/CSF/FTL_v1.xsd"/>
+    <import namespace="http://www.royallondon.com/xsd/internal/util/csf/jobdetails/v1" schemaLocation="../../../Internal/UTIL/CSF/JobDetails_v1.xsd"/>
+    <import namespace="http://www.royallondon.com/xsd/resource/util/csf/transactioncontext/v1" schemaLocation="../../../Resource/UTIL/CSF/TransactionContext_v1.xsd"/>
+    <import namespace="http://www.royallondon.com/xsd/interface/util/csf/context/v1" schemaLocation="../../../Interface/UTIL/CSF/Context_v1.xsd"/>
+    
+    <complexType name="InitialiseResponseType">
+    	<sequence>
+    		<element ref="tns:InBusinessStudio"/>
+    	</sequence>
+    </complexType>
+
+    <complexType name="CheckFrameworkInitialisedRequestType">
+    	<sequence/>
+    </complexType>
+
+    <complexType name="CheckFrameworkInitialisedResponseType">
+    	<sequence/>
+    </complexType>
+
+    <complexType name="ControlRequestType">
+    	<sequence>
+    		<element ref="Q2:CSFMessage"/>
+    	</sequence>
+    </complexType>
+
+    <complexType name="ControlResponseType">
+    	<sequence/>
+    </complexType>
+
+    <element name="InitialiseResponse" type="tns:InitialiseResponseType"/>
+
+    <complexType name="InitialiseRequestType">
+    	<sequence>
+    		<element ref="Q1:Operation" />
+    		<element ref="Q1:ObjectRedactor" minOccurs="0" />
+    		<element ref="pref:TransactionContext" minOccurs="0" />
+    		<element ref="res:httpHeaders" minOccurs="0" />
+    		<element ref="Q1:RequestMessage" />
+    		<element ref="Q1:RequestMessagePart2" minOccurs="0" />
+    		<element ref="ctx:CorrelationID" minOccurs="0" />
+    		<element ref="ctx:SessionID" minOccurs="0" />
+    	</sequence>
+    </complexType>
+    
+    <element name="InitialiseRequest" type="tns:InitialiseRequestType"/>
+
+    <complexType name="ScheduleHousekeepingRequestType">
+    	<sequence>
+    		<element ref="ctx:TransactionID"/>
+    	</sequence>
+    </complexType>
+
+    <complexType name="PerformHousekeepingRequestType">
+    	<sequence/>
+    </complexType>
+
+    <complexType name="PerformHousekeepingResponseType">
+    	<sequence/>
+    </complexType>
+    
+    <element name="PerformHousekeepingRequest" type="tns:PerformHousekeepingRequestType"/>
+    <element name="PerformHousekeepingResponse" type="tns:PerformHousekeepingRequestType"/>
+
+    <element name="ScheduleHousekeepingRequest" type="tns:ScheduleHousekeepingRequestType"/>
+
+    <element name="CheckFrameworkInitialisedRequest" type="tns:CheckFrameworkInitialisedRequestType"/>
+    <element name="CheckFrameworkInitialisedResponse" type="tns:CheckFrameworkInitialisedResponseType"/>
+
+    <element name="ControlRequest" type="tns:ControlRequestType"/>
+    <element name="ControlResponse" type="tns:ControlResponseType"/>
+
+	<element name="InBusinessStudio" type="boolean"/>
+</schema>

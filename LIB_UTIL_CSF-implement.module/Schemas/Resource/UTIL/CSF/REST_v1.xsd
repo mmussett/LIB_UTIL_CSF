@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.royallondon.com/xsd/resource/util/csf/rest/v1" elementFormDefault="qualified" targetNamespace="http://www.royallondon.com/xsd/resource/util/csf/rest/v1" xmlns:Q1="http://www.royallondon.com/xsd/resource/util/csf/api/v1">
+
+    <import namespace="http://www.royallondon.com/xsd/resource/util/csf/api/v1" schemaLocation="API_v1.xsd"/>
+    
+    <complexType name="ExpandFieldsType">
+    	<sequence>
+    		<element ref="tns:ExpandField" minOccurs="0" maxOccurs="unbounded"/>
+    	</sequence>
+    </complexType>
+
+    <complexType name="ExpandFieldType">
+    	<sequence>
+    		<element ref="tns:FieldName"/>
+    	</sequence>
+    </complexType>
+
+    <element name="ExpandFields" type="tns:ExpandFieldsType"/>
+    <element name="ExpandField" type="tns:ExpandFieldType"/>
+    <element name="FieldName" type="string"/>
+
+    <simpleType name="StatusCodeType">
+    	<restriction base="string">
+    		<enumeration value="OK"/>
+    		<enumeration value="CREATED"/>
+    		<enumeration value="ACCEPTED"/>
+    		<enumeration value="NO-CONTENT"/>
+    	</restriction>
+    </simpleType>
+
+    <element name="StatusCode" type="tns:StatusCodeType"/>
+
+    <complexType name="RESTResponseDetailsType">
+    	<sequence>
+    		<element minOccurs="0" ref="tns:StatusCode"/>
+    	</sequence>
+    </complexType>
+    
+    <element name="RESTResponseDetails" type="tns:RESTResponseDetailsType"/>
+
+    <simpleType name="ErrorCodeType">
+    	<restriction base="string"/>
+    </simpleType>
+
+    <element name="errorCode" type="tns:ErrorCodeType"/>
+
+    <complexType name="RESTExceptionType">
+    	<complexContent>
+    		<extension base="tns:ErrorType">
+    			<sequence>
+    				<element ref="tns:errors" minOccurs="0" maxOccurs="unbounded"/>
+    				<element ref="tns:transactionId" minOccurs="0"/>
+       				<element ref="tns:executionTime" minOccurs="0"/>
+    			</sequence>
+    		</extension>
+    	</complexContent>
+    </complexType>
+
+    <element name="RESTException" type="tns:RESTExceptionType"/>
+
+    <simpleType name="ErrorMsgType">
+    	<restriction base="string"/>
+    </simpleType>
+
+    <simpleType name="ErrorIdType">
+    	<restriction base="string"/>
+    </simpleType>
+
+    <simpleType name="ErrorTypeType">
+    	<restriction base="string"/>
+    </simpleType>
+
+    <element name="errorId" type="tns:ErrorIdType"/>
+
+    <element name="errorMsg" type="tns:ErrorMsgType"/>
+
+    <element name="errorType" type="tns:ErrorTypeType"/>
+
+    <complexType name="ErrorType">
+		<sequence>
+			<element minOccurs="0" ref="tns:errorId" />
+			<element minOccurs="0" ref="tns:errorMsg" />
+			<element minOccurs="0" ref="tns:errorCode" />
+			<element minOccurs="0" ref="tns:errorType" />
+			<element ref="tns:contextInfo" minOccurs="0" maxOccurs="unbounded" />		</sequence>
+    </complexType>
+    
+    <complexType name="ErrorListType">
+    	<sequence>
+    		<element maxOccurs="unbounded" minOccurs="0" ref="tns:error"/>
+    	</sequence>
+	</complexType>
+    
+    <element name="error" type="tns:ErrorType"/>
+
+    <element name="errors" type="tns:ErrorType"/>
+
+    <complexType name="ContextInfoType">
+    	<sequence>
+    		<element ref="tns:name"/>
+    		<element ref="tns:value"/>
+    	</sequence>
+    </complexType>
+
+    <element name="contextInfo" type="tns:ContextInfoType"/>
+    <element name="name" type="string"/>
+    <element name="value" type="string"/>
+
+    <element name="executionTime" type="int"/>
+    <element name="transactionId" type="string"/>
+
+    <simpleType name="CacheSecondsType">
+    	<restriction base="int"/>
+    </simpleType>
+
+    <element name="CacheSeconds" type="tns:CacheSecondsType"/>
+
+    <complexType name="ResourceCollectionInfoType">
+    	<sequence>
+    		<element ref="tns:retreivedAt"/>
+    		<element ref="tns:itemsCount"/>
+    		<sequence minOccurs="0">
+	    		<element ref="tns:sessionID"/>
+	    		<element ref="tns:pageNumber"/>
+	    		<element ref="tns:pageSize"/>
+	    		<element ref="tns:pageMax"/>
+    		</sequence>
+    	</sequence>
+    </complexType>
+
+    <element name="_metadata" type="tns:ResourceCollectionInfoType"/>
+
+    <simpleType name="PageSessionIDType">
+    	<restriction base="string"/>
+    </simpleType>
+
+    <element name="sessionID" type="tns:PageSessionIDType"/>
+
+    <element name="itemsCount" type="int"/>
+
+    <element name="retreivedAt" type="dateTime"/>
+
+    <element name="pageNumber" type="short"/>
+
+    <element name="pageSize" type="short"/>
+
+    <element name="pageMax" type="short"/>
+
+    <complexType name="RESTOperationRequestType">
+    	<sequence>
+    		<element ref="Q1:httpHeaders" minOccurs="0"/>
+    		<element ref="Q1:SortFields" minOccurs="0"/>
+    		<element ref="tns:ExpandFields" minOccurs="0"/>
+    		<element ref="Q1:PageRequest" minOccurs="0"/>
+    	</sequence>
+    </complexType>
+
+    <complexType name="RESTOperationResponseType">
+    	<sequence>
+    		<element ref="tns:RESTResponse" minOccurs="0"/>
+    		<element ref="tns:StatusCode" minOccurs="0"/>
+    		<element ref="tns:CacheSeconds" minOccurs="0"/>
+    	</sequence>
+    </complexType>
+    
+    <complexType name="RESTResponseType">
+    	<sequence>
+    		<any processContents="lax"/>
+    	</sequence>
+  </complexType>
+
+  <element name="RESTResponse" type="tns:RESTResponseType"/>
+
+  <element name="RESTOperationRequest" type="tns:RESTOperationRequestType"/>
+
+  <element name="RESTOperationResponse" type="tns:RESTOperationResponseType"/>
+</schema>

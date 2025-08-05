@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema elementFormDefault="qualified" targetNamespace="http://www.royallondon.com/xsd/interface/util/csf/bag/v1" xmlns:Q1="http://www.royallondon.com/xsd/resource/util/csf/transactioncontext/v1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.royallondon.com/xsd/interface/util/csf/bag/v1">
+
+    <xsd:import namespace="http://www.royallondon.com/xsd/resource/util/csf/transactioncontext/v1" schemaLocation="../../../Resource/UTIL/CSF/TransactionContext_v1.xsd" />
+
+    <xsd:complexType name="FindBagValuesRequestType" >
+    	<xsd:sequence>
+    		<xsd:element ref="tns:NameList" />
+    	</xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="FindBagValuesResponseType">
+    	<xsd:sequence>
+    		<xsd:element ref="tns:ItemList" />
+    	</xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="SetBagValuesRequestType">
+    	<xsd:sequence>
+    		<xsd:element ref="tns:ItemList" />
+    		<xsd:element minOccurs="0" ref="tns:LocalBag" />
+    	</xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="ItemListType">
+    	<xsd:sequence>
+    		<xsd:element minOccurs="0" maxOccurs="unbounded" ref="tns:Item" />
+    	</xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="ItemType">
+    	<xsd:sequence>
+    		<xsd:element ref="Q1:Name" />
+    		<xsd:element ref="Q1:Value" />
+    	</xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="NameListType">
+    	<xsd:sequence>
+    		<xsd:element minOccurs="1" maxOccurs="unbounded" ref="Q1:Name" />
+    	</xsd:sequence>
+    </xsd:complexType>
+    
+    
+    <xsd:element name="Item" type="tns:ItemType"/>
+    <xsd:element name="ItemList" type="tns:ItemListType"/>
+    <xsd:element name="NameList" type="tns:NameListType"/>
+    <xsd:element name="LocalBag" type="xsd:boolean"/>
+
+    <xsd:complexType name="SetBagValuesResponseType" />
+
+    <xsd:element name="FindBagValuesRequest" type="tns:FindBagValuesRequestType" />
+    <xsd:element name="FindBagValuesResponse" type="tns:FindBagValuesResponseType" />
+    <xsd:element name="SetBagValuesRequest" type="tns:SetBagValuesRequestType" />
+    <xsd:element name="SetBagValuesResponse" type="tns:SetBagValuesResponseType" />
+
+</xsd:schema>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<msv:DocumentRoot xmlns:msv="http://tns.tibco.com/bw/model/core/moduleSV">
+  <moduleSharedVariables>
+    <moduleSharedVariable name="ExceptionDetailsList" type="{http://www.royallondon.com/xsd/internal/util/csf/exceptiondetails/v1}ExceptionDetailsList" initialValueMode="textfile" initialValue="Resources/util/csf_v1/xml/ExceptionDetailsList.xml"/>
+    <moduleSharedVariable name="EngineDetails" type="{http://www.royallondon.com/xsd/internal/util/csf/enginedetails/v1}EngineDetails" initialValueMode="none" initialValue=""/>
+    <moduleSharedVariable name="IsFrameworkInitialised" type="{http://www.w3.org/2001/XMLSchema}boolean" initialValueMode="literal" initialValue="false"/>
+    <moduleSharedVariable name="ResouceURLList" type="{http://www.royallondon.com/xsd/internal/util/csf/resouceurl/v1}ResourceURLList" initialValueMode="textfile" initialValue="Resources/util/csf_v1/xml/ResourceUrl.xml"/>
+    <moduleSharedVariable name="IsEclipseHosted" type="{http://www.w3.org/2001/XMLSchema}boolean" initialValueMode="none"/>
+    <moduleSharedVariable name="DefaultLoggingConfig" type="{http://www.royallondon.com/xsd/internal/util/csf/logconfig/v1}LogConfig" initialValueMode="textfile" initialValue="Resources/util/csf_v1/xml/LogConfig.xml"/>
+    <moduleSharedVariable name="LoggingConfigMutex" type="{http://www.w3.org/2001/XMLSchema}integer" initialValueMode="none"/>
+    <moduleSharedVariable name="LoggingConfigLastRead" type="{http://www.w3.org/2001/XMLSchema}integer" initialValueMode="literal" initialValue="0"/>
+    <moduleSharedVariable name="HousekeepingNextUpdate" type="{http://www.w3.org/2001/XMLSchema}integer" initialValueMode="none" initialValue=""/>
+    <moduleSharedVariable name="HousekeepingMutex" type="{http://www.w3.org/2001/XMLSchema}integer" initialValueMode="literal" initialValue="0"/>
+    <moduleSharedVariable name="LoggingConfigLastTested" type="{http://www.w3.org/2001/XMLSchema}integer" initialValueMode="literal" initialValue="0"/>
+    <moduleSharedVariable name="localJWT" type="{http://www.royallondon.com/xsd/resource/util/csf/jwt/v1}JWT" initialValueMode="none" initialValue=""/>
+    <moduleSharedVariable name="localJWTExpiry" type="{http://www.w3.org/2001/XMLSchema}integer" initialValueMode="literal" initialValue="0"/>
+  </moduleSharedVariables>
+  <import importType="http://www.w3.org/2001/XMLSchema" namespace="http://www.royallondon.com/xsd/internal/util/csf/exceptiondetails/v1" location="../Schemas/Internal/UTIL/CSF/ExceptionDetails_v1.xsd"/>
+  <import importType="http://www.w3.org/2001/XMLSchema" namespace="http://www.royallondon.com/xsd/internal/util/csf/enginedetails/v1" location="../Schemas/Internal/UTIL/CSF/EngineDetails_v1.xsd"/>
+  <import importType="http://www.w3.org/2001/XMLSchema" namespace="http://www.royallondon.com/xsd/internal/util/csf/resouceurl/v1" location="../Schemas/Internal/UTIL/CSF/ResourceUrl_v1.xsd"/>
+  <import importType="http://www.w3.org/2001/XMLSchema" namespace="http://www.royallondon.com/xsd/internal/util/csf/logconfig/v1" location="../Schemas/Internal/UTIL/CSF/LogConfig_v1.xsd"/>
+  <import importType="http://www.w3.org/2001/XMLSchema" namespace="http://www.royallondon.com/xsd/resource/util/csf/jwt/v1" location="../Schemas/Resource/UTIL/CSF/JWT_v1.xsd"/>
+</msv:DocumentRoot>

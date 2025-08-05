@@ -1,0 +1,5 @@
+{"records": [{
+    "jsonSchemaLocation": "/LIB_UTIL_CSF-implement.module/Service Descriptors/External/OAuth/OAuthKeys_v1.json",
+    "conversionType": "generated",
+    "xsdSchemaTargetNamespace": "http://www.royallondon.com/xsd/external/oauth/oauthkeys/v1"
+}]}

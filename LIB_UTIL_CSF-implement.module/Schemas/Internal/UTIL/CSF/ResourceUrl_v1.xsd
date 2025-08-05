@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:url="http://www.royallondon.com/xsd/internal/util/csf/resouceurl/v1" elementFormDefault="qualified" targetNamespace="http://www.royallondon.com/xsd/internal/util/csf/resouceurl/v1">
+
+    <element name="ABE2" type="url:ABEType"/>
+    <element name="ABE3" type="url:ABEType"/>
+    <element name="ResourceName" type="url:ABEType"/>
+    <element name="Pattern" type="string"/>
+
+    <element name="IdCount">
+    	<simpleType>
+    		<restriction base="short">
+    			<minInclusive value="0"/>
+    			<maxInclusive value="3"/>
+    		</restriction>
+    	</simpleType>
+    </element>
+    <element name="URL" type="string"/>
+
+    <simpleType name="ABEType">
+    	<restriction base="string"/>
+    </simpleType>
+
+    <complexType name="ResourceURLType">
+    	<sequence>
+    		<sequence minOccurs="0">
+    			<element ref="url:ABE2" />
+    			<element minOccurs="0" ref="url:ABE3" />
+    		</sequence>
+    		<element ref="url:ResourceName" />
+    		<element ref="url:Version"/>
+    		<element ref="url:IdCount" />
+    		<element ref="url:URL" />
+    	</sequence>
+    </complexType>
+
+    <complexType name="ResourceURLInfoListType">
+    	<sequence>
+    		<element maxOccurs="unbounded" minOccurs="1" ref="url:ResourceURLInfo"/>
+    	</sequence>
+    </complexType>
+
+    <complexType name="ResourceURLInfoType">
+    	<sequence>
+    		<sequence minOccurs="0">
+    			<element ref="url:ABE2" />
+    			<element minOccurs="0" ref="url:ABE3" />
+    		</sequence>
+    		<element ref="url:ResourceName" />
+    		<element ref="url:Version"/>
+    	</sequence>
+    </complexType>
+
+    <complexType name="ResourceURLListType">
+    	<sequence>
+    		<element maxOccurs="unbounded" minOccurs="1" ref="url:ResourceURL"/>
+    	</sequence>
+    </complexType>
+
+    <complexType name="RegExpResourceType">
+    	<sequence>
+    		<element ref="url:Pattern" />
+    		<element ref="url:URL" />
+    		<element ref="url:Ids" />
+    	</sequence>
+    	<attribute name="id" type="string" use="required"></attribute>
+    </complexType>
+
+    <complexType name="RegExpResourceListType">
+    	<sequence>
+    		<element maxOccurs="unbounded" minOccurs="1" ref="url:RegExpResource"/>
+    	</sequence>
+    </complexType>
+
+    <element name="ResourceURLInfoList" type="url:ResourceURLInfoListType"/>
+    <element name="ResourceURLInfo" type="url:ResourceURLInfoType"/>
+
+    <element name="ResourceURLList" type="url:ResourceURLListType"/>
+    <element name="ResourceURL" type="url:ResourceURLType"/>
+
+    <element name="RegExpResourceList" type="url:RegExpResourceListType"/>
+    <element name="RegExpResource" type="url:RegExpResourceType"/>
+
+    <element name="Ids" type="string"></element>
+
+    <element name="Version" type="short"></element>
+</schema>

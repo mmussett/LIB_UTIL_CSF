@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.royallondon.com/xsd/internal/util/csf/restresponse/v1" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.royallondon.com/xsd/internal/util/csf/restresponse/v1" attributeFormDefault="unqualified">
+
+    <complexType name="TransformResponseRequestType">
+    	<sequence>
+    		<element ref="tns:Response"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="TransformResponseResponseType">
+    	<sequence>
+    		<element ref="tns:Response"></element>
+    	</sequence>
+    </complexType>
+    
+    <complexType name="ResponseType">
+    	<sequence>
+    		<any processContents="skip"></any>
+    	</sequence></complexType>
+
+    <element name="TransformResponseRequest" type="tns:TransformResponseRequestType"></element>
+    <element name="TransformResponseResponse" type="tns:TransformResponseResponseType"></element>
+    <element name="Response" type="tns:ResponseType"></element>
+    
+
+    <complexType name="FilterListType">
+    	<sequence>
+    		<choice>
+    			<element ref="tns:Filter" minOccurs="0"
+    				maxOccurs="unbounded">
+    			</element>
+    			<element ref="tns:FilterList"></element>
+    		</choice>
+    	</sequence>
+    </complexType>
+
+    <element name="FilterList" type="tns:FilterListType"/>
+
+    <element name="Filter" type="string"></element>
+</schema>

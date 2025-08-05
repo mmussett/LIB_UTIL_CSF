@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:Q2="http://www.royallondon.com/xsd/resource/util/csf/appexception/v1" xmlns:pref="http://www.royallondon.com/xsd/interface/util/csf/exception/v1" xmlns:tns="http://www.royallondon.com/xsd/interface/util/csf/audit/v1" elementFormDefault="qualified" targetNamespace="http://www.royallondon.com/xsd/interface/util/csf/audit/v1">
+
+    <import namespace="http://www.royallondon.com/xsd/resource/util/csf/appexception/v1" schemaLocation="../../../Resource/UTIL/CSF/AppException_v1.xsd"/>
+    <import namespace="http://www.royallondon.com/xsd/interface/util/csf/exception/v1" schemaLocation="Exception_v1.xsd"/>
+    
+    <complexType abstract="true" name="AuditRequestType">
+    	<sequence>
+
+    	</sequence>
+    </complexType>
+
+    <complexType name="AuditStartRequestType">
+    	<complexContent>
+    		<extension base="tns:AuditRequestType"/>
+    	</complexContent>
+    </complexType>
+
+    <element name="AuditStartRequest" type="tns:AuditStartRequestType"/>
+
+    <complexType name="AuditEndRequestType">
+    	<complexContent>
+    		<extension base="tns:AuditRequestType">
+    			<sequence>
+    				<element minOccurs="0" ref="tns:Payload"/>
+    			</sequence>
+    		</extension>
+    	</complexContent>
+    </complexType>
+
+    <element name="AuditEndRequest" type="tns:AuditEndRequestType"/>
+
+    <complexType name="AuditEndPublishRequestType">
+    	<complexContent>
+    		<extension base="tns:AuditRequestType">
+    			<sequence>
+    			</sequence>
+    		</extension>
+    	</complexContent>
+    </complexType>
+
+    <element name="AuditEndPublishRequest" type="tns:AuditEndPublishRequestType"/>
+
+    <complexType name="AuditExceptionRequestType">
+    			<sequence>
+    				<element ref="Q2:AppException"/>
+    			</sequence>
+    </complexType>
+
+    <element name="AuditExceptionRequest" type="tns:AuditExceptionRequestType"/>
+
+
+    <complexType abstract="true" name="AuditResponseType">
+    	<sequence>
+
+    	</sequence>
+    </complexType>
+
+    <complexType name="AuditStartResponseType">
+    	<complexContent>
+    		<extension base="tns:AuditResponseType"/>
+    	</complexContent>
+    </complexType>
+
+    <complexType name="AuditEndResponseType">
+    	<complexContent>
+    		<extension base="tns:AuditResponseType"/>
+    	</complexContent>
+    </complexType>
+
+    <complexType name="AuditEndPublishResponseType">
+    	<complexContent>
+    		<extension base="tns:AuditResponseType"/>
+    	</complexContent>
+    </complexType>
+
+    <complexType name="AuditExceptionResponseType">
+       	<complexContent>
+    		<extension base="tns:AuditResponseType"/>
+    	</complexContent>
+    </complexType>
+
+    <complexType name="PayloadType">
+    			<sequence>
+    				<any processContents="skip"/>
+    			</sequence>
+    </complexType>
+
+    <element name="AuditStartResponse" type="tns:AuditStartResponseType"/>
+
+    <element name="AuditEndResponse" type="tns:AuditEndResponseType"/>
+
+    <element name="AuditEndPublishResponse" type="tns:AuditEndResponseType"/>
+
+    <element name="AuditExceptionResponse" type="tns:AuditExceptionResponseType"/>
+    
+    <element name="Payload" type="tns:PayloadType"/>
+
+    <simpleType name="SourceType">
+    	<restriction base="string">
+    		<minLength value="1"/>
+    	</restriction>
+    </simpleType>
+    <element name="Source" type="tns:SourceType"/>
+
+</schema>

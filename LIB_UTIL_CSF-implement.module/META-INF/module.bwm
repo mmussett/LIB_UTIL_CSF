@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:property="http://ns.tibco.com/bw/property" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_n1tmEHNzEeeNA7hL6sS5fw" targetNamespace="http://tns.tibco.com/bw/composite/LIB_UTIL_CSF-implement.module" name="LIB_UTIL_CSF-implement.module" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:property xmi:id="_n5vKcHNzEeeNA7hL6sS5fw" name="BW.DEPLOYMENTUNIT.TYPE" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_n547cHNzEeeNA7hL6sS5fw" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_n547cXNzEeeNA7hL6sS5fw" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_n6CFYHNzEeeNA7hL6sS5fw" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_n6CFYXNzEeeNA7hL6sS5fw" name="BW.DOMAIN.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_n6CFYnNzEeeNA7hL6sS5fw" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_n6CFY3NzEeeNA7hL6sS5fw" name="BW.APPSPACE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_n6CFZHNzEeeNA7hL6sS5fw" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_n6CFZXNzEeeNA7hL6sS5fw" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_n1gmUP-PEeener3SinY3uA" name="/services/LIB_UTIL_CSF/CSF_v1/abeShortName" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_n6el4P-PEeener3SinY3uA" name="/services/LIB_UTIL_CSF/CSF_v1/abeLongName" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_w_BvkP-PEeener3SinY3uA" name="/services/LIB_UTIL_CSF/CSF_v1/appShortName" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_xCxnIP-PEeener3SinY3uA" name="/services/LIB_UTIL_CSF/CSF_v1/appLongName" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_fHyJcH2MEeiZZ4mcbAodIw" name="/services/LIB_UTIL_CSF/CSF_v1/CSFVersion" type="XMLSchema:dateTime" scaext:simpleValue="" scalable="true"/>
+  <sca:property xmi:id="_cjtPoHkAEeer0rlLfDYgAQ" name="/services/LIB_UTIL_CSF/CSF_v1/audit/enabled" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_GClvwIKbEee-pL0U1G2gvg" name="/services/LIB_UTIL_CSF/CSF_v1/audit/logPayload" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_oVlL8IKoEee-pL0U1G2gvg" name="/services/LIB_UTIL_CSF/CSF_v1/audit/indentPayload" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="__DhHEIbHEeeRgufoG5Bvlg" name="/services/LIB_UTIL_CSF/CSF_v1/audit/loggerName" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_aIDYMINWEee9kuDq538s0w" name="/services/LIB_UTIL_CSF/CSF_v1/exception/returnBWMessage" type="XMLSchema:boolean" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_JXjRIKRgEeeg4Z3kjOHaLg" name="/services/LIB_UTIL_CSF/CSF_v1/exception/returnCommonTechnicalException" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_W2DjcAgSEeiufNnONcgyRA" name="/services/LIB_UTIL_CSF/CSF_v1/exception/returnCommonContextValues" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_Vm0cwDyiEeiz_7AUoyMtUg" name="/services/LIB_UTIL_CSF/CSF_v1/exception/returnSourceApplication" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_7V9mEDwHEeisEpDXHvcCZQ" name="/services/LIB_UTIL_CSF/CSF_v1/exception/detectUsageErrors" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_--GAMHkAEeer0rlLfDYgAQ" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionTypes/business" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_FtCkcHkBEeer0rlLfDYgAQ" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionTypes/technical" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_Qegi8HkBEeer0rlLfDYgAQ" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionTypes/list" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_m4KiYP-REeener3SinY3uA" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/contextBased" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_X6TYoI5WEeeUpf9JWpSang" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/activity/securityException" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_G3mh4NT9EeeNls_KGx1N2A" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/activity/securityException.description" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_gqxUYJ3bEeet_Io5WynMAw" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/activity/securityException.problem" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_wm-SYJ3bEeet_Io5WynMAw" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/activity/securityException.problem.nojwt" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_3RpaoJ3bEeet_Io5WynMAw" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/activity/securityException.problem.noheader" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_SFHyQJ3eEeet_Io5WynMAw" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/activity/securityException.problem.jwtnotread" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_fCaP8EpNEem5B_V14G8SpQ" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/activity/securityException.problem.badapikey" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_3XwpsJ3bEeet_Io5WynMAw" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/activity/securityException.problem.badjwt" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_lItt0NkMEeeuKcvzHcb61g" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/activity/authorisationException" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_sMHfINkMEeeuKcvzHcb61g" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/activity/authorisationException.code" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_sOW60NkMEeeuKcvzHcb61g" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/activity/authorisationException.message" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_YjnMYHkCEeer0rlLfDYgAQ" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/activity/invalidDataFormat" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_M0-dAAaGEeiY2eajc0CHNw" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/activity/invalidDataFormat.name" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_wYQ3oOAsEee9rPnzR2fagQ" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/activity/invalidValue" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_2hp3wOAsEee9rPnzR2fagQ" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/activity/invalidValue.name" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_3A9C4OAsEee9rPnzR2fagQ" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/activity/invalidValue.value" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_lR9HQHkCEeer0rlLfDYgAQ" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/activity/invalidResponseCode" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_8NvGQINlEee9kuDq538s0w" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/activity/invalidResponseCode.destination" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_pEBiIAaFEeiY2eajc0CHNw" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/activity/invalidResponseCode.value" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_lWSNoHkCEeer0rlLfDYgAQ" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/activity/mandatoryValueMissing" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_r7ZicAaGEeiY2eajc0CHNw" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/activity/mandatoryValueMissing.name" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_lYE9YHkCEeer0rlLfDYgAQ" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/activity/serviceStartError" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_lZ3GEHkCEeer0rlLfDYgAQ" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/activity/unableToGetData" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_lbgE0HkCEeer0rlLfDYgAQ" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/activity/xmlParsingError" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_7al6wNT2EeeNls_KGx1N2A" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/activity/dataNotFound" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_5y26IAaJEeiY2eajc0CHNw" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/activity/dataNotFound.destination" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_StujQDvzEeil66UZ-AanCg" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/activity/dataAlreadyExists" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_ZkiqEDvzEeil66UZ-AanCg" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/activity/dataAlreadyExists.destination" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_ZofV8DvzEeil66UZ-AanCg" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/activity/dataAlreadyExists.id" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_ZsgTQDvzEeil66UZ-AanCg" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/activity/dataAlreadyExists.href" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_N_mOADarEemhE6bgdRUerQ" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/activity/invalidReferenceValue" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_TsT5MDarEemhE6bgdRUerQ" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/activity/invalidReferenceValue.name" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_Tt-GEDarEemhE6bgdRUerQ" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/activity/invalidReferenceValue.value" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_Tvg-MDarEemhE6bgdRUerQ" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/activity/invalidReferenceValue.target" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_b0_QgDarEemhE6bgdRUerQ" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/activity/invalidReferenceValue.type" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_FntjEHkCEeer0rlLfDYgAQ" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/send/httpSendError" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_JSGKIHkCEeer0rlLfDYgAQ" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/send/jmsSendError" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_VXICAINlEee9kuDq538s0w" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/send/ftlSendError" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_CN4gQINlEee9kuDq538s0w" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/send/httpSendError.destination" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_CTpxEINlEee9kuDq538s0w" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/send/jmsSendError.destination" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_Vgq_kINlEee9kuDq538s0w" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/send/ftlSendError.destination" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="__Liw4HkBEeer0rlLfDYgAQ" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/receive/httpReceiveError" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_EOS5EHkCEeer0rlLfDYgAQ" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/receive/jmsReceiveError" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_eF_2oINlEee9kuDq538s0w" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/receive/ftlReceiveError" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_II67UINlEee9kuDq538s0w" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/receive/httpReceiveError.destination" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_IPW6gINlEee9kuDq538s0w" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/receive/jmsReceiveError.destination" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_eN088INlEee9kuDq538s0w" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/receive/ftlReceiveError.destination" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_YNtN0HkCEeer0rlLfDYgAQ" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/technology/activespacesOperationError" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_wtJ_QHkCEeer0rlLfDYgAQ" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/technology/adapterOperationError" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_y2QZwHkCEeer0rlLfDYgAQ" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/technology/databaseOperationError" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_iXyb4IaaEeeRgufoG5Bvlg" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/technology/soapOperationError" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_WVvc0MVEEeeoTvE5WwlW6w" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/technology/dynamics365OperationError" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_y34xcHkCEeer0rlLfDYgAQ" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/technology/fileOperationError" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_OnYzkINlEee9kuDq538s0w" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/technology/fileOperationError.filename" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_OJ4YAMoNEeeYl8Qh0VaEbg" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/technology/cacheError" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_esoYoMoNEeeYl8Qh0VaEbg" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/technology/cacheError.subType" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_wE97YMrnEeekQ83fr6V7VQ" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/technology/cacheError.description" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_YdXacHkCEeer0rlLfDYgAQ" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/unclassified/internalError" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_xKZa0INIEee9kuDq538s0w" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/unclassified/errorList" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_PBXMAJyOEeek3KxuvKjWhQ" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/unclassified/frameworkError" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_0D9ooJ0VEeeMeswpF9MoGw" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/unclassified/frameworkError.detail" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_LO3PQKToEeeg4Z3kjOHaLg" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/unclassified/serviceException" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_WwwHoKT0Eeeg4Z3kjOHaLg" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/unclassified/serviceException.code" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_W3RmYKT0Eeeg4Z3kjOHaLg" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/unclassified/serviceException.source" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_MRMBkBV7EeiLT9ZBZML27Q" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/unclassified/externalBusinessError" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_b6yzsBV7EeiLT9ZBZML27Q" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/unclassified/externalBusinessError.destination" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_bbBw4Dy_Eeiz5653RYrFfg" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/unclassified/externalBusinessError.code" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_bhb64Dy_Eeiz5653RYrFfg" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/unclassified/externalBusinessError.message" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_MWqXcBV7EeiLT9ZBZML27Q" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/unclassified/externalTechnicalError" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_b8nYoBV7EeiLT9ZBZML27Q" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/unclassified/externalTechnicalError.destination" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_bjJLEDy_Eeiz5653RYrFfg" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/unclassified/externalTechnicalError.code" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_jekJgDy_Eeiz5653RYrFfg" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/unclassified/externalTechnicalError.message" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_AnVG0NoGEem8brX_pTErwQ" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/unclassified/forbiddenError" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_Atbu0NoGEem8brX_pTErwQ" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/unclassified/forbiddenError.code" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_Aw3dUNoGEem8brX_pTErwQ" name="/services/LIB_UTIL_CSF/CSF_v1/exception/exceptionCodes/unclassified/forbiddenError.message" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_gDEScHkAEeer0rlLfDYgAQ" name="/services/LIB_UTIL_CSF/CSF_v1/trace/enabled" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_KDFwwIKbEee-pL0U1G2gvg" name="/services/LIB_UTIL_CSF/CSF_v1/trace/logPayload" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_rJ5GoIKoEee-pL0U1G2gvg" name="/services/LIB_UTIL_CSF/CSF_v1/trace/indentPayload" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_FAjGMIbIEeeRgufoG5Bvlg" name="/services/LIB_UTIL_CSF/CSF_v1/trace/loggerName" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_gFAzMHkAEeer0rlLfDYgAQ" name="/services/LIB_UTIL_CSF/CSF_v1/log/enabled" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_ODTd4IKbEee-pL0U1G2gvg" name="/services/LIB_UTIL_CSF/CSF_v1/log/logPayload" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_tu6oIIKoEee-pL0U1G2gvg" name="/services/LIB_UTIL_CSF/CSF_v1/log/indentPayload" type="XMLSchema:boolean" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_FpFF0IbIEeeRgufoG5Bvlg" name="/services/LIB_UTIL_CSF/CSF_v1/log/loggerName" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_OV2QsHkqEeer977DHhZgGA" name="/services/LIB_UTIL_CSF/CSF_v1/transactionContext/type/request" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_P4yDEHkqEeer977DHhZgGA" name="/services/LIB_UTIL_CSF/CSF_v1/transactionContext/type/response" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_P7A3sHkqEeer977DHhZgGA" name="/services/LIB_UTIL_CSF/CSF_v1/transactionContext/type/publish" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_P9QTYHkqEeer977DHhZgGA" name="/services/LIB_UTIL_CSF/CSF_v1/transactionContext/type/error" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_FW0PQI8aEeeZyroUZb7UNw" name="/services/LIB_UTIL_CSF/CSF_v1/rest/returnProcessingTime" type="XMLSchema:boolean" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_zF2HYI8bEeeZyroUZb7UNw" name="/services/LIB_UTIL_CSF/CSF_v1/rest/processingTimeHeader" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_urbsICn0Eemlk-gj0jJ4gQ" name="/services/LIB_UTIL_CSF/CSF_v1/rest/testIDHeader" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_dde6sNnAEeeiHqu8OdBekQ" name="/services/LIB_UTIL_CSF/CSF_v1/rest/transactionIDHeader" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_SoflEP0VEeegp_OoeJVAOA" name="/services/LIB_UTIL_CSF/CSF_v1/rest/invokerIDHeader" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_wNutgE4HEeiHA8qqBDa8KQ" name="/services/LIB_UTIL_CSF/CSF_v1/rest/correlationIDHeader" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_wPkgkE4HEeiHA8qqBDa8KQ" name="/services/LIB_UTIL_CSF/CSF_v1/rest/messageIDHeader" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_Ij1sQI8XEeeZyroUZb7UNw" name="/services/LIB_UTIL_CSF/CSF_v1/rest/validExceptionCodes" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_faBO0MVGEeeoTvE5WwlW6w" name="/services/LIB_UTIL_CSF/CSF_v1/rest/statusCodeSuccess" type="XMLSchema:string" scaext:simpleValue="" scalable="true"/>
+  <sca:property xmi:id="_fbXSoMVGEeeoTvE5WwlW6w" name="/services/LIB_UTIL_CSF/CSF_v1/rest/statusCodeCreated" type="XMLSchema:string" scaext:simpleValue="" scalable="true"/>
+  <sca:property xmi:id="_vI7-wMVGEeeoTvE5WwlW6w" name="/services/LIB_UTIL_CSF/CSF_v1/rest/statusCodeAccepted" type="XMLSchema:string" scaext:simpleValue="" scalable="true"/>
+  <sca:property xmi:id="_fct9gMVGEeeoTvE5WwlW6w" name="/services/LIB_UTIL_CSF/CSF_v1/rest/statusCodeNoContent" type="XMLSchema:string" scaext:simpleValue="" scalable="true"/>
+  <sca:property xmi:id="_KrRIQI8WEeeZyroUZb7UNw" name="/services/LIB_UTIL_CSF/CSF_v1/rest/statusCodeDefaultException" type="XMLSchema:int" scaext:simpleValue="0" scalable="true"/>
+  <sca:property xmi:id="_vu-BoCSiEemrXsyjlaN3bw" name="/services/LIB_UTIL_CSF/CSF_v1/rest/contentTypeOptions" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_v-UFMCSiEemrXsyjlaN3bw" name="/services/LIB_UTIL_CSF/CSF_v1/rest/xXssProtection" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_v-tGwCSiEemrXsyjlaN3bw" name="/services/LIB_UTIL_CSF/CSF_v1/rest/contentSecurityPolicy" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_v-57ECSiEemrXsyjlaN3bw" name="/services/LIB_UTIL_CSF/CSF_v1/rest/cacheControl" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_HrGDkCSjEemrXsyjlaN3bw" name="/services/LIB_UTIL_CSF/CSF_v1/rest/pragma" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_Hs7PkCSjEemrXsyjlaN3bw" name="/services/LIB_UTIL_CSF/CSF_v1/rest/accessControlAllowOrigin" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_Hp_gQCS3EemrXsyjlaN3bw" name="/services/LIB_UTIL_CSF/CSF_v1/rest/strictTransportSecurity" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_T5M6MNo2EeuOq8DJywyEuQ" name="/services/LIB_UTIL_CSF/CSF_v1/rest/executeOnlyOnceHeader" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_2bCa8MVoEeeoTvE5WwlW6w" name="/services/LIB_UTIL_CSF/CSF_v1/rest/statusCode/ok" type="XMLSchema:int" scaext:simpleValue="0" scalable="true"/>
+  <sca:property xmi:id="_6-pJAMVoEeeoTvE5WwlW6w" name="/services/LIB_UTIL_CSF/CSF_v1/rest/statusCode/created" type="XMLSchema:int" scaext:simpleValue="0" scalable="true"/>
+  <sca:property xmi:id="_7Ab4wMVoEeeoTvE5WwlW6w" name="/services/LIB_UTIL_CSF/CSF_v1/rest/statusCode/accepted" type="XMLSchema:int" scaext:simpleValue="0" scalable="true"/>
+  <sca:property xmi:id="_7CE3gMVoEeeoTvE5WwlW6w" name="/services/LIB_UTIL_CSF/CSF_v1/rest/statusCode/noContent" type="XMLSchema:int" scaext:simpleValue="0" scalable="true"/>
+  <sca:property xmi:id="_7DtPMMVoEeeoTvE5WwlW6w" name="/services/LIB_UTIL_CSF/CSF_v1/rest/statusCode/badRequest" type="XMLSchema:int" scaext:simpleValue="0" scalable="true"/>
+  <sca:property xmi:id="_7FgmAMVoEeeoTvE5WwlW6w" name="/services/LIB_UTIL_CSF/CSF_v1/rest/statusCode/unauthorized" type="XMLSchema:int" scaext:simpleValue="0" scalable="true"/>
+  <sca:property xmi:id="_7HIWoMVoEeeoTvE5WwlW6w" name="/services/LIB_UTIL_CSF/CSF_v1/rest/statusCode/forbidden" type="XMLSchema:int" scaext:simpleValue="0" scalable="true"/>
+  <sca:property xmi:id="_7I7GYMVoEeeoTvE5WwlW6w" name="/services/LIB_UTIL_CSF/CSF_v1/rest/statusCode/notFound" type="XMLSchema:int" scaext:simpleValue="0" scalable="true"/>
+  <sca:property xmi:id="_AxuMYD2CEeiynPb9fxA2Jg" name="/services/LIB_UTIL_CSF/CSF_v1/rest/statusCode/conflict" type="XMLSchema:int" scaext:simpleValue="0" scalable="true"/>
+  <sca:property xmi:id="_Nx6awMVpEeeoTvE5WwlW6w" name="/services/LIB_UTIL_CSF/CSF_v1/rest/statusCode/internalServerError" type="XMLSchema:int" scaext:simpleValue="0" scalable="true"/>
+  <sca:property xmi:id="_d4ZP0JirEeeIlI2nfUPECA" name="/services/LIB_UTIL_CSF/CSF_v1/ftl/formatName" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_mbmiUDtrEemTUdNNnPP0Rg" name="/services/LIB_UTIL_CSF/CSF_v1/ftl/formatNameNotification" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_7czagJx9EeeZhroAtKU2UQ" name="/services/LIB_UTIL_CSF/CSF_v1/jwt/encodingType" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_83MU4Jx9EeeZhroAtKU2UQ" name="/services/LIB_UTIL_CSF/CSF_v1/jwt/valueType" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_nGkKkNN6EeeNls_KGx1N2A" name="/services/LIB_UTIL_CSF/CSF_v1/jwt/required" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_CrozsNN8EeeNls_KGx1N2A" name="/services/LIB_UTIL_CSF/CSF_v1/jwt/clockSkewSecs" type="XMLSchema:long" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_ecdPQNN8EeeNls_KGx1N2A" name="/services/LIB_UTIL_CSF/CSF_v1/jwt/jwtHeader" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_aWID0EpJEem5B_V14G8SpQ" name="/services/LIB_UTIL_CSF/CSF_v1/jwt/apiKeyHeader" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_3MFigEpJEem5B_V14G8SpQ" name="/services/LIB_UTIL_CSF/CSF_v1/jwt/apiKeyClaim" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_2bhPwLXjEeqkqabjgA5Qww" name="/services/LIB_UTIL_CSF/CSF_v1/jwt/jwtCustomerId" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_2wASALXjEeqkqabjgA5Qww" name="/services/LIB_UTIL_CSF/CSF_v1/jwt/scopeConstant" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_v4VPAMaLEeqiJNh3GZBbkA" name="/services/LIB_UTIL_CSF/CSF_v1/jwt/scopeOfflineAccess" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_v7kwQMaLEeqiJNh3GZBbkA" name="/services/LIB_UTIL_CSF/CSF_v1/jwt/grantTypeDelegation" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_wEifAMaLEeqiJNh3GZBbkA" name="/services/LIB_UTIL_CSF/CSF_v1/jwt/grantTypeRefreshToken" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_4QksUMaLEeqiJNh3GZBbkA" name="/services/LIB_UTIL_CSF/CSF_v1/jwt/scopeCustomer" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_4V6fUMaLEeqiJNh3GZBbkA" name="/services/LIB_UTIL_CSF/CSF_v1/jwt/scopeStaff" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_4b06EMaLEeqiJNh3GZBbkA" name="/services/LIB_UTIL_CSF/CSF_v1/jwt/scopeAdviser" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_bQHhANN6EeeNls_KGx1N2A" name="/services/LIB_UTIL_CSF/CSF_v1/jwt/rsa/modulus" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_hOVL4NN6EeeNls_KGx1N2A" name="/services/LIB_UTIL_CSF/CSF_v1/jwt/rsa/exponent" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_qjBp4NmaEeeiHqu8OdBekQ" name="/services/LIB_UTIL_CSF/CSF_v1/jwt/jwks/enabled" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_ykd9kPYyEeeyr4yZrJUEfg" name="/services/LIB_UTIL_CSF/CSF_v1/jwt/jwks/configURL" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_2lqiIPYyEeeyr4yZrJUEfg" name="/services/LIB_UTIL_CSF/CSF_v1/jwt/jwks/jwksURL" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_KbUwECn0EemHsMGQDeFhMg" name="/services/LIB_UTIL_CSF/CSF_v1/jwt/local/tokenURL" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_VDPKICoZEemSYL7WxaNNhw" name="/services/LIB_UTIL_CSF/CSF_v1/jwt/local/clientId" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_g7SWMCoZEemSYL7WxaNNhw" name="/services/LIB_UTIL_CSF/CSF_v1/jwt/local/clientSecret" type="property:password" scaext:simpleValue="#!Xk6sUbmamNqxQLU0ehUT6Q==" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_Vl8BQDqxEemTUdNNnPP0Rg" name="/services/LIB_UTIL_CSF/CSF_v1/jwt/local/newTokenDueSecs" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_H1gY4EQVEemst7ByNvDk3g" name="/services/LIB_UTIL_CSF/CSF_v1/jwt/local/scope" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_hycBAEyREem8pMHU0ezheQ" name="/services/LIB_UTIL_CSF/CSF_v1/jwt/local/longlivedJWT" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_oYreoLP9EeeW6NAwVrsFTQ" name="/services/LIB_UTIL_CSF/CSF_v1/soap/format/xml" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_2uV8oLP9EeeW6NAwVrsFTQ" name="/services/LIB_UTIL_CSF/CSF_v1/soap/format/string" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_2wKhkLP9EeeW6NAwVrsFTQ" name="/services/LIB_UTIL_CSF/CSF_v1/soap/format/base64Binary" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_2x_GgLP9EeeW6NAwVrsFTQ" name="/services/LIB_UTIL_CSF/CSF_v1/soap/format/csf" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_n-7IILleEeetKPPje5zdFA" name="/services/LIB_UTIL_CSF/CSF_v1/api/sortOrder/ascend" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_q_1UYLleEeetKPPje5zdFA" name="/services/LIB_UTIL_CSF/CSF_v1/api/sortOrder/descend" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="__oTAcCn1Eemlk-gj0jJ4gQ" name="/services/LIB_UTIL_CSF/CSF_v1/control/startupOperation" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="__wZzkCn1Eemlk-gj0jJ4gQ" name="/services/LIB_UTIL_CSF/CSF_v1/control/housekeepOperation" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_T_CpkLlvEeetKPPje5zdFA" name="/services/LIB_UTIL_CSF/CSF_v1/control/ftlSubscriber/endpoint" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_W4b4kLlvEeetKPPje5zdFA" name="/services/LIB_UTIL_CSF/CSF_v1/control/ftlSubscriber/contentMatcher" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_krxFkLlvEeetKPPje5zdFA" name="/services/LIB_UTIL_CSF/CSF_v1/control/ftlSubscriber/advanced/subscriberName" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nYZD4LlvEeetKPPje5zdFA" name="/services/LIB_UTIL_CSF/CSF_v1/control/ftlSubscriber/advanced/durableName" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_naG7ILlvEeetKPPje5zdFA" name="/services/LIB_UTIL_CSF/CSF_v1/control/ftlSubscriber/advanced/ftlQueueDispatcherThreads" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nb0yYLlvEeetKPPje5zdFA" name="/services/LIB_UTIL_CSF/CSF_v1/control/ftlSubscriber/advanced/ftlQueueSize" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_ndb78LlvEeetKPPje5zdFA" name="/services/LIB_UTIL_CSF/CSF_v1/control/ftlSubscriber/advanced/activityWorkerThreads" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_-t-coNUuEeeNls_KGx1N2A" name="/services/LIB_UTIL_CSF/CSF_v1/logging/configFile" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_P_Sm8PuQEeew2dBaiy8uRw" name="/services/LIB_UTIL_CSF/CSF_v1/redaction/redactLog" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_TAOoYPuQEeew2dBaiy8uRw" name="/services/LIB_UTIL_CSF/CSF_v1/redaction/redactTrace" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_TB6DYPuQEeew2dBaiy8uRw" name="/services/LIB_UTIL_CSF/CSF_v1/redaction/redactAudit" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_TDjCIPuQEeew2dBaiy8uRw" name="/services/LIB_UTIL_CSF/CSF_v1/redaction/redactException" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_77VKQP0MEeegp_OoeJVAOA" name="/services/LIB_UTIL_CSF/CSF_v1/redaction/defaultRedactor" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_Bc2X4A7IEeu96p_3UfCFbg" name="/services/LIB_UTIL_CSF/CSF_v1/redaction/redactFields" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_kQcpoBKtEeuugIqNcliskw" name="/services/LIB_UTIL_CSF/CSF_v1/redaction/messageTypes" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_kdLeEBKtEeuugIqNcliskw" name="/services/LIB_UTIL_CSF/CSF_v1/redaction/validateMessageTypes" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_atpnEPuQEeew2dBaiy8uRw" name="/services/LIB_UTIL_CSF/CSF_v1/redaction/operations/log" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_dvLeYPuQEeew2dBaiy8uRw" name="/services/LIB_UTIL_CSF/CSF_v1/redaction/operations/trace" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_dz0t0PuQEeew2dBaiy8uRw" name="/services/LIB_UTIL_CSF/CSF_v1/redaction/operations/audit" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_d3RqcPuQEeew2dBaiy8uRw" name="/services/LIB_UTIL_CSF/CSF_v1/redaction/operations/exception" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_W0_Q4CnzEemgQvOCLG72XA" name="/services/LIB_UTIL_CSF/CSF_v1/housekeep/loggingSessionScavengeSecs" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_dn-noCnzEemgQvOCLG72XA" name="/services/LIB_UTIL_CSF/CSF_v1/housekeep/updateIntervalMins" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_dpx-cCnzEemgQvOCLG72XA" name="/services/LIB_UTIL_CSF/CSF_v1/housekeep/updateRandomSecs" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_2JzlwNoKEemYFd29s_t2Ug" name="/services/LIB_UTIL_CSF/CSF_v1/blocks/customerId" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_7RUSINoKEemYFd29s_t2Ug" name="/services/LIB_UTIL_CSF/CSF_v1/blocks/policyId" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_7XnHYNoKEemYFd29s_t2Ug" name="/services/LIB_UTIL_CSF/CSF_v1/blocks/accountId" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_WXMWoE6yEeiBwtKcSLg36A" name="/resources/LIB_UTIL_CSF/CSF_v1/stubHttpClient/disableConnectionPooling" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_dSacUE6yEeiBwtKcSLg36A" name="/resources/LIB_UTIL_CSF/CSF_v1/stubHttpClient/maximumTotalConnections" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_dUCM8E6yEeiBwtKcSLg36A" name="/resources/LIB_UTIL_CSF/CSF_v1/stubHttpClient/maximumTotalConnectionsPerHostRoute" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_dVwEME6yEeiBwtKcSLg36A" name="/resources/LIB_UTIL_CSF/CSF_v1/stubHttpClient/defaultHost" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_dXd7cE6yEeiBwtKcSLg36A" name="/resources/LIB_UTIL_CSF/CSF_v1/stubHttpClient/idleConnectionTimeoutMs" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_dZFsEE6yEeiBwtKcSLg36A" name="/resources/LIB_UTIL_CSF/CSF_v1/stubHttpClient/staleCheck" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_dazjUE6yEeiBwtKcSLg36A" name="/resources/LIB_UTIL_CSF/CSF_v1/stubHttpClient/defaultPort" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_ywl1IE6yEeiBwtKcSLg36A" name="/resources/LIB_UTIL_CSF/CSF_v1/stubHttpClient/advanced/socketTimeoutMs" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_zkk20E6yEeiBwtKcSLg36A" name="/resources/LIB_UTIL_CSF/CSF_v1/stubHttpClient/advanced/acceptRedirect" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_zmSuEE6yEeiBwtKcSLg36A" name="/resources/LIB_UTIL_CSF/CSF_v1/stubHttpClient/advanced/useSingleCookieHeader" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_zn6esE6yEeiBwtKcSLg36A" name="/resources/LIB_UTIL_CSF/CSF_v1/stubHttpClient/advanced/logRequestResponseTime" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_zpuckE6yEeiBwtKcSLg36A" name="/resources/LIB_UTIL_CSF/CSF_v1/stubHttpClient/advanced/connectionTimeoutMs" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_zriacE6yEeiBwtKcSLg36A" name="/resources/LIB_UTIL_CSF/CSF_v1/stubHttpClient/advanced/retryCount" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_DXtYYE6zEeiBwtKcSLg36A" name="/resources/LIB_UTIL_CSF/CSF_v1/stubHttpClient/advanced/useNonPreemptiveAuthentication" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_LD2TEHlEEei9hbtLicIcoQ" name="/resources/LIB_UTIL_CSF/CSF_v1/jwksHttpClient/disableConnectionPooling" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_niGcYHlEEei9hbtLicIcoQ" name="/resources/LIB_UTIL_CSF/CSF_v1/jwksHttpClient/maximumTotalConnections" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nj4lEHlEEei9hbtLicIcoQ" name="/resources/LIB_UTIL_CSF/CSF_v1/jwksHttpClient/maximumTotalConnectionsPerHostRoute" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nlqtwHlEEei9hbtLicIcoQ" name="/resources/LIB_UTIL_CSF/CSF_v1/jwksHttpClient/defaultHost" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nnmncHlEEei9hbtLicIcoQ" name="/resources/LIB_UTIL_CSF/CSF_v1/jwksHttpClient/idleConnectionTimeoutMs" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_npihIHlEEei9hbtLicIcoQ" name="/resources/LIB_UTIL_CSF/CSF_v1/jwksHttpClient/staleCheck" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_0Ng_EHlEEei9hbtLicIcoQ" name="/resources/LIB_UTIL_CSF/CSF_v1/jwksHttpClient/defaultPort" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_OzIBMHlEEei9hbtLicIcoQ" name="/resources/LIB_UTIL_CSF/CSF_v1/jwksHttpClient/advanced/socketTimeoutMs" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_RA1O4HlEEei9hbtLicIcoQ" name="/resources/LIB_UTIL_CSF/CSF_v1/jwksHttpClient/advanced/acceptRedirect" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_RCxIkHlEEei9hbtLicIcoQ" name="/resources/LIB_UTIL_CSF/CSF_v1/jwksHttpClient/advanced/useSingleCookieHeader" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_REjRQHlEEei9hbtLicIcoQ" name="/resources/LIB_UTIL_CSF/CSF_v1/jwksHttpClient/advanced/logRequestResponseTime" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_RGVZ8HlEEei9hbtLicIcoQ" name="/resources/LIB_UTIL_CSF/CSF_v1/jwksHttpClient/advanced/connectionTimeoutMs" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_RI3wkHlEEei9hbtLicIcoQ" name="/resources/LIB_UTIL_CSF/CSF_v1/jwksHttpClient/advanced/retryCount" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_RMly8HlEEei9hbtLicIcoQ" name="/resources/LIB_UTIL_CSF/CSF_v1/jwksHttpClient/advanced/useNonPreemptiveAuthentication" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+</sca:composite>
