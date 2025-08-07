@@ -1,0 +1,20 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: LIB_UTIL_CSF-implement.module
+  description: ''
+  labels:
+    - version: 2.0.0.qualifier
+  tags:
+    - bw6
+    - sharedmodule
+  links:
+    - title: TIBCO Business Works
+      url: https://www.tibco.com/products/tibco-businessworks
+  annotations:
+    github.com/project-slug: https://github.com/mmussett/LIB_UTIL_CSF
+spec:
+  type: sharedmodule
+  lifecycle: production
+  system: utils
+  owner: group:default/tibco-imported
