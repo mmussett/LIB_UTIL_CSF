@@ -3,6 +3,7 @@ kind: Component
 metadata:
   name: LIB_UTIL_CSF-implement.module
   description: ''
+  labels: {}
   tags:
     - bw6
     - sharedmodule
