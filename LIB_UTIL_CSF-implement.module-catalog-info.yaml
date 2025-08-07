@@ -4,7 +4,6 @@ metadata:
   name: LIB_UTIL_CSF-implement.module
   description: ''
   labels:
-    - version: "1.4.2"
   tags:
     - bw6
     - sharedmodule
